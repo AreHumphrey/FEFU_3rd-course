@@ -153,78 +153,2092 @@
         \end{array}
         \right)
         \]
-        
-        Найдем обратную матрицу к $T$:
+
+        Подставим значения \( a_1, a_2, a_3 \):
+
         \[
-        T^{-1} =
+        Y_a = 3 \begin{pmatrix} 1 \\ 1 \\ 0 \end{pmatrix} - \begin{pmatrix} 1 \\ 0 \\ 1 \end{pmatrix} + 7 \begin{pmatrix} 0 \\ 1 \\ 1 \end{pmatrix} = \begin{pmatrix} 3 - 1 + 0 \\ 3 - 0 + 7 \\ 0 - 1 + 7 \end{pmatrix} = \begin{pmatrix} 2 \\ 10 \\ 6 \end{pmatrix}
+        \]
+        Поскольку, 
+        
+        \[
+        b_1 = \begin{pmatrix} 1 \\ 2 \\ 2 \end{pmatrix}, \quad b_2 = \begin{pmatrix} 2 \\ 1 \\ 2 \end{pmatrix}, \quad b_3 = \begin{pmatrix} 2 \\ -2 \\ 1 \end{pmatrix} \Longrightarrow 
+        B = \begin{pmatrix}
+        1 & 2 & 2 \\
+        2 & 1 & -2 \\
+        2 & 2 & 1
+        \end{pmatrix}
+        \]
+        Таким образом, получаем:
+        
+        \[
+        \begin{pmatrix} 2 \\ 10 \\ 6 \end{pmatrix} = c_1 \begin{pmatrix} 1 \\ 2 \\ 2 \end{pmatrix} + c_2 \begin{pmatrix} 2 \\ 1 \\ 2 \end{pmatrix} + c_3 \begin{pmatrix} 2 \\ -2 \\ 1 \end{pmatrix}
+        \]
+                
+        
+        Таким образом, координаты уровнения в базисе  $\{b\}$:
+        \[
+        Y_b = \begin{pmatrix} 2 \\ 2 \\ -2 \end{pmatrix} \Longrightarrow y = 2b_1 + 2b_2 - 2b_3
+        \]
+        
+        \subsection{Ответ: $ \begin{pmatrix} 2 \\ 2 \\ -2 \end{pmatrix}$}
+        
+        
+\end{document}
+\documentclass{article}
+
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc} 
+\usepackage[english,russian]{babel} 
+\usepackage{graphicx} 
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{cancel}
+\usepackage{amsfonts}
+\usepackage{titlesec}
+\usepackage{titling} 
+\usepackage{geometry}
+\usepackage{pgfplots}
+\usepackage{esint}
+\pgfplotsset{compat=1.9}
+
+
+\titleformat{\section}
+{\normalfont\Large\bfseries}{\arabic{section}}{1em}{}
+\titleformat{\subsection}
+{\normalfont\large\bfseries}{}{1em}{}
+
+
+\setlength{\droptitle}{-3em} 
+\title{\vspace{-1cm}Домашняя работа №1 \\ по дисциплине "Дифференциальная геометрия и топология"}
+\author{Винницкая Дина Сергеевна}
+\date{Группа: Б9122-02.03.01сцт}
+
+\geometry{a4paper, margin=2cm}
+
+\begin{document}
+	
+	\maketitle
+
+	\section{Доказать являются ли вектора базисами} 
+        
+        \[
+        a_1 = \begin{pmatrix} 1 \\ 1 \\ 0 \end{pmatrix}, \quad a_2 = \begin{pmatrix} 1 \\ 0 \\ 1 \end{pmatrix}, \quad a_3 = \begin{pmatrix} 0 \\ 1 \\ 1 \end{pmatrix}
+        \]
+        \[
+        b_1 = \begin{pmatrix} 1 \\ 2 \\ 2 \end{pmatrix}, \quad b_2 = \begin{pmatrix} 2 \\ 1 \\ 2 \end{pmatrix}, \quad b_3 = \begin{pmatrix} 2 \\ -2 \\ 1 \end{pmatrix}
+        \]
+        
+	\subsection{Решение:}
+
+        \[
+        A = \begin{pmatrix}
+        1 & 1 & 0 \\
+        1 & 0 & 1 \\
+        0 & 1 & 1
+        \end{pmatrix}
+        = -1 - 1 = -2 \neq 0  \Longrightarrow  \text{линейно независимые вектора} \Longrightarrow  \text{базис}
+        \]
+        \[
+        B = \begin{pmatrix}
+        1 & 2 & 2 \\
+        2 & 1 & -2 \\
+        2 & 2 & 1
+        \end{pmatrix}
+         = 1 - 2 \cdot 2 = 1 - 4 = -3 \neq 0  \Longrightarrow \text{линейно независимые вектора}  \Longrightarrow  \text{базис}
+        \]
+        \subsection{Ответ: $\textbf{Являются базисами}$}
+
+        \section{Найти матрицу перехода от базиса $\{a\}$ к базису $\{b\}$} 
+        \subsection{Решение:}
+
+        \[
+        \begin{cases}
+         b_1 = \alpha^{1}_1 a_1 + \alpha^{2}_1  a_2 + \alpha^{3}_1  a_3 \\
+        b_2 = \alpha^{1}_2  a_1 + \alpha^{2}_2 a_2 + \alpha^{3}_2  a_3 \\
+        b_3 = \alpha^{1}_3  a_1 + \alpha^{2}_3 a_2 + \alpha^{3}_3  a_3
+        \end{cases}
+        \Longrightarrow
+        \]
+        \[
+        \Longrightarrow
+        \begin{cases}
+        b_1 = \frac{1}{2} a_1 + \frac{1}{2} a_2 + \frac{3}{2} a_3 \\
+        b_2 = \frac{1}{2} a_1 + \frac{3}{2} a_2 + \frac{1}{2} a_3 \\
+        b_3 = -\frac{1}{2} a_1 + \frac{5}{2} a_2 - \frac{3}{2} a_3
+        \end{cases}
+        \]
+        
+        Из этого следует то, что матрицей перехода будет матрица вида: \( A^T = \frac{1}{2} \begin{pmatrix}
+        1 & 1 & 3 \\
+        1 & 3 & 1 \\
+        -1 & 5 & -3
+        \end{pmatrix} \)
+
+        \subsection{Ответ: $ A^T = \frac{1}{2} \begin{pmatrix}
+        1 & 1 & 3 \\
+        1 & 3 & 1 \\
+        -1 & 5 & -3
+        \end{pmatrix}$}
+        
+        \section{Найти координаты вектора $X = \begin{pmatrix} -1 \\ 2 \\ 7 \end{pmatrix}$ в базисах $\{a\}$ и $\{b\}$} 
+        
+        \subsection{Решение:}
+        
+        
+        \[
+        \left\{
+        \begin{aligned}
+        X_a &= \alpha_1 a_1 + \alpha_2 a_2 + \alpha_3 a_3 \\
+        X_b &= \beta_1 b_1 + \beta_2 b_2 + \beta_3 b_3
+        \end{aligned}
+        \right.
+        \]
+
+        \[
+        \Longrightarrow
+        \left\{
+        \begin{aligned}
+        X_a &= -\frac{5}{2} a_1 + \frac{1}{2} a_2 + \frac{3}{2} a_3 \\
+        X_b &= \frac{29}{3} b_1 - 9 b_2 + \frac{17}{3} b_3
+        \end{aligned}
+        \right.
+        \]
+        Таким образом получаем следующие координаты:
+        \[
+        \textbf{Координаты $X$ в базисе $a$} \quad \Longrightarrow \quad
         \left(
-        \begin{array}{ccc}
-        -\frac{7}{3} & 3 & -\frac{4}{3} \\
-        \frac{1}{3} & 0 & \frac{1}{3} \\
-        \frac{4}{3} & -1 & \frac{1}{3}
+        \begin{array}{c}
+        -\frac{5}{2} \\
+        -1 \\
+        \frac{3}{2}
         \end{array}
         \right)
         \]
-        
-        Поскольку, 
+
         \[
-        Y_b = T^{-1} Y_a
-        \]
-        Тогда:
-        \[
-        T^{-1} =
+        \textbf{Координаты $X$ в базисе $b$} \quad\Longrightarrow \quad
         \left(
-        \begin{array}{ccc}
-        -\frac{7}{3} & 3 & -\frac{4}{3} \\
-        \frac{1}{3} & 0 & \frac{1}{3} \\
-        \frac{4}{3} & -1 & \frac{1}{3}
+        \begin{array}{c}
+        \frac{29}{3} \\
+        -9 \\
+        \frac{17}{3}
         \end{array}
-        \right) \cdot \left(
+        \right)
+        \]
+
+        \section{Найти координаты $y = 3a_1 - a_2 + 7a_3$ в базисе $\{b\}$} 
+        
+        \subsection{Решение:}
+        Запишем  уравнение $y = 3a_1 - a_2 + 7a_3$ в виде 
+                \[
+        Y_a = \left(
         \begin{array}{c}
         3 \\
         -1 \\
         7
         \end{array}
-        \right) = 
-        \left(
-        \begin{array}{ccc}
-        -\frac{7}{3} \cdot 3 \cdot 3 \cdot (-1) + \left(-\frac{4}{3} \right)  \cdot 7\\
-        \frac{1}{3} \cdot 3 + 0 \cdot (-1) + \frac{1}{3} \cdot 7 \\
-        \frac{4}{3} \cdot 3 + (-1) \cdot (-1) + \frac{1}{3} \cdot 7
-        \end{array}
-        \right) = \left(
-        \begin{array}{c}
-        -\frac{58}{3} \\
-        \frac{10}{3} \\
-        \frac{3}{22}
-        \end{array}
         \right)
         \]
+
+        Подставим значения \( a_1, a_2, a_3 \):
+
+        \[
+        Y_a = 3 \begin{pmatrix} 1 \\ 1 \\ 0 \end{pmatrix} - \begin{pmatrix} 1 \\ 0 \\ 1 \end{pmatrix} + 7 \begin{pmatrix} 0 \\ 1 \\ 1 \end{pmatrix} = \begin{pmatrix} 3 - 1 + 0 \\ 3 - 0 + 7 \\ 0 - 1 + 7 \end{pmatrix} = \begin{pmatrix} 2 \\ 10 \\ 6 \end{pmatrix}
+        \]
+        Поскольку, 
         
+        \[
+        b_1 = \begin{pmatrix} 1 \\ 2 \\ 2 \end{pmatrix}, \quad b_2 = \begin{pmatrix} 2 \\ 1 \\ 2 \end{pmatrix}, \quad b_3 = \begin{pmatrix} 2 \\ -2 \\ 1 \end{pmatrix} \Longrightarrow 
+        B = \begin{pmatrix}
+        1 & 2 & 2 \\
+        2 & 1 & -2 \\
+        2 & 2 & 1
+        \end{pmatrix}
+        \]
+        Таким образом, получаем:
+        
+        \[
+        \begin{pmatrix} 2 \\ 10 \\ 6 \end{pmatrix} = c_1 \begin{pmatrix} 1 \\ 2 \\ 2 \end{pmatrix} + c_2 \begin{pmatrix} 2 \\ 1 \\ 2 \end{pmatrix} + c_3 \begin{pmatrix} 2 \\ -2 \\ 1 \end{pmatrix}
+        \]
+                
         
         Таким образом, координаты уровнения в базисе  $\{b\}$:
         \[
-        Y_b = \left(
+        Y_b = \begin{pmatrix} 2 \\ 2 \\ -2 \end{pmatrix} \Longrightarrow y = 2b_1 + 2b_2 - 2b_3
+        \]
+        
+        \subsection{Ответ: $ \begin{pmatrix} 2 \\ 2 \\ -2 \end{pmatrix}$}
+        
+        
+\end{document}
+\documentclass{article}
+
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc} 
+\usepackage[english,russian]{babel} 
+\usepackage{graphicx} 
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{cancel}
+\usepackage{amsfonts}
+\usepackage{titlesec}
+\usepackage{titling} 
+\usepackage{geometry}
+\usepackage{pgfplots}
+\usepackage{esint}
+\pgfplotsset{compat=1.9}
+
+
+\titleformat{\section}
+{\normalfont\Large\bfseries}{\arabic{section}}{1em}{}
+\titleformat{\subsection}
+{\normalfont\large\bfseries}{}{1em}{}
+
+
+\setlength{\droptitle}{-3em} 
+\title{\vspace{-1cm}Домашняя работа №1 \\ по дисциплине "Дифференциальная геометрия и топология"}
+\author{Винницкая Дина Сергеевна}
+\date{Группа: Б9122-02.03.01сцт}
+
+\geometry{a4paper, margin=2cm}
+
+\begin{document}
+	
+	\maketitle
+
+	\section{Доказать являются ли вектора базисами} 
+        
+        \[
+        a_1 = \begin{pmatrix} 1 \\ 1 \\ 0 \end{pmatrix}, \quad a_2 = \begin{pmatrix} 1 \\ 0 \\ 1 \end{pmatrix}, \quad a_3 = \begin{pmatrix} 0 \\ 1 \\ 1 \end{pmatrix}
+        \]
+        \[
+        b_1 = \begin{pmatrix} 1 \\ 2 \\ 2 \end{pmatrix}, \quad b_2 = \begin{pmatrix} 2 \\ 1 \\ 2 \end{pmatrix}, \quad b_3 = \begin{pmatrix} 2 \\ -2 \\ 1 \end{pmatrix}
+        \]
+        
+	\subsection{Решение:}
+
+        \[
+        A = \begin{pmatrix}
+        1 & 1 & 0 \\
+        1 & 0 & 1 \\
+        0 & 1 & 1
+        \end{pmatrix}
+        = -1 - 1 = -2 \neq 0  \Longrightarrow  \text{линейно независимые вектора} \Longrightarrow  \text{базис}
+        \]
+        \[
+        B = \begin{pmatrix}
+        1 & 2 & 2 \\
+        2 & 1 & -2 \\
+        2 & 2 & 1
+        \end{pmatrix}
+         = 1 - 2 \cdot 2 = 1 - 4 = -3 \neq 0  \Longrightarrow \text{линейно независимые вектора}  \Longrightarrow  \text{базис}
+        \]
+        \subsection{Ответ: $\textbf{Являются базисами}$}
+
+        \section{Найти матрицу перехода от базиса $\{a\}$ к базису $\{b\}$} 
+        \subsection{Решение:}
+
+        \[
+        \begin{cases}
+         b_1 = \alpha^{1}_1 a_1 + \alpha^{2}_1  a_2 + \alpha^{3}_1  a_3 \\
+        b_2 = \alpha^{1}_2  a_1 + \alpha^{2}_2 a_2 + \alpha^{3}_2  a_3 \\
+        b_3 = \alpha^{1}_3  a_1 + \alpha^{2}_3 a_2 + \alpha^{3}_3  a_3
+        \end{cases}
+        \Longrightarrow
+        \]
+        \[
+        \Longrightarrow
+        \begin{cases}
+        b_1 = \frac{1}{2} a_1 + \frac{1}{2} a_2 + \frac{3}{2} a_3 \\
+        b_2 = \frac{1}{2} a_1 + \frac{3}{2} a_2 + \frac{1}{2} a_3 \\
+        b_3 = -\frac{1}{2} a_1 + \frac{5}{2} a_2 - \frac{3}{2} a_3
+        \end{cases}
+        \]
+        
+        Из этого следует то, что матрицей перехода будет матрица вида: \( A^T = \frac{1}{2} \begin{pmatrix}
+        1 & 1 & 3 \\
+        1 & 3 & 1 \\
+        -1 & 5 & -3
+        \end{pmatrix} \)
+
+        \subsection{Ответ: $ A^T = \frac{1}{2} \begin{pmatrix}
+        1 & 1 & 3 \\
+        1 & 3 & 1 \\
+        -1 & 5 & -3
+        \end{pmatrix}$}
+        
+        \section{Найти координаты вектора $X = \begin{pmatrix} -1 \\ 2 \\ 7 \end{pmatrix}$ в базисах $\{a\}$ и $\{b\}$} 
+        
+        \subsection{Решение:}
+        
+        
+        \[
+        \left\{
+        \begin{aligned}
+        X_a &= \alpha_1 a_1 + \alpha_2 a_2 + \alpha_3 a_3 \\
+        X_b &= \beta_1 b_1 + \beta_2 b_2 + \beta_3 b_3
+        \end{aligned}
+        \right.
+        \]
+
+        \[
+        \Longrightarrow
+        \left\{
+        \begin{aligned}
+        X_a &= -\frac{5}{2} a_1 + \frac{1}{2} a_2 + \frac{3}{2} a_3 \\
+        X_b &= \frac{29}{3} b_1 - 9 b_2 + \frac{17}{3} b_3
+        \end{aligned}
+        \right.
+        \]
+        Таким образом получаем следующие координаты:
+        \[
+        \textbf{Координаты $X$ в базисе $a$} \quad \Longrightarrow \quad
+        \left(
         \begin{array}{c}
-        -\frac{58}{3} \\
-        \frac{10}{3} \\
-        \frac{3}{22}
+        -\frac{5}{2} \\
+        -1 \\
+        \frac{3}{2}
         \end{array}
         \right)
         \]
-        
-        \subsection{Ответ: $ \left(
-        \begin{array}{c}
-        -\frac{58}{3} \\
-        \frac{10}{3} \\
-        \frac{3}{22}
-        \end{array}
-        \right)$}
-            
-        
 
-    
- 
+        \[
+        \textbf{Координаты $X$ в базисе $b$} \quad\Longrightarrow \quad
+        \left(
+        \begin{array}{c}
+        \frac{29}{3} \\
+        -9 \\
+        \frac{17}{3}
+        \end{array}
+        \right)
+        \]
+
+        \section{Найти координаты $y = 3a_1 - a_2 + 7a_3$ в базисе $\{b\}$} 
+        
+        \subsection{Решение:}
+        Запишем  уравнение $y = 3a_1 - a_2 + 7a_3$ в виде 
+                \[
+        Y_a = \left(
+        \begin{array}{c}
+        3 \\
+        -1 \\
+        7
+        \end{array}
+        \right)
+        \]
+
+        Подставим значения \( a_1, a_2, a_3 \):
+
+        \[
+        Y_a = 3 \begin{pmatrix} 1 \\ 1 \\ 0 \end{pmatrix} - \begin{pmatrix} 1 \\ 0 \\ 1 \end{pmatrix} + 7 \begin{pmatrix} 0 \\ 1 \\ 1 \end{pmatrix} = \begin{pmatrix} 3 - 1 + 0 \\ 3 - 0 + 7 \\ 0 - 1 + 7 \end{pmatrix} = \begin{pmatrix} 2 \\ 10 \\ 6 \end{pmatrix}
+        \]
+        Поскольку, 
+        
+        \[
+        b_1 = \begin{pmatrix} 1 \\ 2 \\ 2 \end{pmatrix}, \quad b_2 = \begin{pmatrix} 2 \\ 1 \\ 2 \end{pmatrix}, \quad b_3 = \begin{pmatrix} 2 \\ -2 \\ 1 \end{pmatrix} \Longrightarrow 
+        B = \begin{pmatrix}
+        1 & 2 & 2 \\
+        2 & 1 & -2 \\
+        2 & 2 & 1
+        \end{pmatrix}
+        \]
+        Таким образом, получаем:
+        
+        \[
+        \begin{pmatrix} 2 \\ 10 \\ 6 \end{pmatrix} = c_1 \begin{pmatrix} 1 \\ 2 \\ 2 \end{pmatrix} + c_2 \begin{pmatrix} 2 \\ 1 \\ 2 \end{pmatrix} + c_3 \begin{pmatrix} 2 \\ -2 \\ 1 \end{pmatrix}
+        \]
+                
+        
+        Таким образом, координаты уровнения в базисе  $\{b\}$:
+        \[
+        Y_b = \begin{pmatrix} 2 \\ 2 \\ -2 \end{pmatrix} \Longrightarrow y = 2b_1 + 2b_2 - 2b_3
+        \]
+        
+        \subsection{Ответ: $ \begin{pmatrix} 2 \\ 2 \\ -2 \end{pmatrix}$}
+        
+        
+\end{document}
+\documentclass{article}
+
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc} 
+\usepackage[english,russian]{babel} 
+\usepackage{graphicx} 
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{cancel}
+\usepackage{amsfonts}
+\usepackage{titlesec}
+\usepackage{titling} 
+\usepackage{geometry}
+\usepackage{pgfplots}
+\usepackage{esint}
+\pgfplotsset{compat=1.9}
+
+
+\titleformat{\section}
+{\normalfont\Large\bfseries}{\arabic{section}}{1em}{}
+\titleformat{\subsection}
+{\normalfont\large\bfseries}{}{1em}{}
+
+
+\setlength{\droptitle}{-3em} 
+\title{\vspace{-1cm}Домашняя работа №1 \\ по дисциплине "Дифференциальная геометрия и топология"}
+\author{Винницкая Дина Сергеевна}
+\date{Группа: Б9122-02.03.01сцт}
+
+\geometry{a4paper, margin=2cm}
+
+\begin{document}
+	
+	\maketitle
+
+	\section{Доказать являются ли вектора базисами} 
+        
+        \[
+        a_1 = \begin{pmatrix} 1 \\ 1 \\ 0 \end{pmatrix}, \quad a_2 = \begin{pmatrix} 1 \\ 0 \\ 1 \end{pmatrix}, \quad a_3 = \begin{pmatrix} 0 \\ 1 \\ 1 \end{pmatrix}
+        \]
+        \[
+        b_1 = \begin{pmatrix} 1 \\ 2 \\ 2 \end{pmatrix}, \quad b_2 = \begin{pmatrix} 2 \\ 1 \\ 2 \end{pmatrix}, \quad b_3 = \begin{pmatrix} 2 \\ -2 \\ 1 \end{pmatrix}
+        \]
+        
+	\subsection{Решение:}
+
+        \[
+        A = \begin{pmatrix}
+        1 & 1 & 0 \\
+        1 & 0 & 1 \\
+        0 & 1 & 1
+        \end{pmatrix}
+        = -1 - 1 = -2 \neq 0  \Longrightarrow  \text{линейно независимые вектора} \Longrightarrow  \text{базис}
+        \]
+        \[
+        B = \begin{pmatrix}
+        1 & 2 & 2 \\
+        2 & 1 & -2 \\
+        2 & 2 & 1
+        \end{pmatrix}
+         = 1 - 2 \cdot 2 = 1 - 4 = -3 \neq 0  \Longrightarrow \text{линейно независимые вектора}  \Longrightarrow  \text{базис}
+        \]
+        \subsection{Ответ: $\textbf{Являются базисами}$}
+
+        \section{Найти матрицу перехода от базиса $\{a\}$ к базису $\{b\}$} 
+        \subsection{Решение:}
+
+        \[
+        \begin{cases}
+         b_1 = \alpha^{1}_1 a_1 + \alpha^{2}_1  a_2 + \alpha^{3}_1  a_3 \\
+        b_2 = \alpha^{1}_2  a_1 + \alpha^{2}_2 a_2 + \alpha^{3}_2  a_3 \\
+        b_3 = \alpha^{1}_3  a_1 + \alpha^{2}_3 a_2 + \alpha^{3}_3  a_3
+        \end{cases}
+        \Longrightarrow
+        \]
+        \[
+        \Longrightarrow
+        \begin{cases}
+        b_1 = \frac{1}{2} a_1 + \frac{1}{2} a_2 + \frac{3}{2} a_3 \\
+        b_2 = \frac{1}{2} a_1 + \frac{3}{2} a_2 + \frac{1}{2} a_3 \\
+        b_3 = -\frac{1}{2} a_1 + \frac{5}{2} a_2 - \frac{3}{2} a_3
+        \end{cases}
+        \]
+        
+        Из этого следует то, что матрицей перехода будет матрица вида: \( A^T = \frac{1}{2} \begin{pmatrix}
+        1 & 1 & 3 \\
+        1 & 3 & 1 \\
+        -1 & 5 & -3
+        \end{pmatrix} \)
+
+        \subsection{Ответ: $ A^T = \frac{1}{2} \begin{pmatrix}
+        1 & 1 & 3 \\
+        1 & 3 & 1 \\
+        -1 & 5 & -3
+        \end{pmatrix}$}
+        
+        \section{Найти координаты вектора $X = \begin{pmatrix} -1 \\ 2 \\ 7 \end{pmatrix}$ в базисах $\{a\}$ и $\{b\}$} 
+        
+        \subsection{Решение:}
+        
+        
+        \[
+        \left\{
+        \begin{aligned}
+        X_a &= \alpha_1 a_1 + \alpha_2 a_2 + \alpha_3 a_3 \\
+        X_b &= \beta_1 b_1 + \beta_2 b_2 + \beta_3 b_3
+        \end{aligned}
+        \right.
+        \]
+
+        \[
+        \Longrightarrow
+        \left\{
+        \begin{aligned}
+        X_a &= -\frac{5}{2} a_1 + \frac{1}{2} a_2 + \frac{3}{2} a_3 \\
+        X_b &= \frac{29}{3} b_1 - 9 b_2 + \frac{17}{3} b_3
+        \end{aligned}
+        \right.
+        \]
+        Таким образом получаем следующие координаты:
+        \[
+        \textbf{Координаты $X$ в базисе $a$} \quad \Longrightarrow \quad
+        \left(
+        \begin{array}{c}
+        -\frac{5}{2} \\
+        -1 \\
+        \frac{3}{2}
+        \end{array}
+        \right)
+        \]
+
+        \[
+        \textbf{Координаты $X$ в базисе $b$} \quad\Longrightarrow \quad
+        \left(
+        \begin{array}{c}
+        \frac{29}{3} \\
+        -9 \\
+        \frac{17}{3}
+        \end{array}
+        \right)
+        \]
+
+        \section{Найти координаты $y = 3a_1 - a_2 + 7a_3$ в базисе $\{b\}$} 
+        
+        \subsection{Решение:}
+        Запишем  уравнение $y = 3a_1 - a_2 + 7a_3$ в виде 
+                \[
+        Y_a = \left(
+        \begin{array}{c}
+        3 \\
+        -1 \\
+        7
+        \end{array}
+        \right)
+        \]
+
+        Подставим значения \( a_1, a_2, a_3 \):
+
+        \[
+        Y_a = 3 \begin{pmatrix} 1 \\ 1 \\ 0 \end{pmatrix} - \begin{pmatrix} 1 \\ 0 \\ 1 \end{pmatrix} + 7 \begin{pmatrix} 0 \\ 1 \\ 1 \end{pmatrix} = \begin{pmatrix} 3 - 1 + 0 \\ 3 - 0 + 7 \\ 0 - 1 + 7 \end{pmatrix} = \begin{pmatrix} 2 \\ 10 \\ 6 \end{pmatrix}
+        \]
+        Поскольку, 
+        
+        \[
+        b_1 = \begin{pmatrix} 1 \\ 2 \\ 2 \end{pmatrix}, \quad b_2 = \begin{pmatrix} 2 \\ 1 \\ 2 \end{pmatrix}, \quad b_3 = \begin{pmatrix} 2 \\ -2 \\ 1 \end{pmatrix} \Longrightarrow 
+        B = \begin{pmatrix}
+        1 & 2 & 2 \\
+        2 & 1 & -2 \\
+        2 & 2 & 1
+        \end{pmatrix}
+        \]
+        Таким образом, получаем:
+        
+        \[
+        \begin{pmatrix} 2 \\ 10 \\ 6 \end{pmatrix} = c_1 \begin{pmatrix} 1 \\ 2 \\ 2 \end{pmatrix} + c_2 \begin{pmatrix} 2 \\ 1 \\ 2 \end{pmatrix} + c_3 \begin{pmatrix} 2 \\ -2 \\ 1 \end{pmatrix}
+        \]
+                
+        
+        Таким образом, координаты уровнения в базисе  $\{b\}$:
+        \[
+        Y_b = \begin{pmatrix} 2 \\ 2 \\ -2 \end{pmatrix} \Longrightarrow y = 2b_1 + 2b_2 - 2b_3
+        \]
+        
+        \subsection{Ответ: $ \begin{pmatrix} 2 \\ 2 \\ -2 \end{pmatrix}$}
+        
+        
+\end{document}
+\documentclass{article}
+
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc} 
+\usepackage[english,russian]{babel} 
+\usepackage{graphicx} 
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{cancel}
+\usepackage{amsfonts}
+\usepackage{titlesec}
+\usepackage{titling} 
+\usepackage{geometry}
+\usepackage{pgfplots}
+\usepackage{esint}
+\pgfplotsset{compat=1.9}
+
+
+\titleformat{\section}
+{\normalfont\Large\bfseries}{\arabic{section}}{1em}{}
+\titleformat{\subsection}
+{\normalfont\large\bfseries}{}{1em}{}
+
+
+\setlength{\droptitle}{-3em} 
+\title{\vspace{-1cm}Домашняя работа №1 \\ по дисциплине "Дифференциальная геометрия и топология"}
+\author{Винницкая Дина Сергеевна}
+\date{Группа: Б9122-02.03.01сцт}
+
+\geometry{a4paper, margin=2cm}
+
+\begin{document}
+	
+	\maketitle
+
+	\section{Доказать являются ли вектора базисами} 
+        
+        \[
+        a_1 = \begin{pmatrix} 1 \\ 1 \\ 0 \end{pmatrix}, \quad a_2 = \begin{pmatrix} 1 \\ 0 \\ 1 \end{pmatrix}, \quad a_3 = \begin{pmatrix} 0 \\ 1 \\ 1 \end{pmatrix}
+        \]
+        \[
+        b_1 = \begin{pmatrix} 1 \\ 2 \\ 2 \end{pmatrix}, \quad b_2 = \begin{pmatrix} 2 \\ 1 \\ 2 \end{pmatrix}, \quad b_3 = \begin{pmatrix} 2 \\ -2 \\ 1 \end{pmatrix}
+        \]
+        
+	\subsection{Решение:}
+
+        \[
+        A = \begin{pmatrix}
+        1 & 1 & 0 \\
+        1 & 0 & 1 \\
+        0 & 1 & 1
+        \end{pmatrix}
+        = -1 - 1 = -2 \neq 0  \Longrightarrow  \text{линейно независимые вектора} \Longrightarrow  \text{базис}
+        \]
+        \[
+        B = \begin{pmatrix}
+        1 & 2 & 2 \\
+        2 & 1 & -2 \\
+        2 & 2 & 1
+        \end{pmatrix}
+         = 1 - 2 \cdot 2 = 1 - 4 = -3 \neq 0  \Longrightarrow \text{линейно независимые вектора}  \Longrightarrow  \text{базис}
+        \]
+        \subsection{Ответ: $\textbf{Являются базисами}$}
+
+        \section{Найти матрицу перехода от базиса $\{a\}$ к базису $\{b\}$} 
+        \subsection{Решение:}
+
+        \[
+        \begin{cases}
+         b_1 = \alpha^{1}_1 a_1 + \alpha^{2}_1  a_2 + \alpha^{3}_1  a_3 \\
+        b_2 = \alpha^{1}_2  a_1 + \alpha^{2}_2 a_2 + \alpha^{3}_2  a_3 \\
+        b_3 = \alpha^{1}_3  a_1 + \alpha^{2}_3 a_2 + \alpha^{3}_3  a_3
+        \end{cases}
+        \Longrightarrow
+        \]
+        \[
+        \Longrightarrow
+        \begin{cases}
+        b_1 = \frac{1}{2} a_1 + \frac{1}{2} a_2 + \frac{3}{2} a_3 \\
+        b_2 = \frac{1}{2} a_1 + \frac{3}{2} a_2 + \frac{1}{2} a_3 \\
+        b_3 = -\frac{1}{2} a_1 + \frac{5}{2} a_2 - \frac{3}{2} a_3
+        \end{cases}
+        \]
+        
+        Из этого следует то, что матрицей перехода будет матрица вида: \( A^T = \frac{1}{2} \begin{pmatrix}
+        1 & 1 & 3 \\
+        1 & 3 & 1 \\
+        -1 & 5 & -3
+        \end{pmatrix} \)
+
+        \subsection{Ответ: $ A^T = \frac{1}{2} \begin{pmatrix}
+        1 & 1 & 3 \\
+        1 & 3 & 1 \\
+        -1 & 5 & -3
+        \end{pmatrix}$}
+        
+        \section{Найти координаты вектора $X = \begin{pmatrix} -1 \\ 2 \\ 7 \end{pmatrix}$ в базисах $\{a\}$ и $\{b\}$} 
+        
+        \subsection{Решение:}
+        
+        
+        \[
+        \left\{
+        \begin{aligned}
+        X_a &= \alpha_1 a_1 + \alpha_2 a_2 + \alpha_3 a_3 \\
+        X_b &= \beta_1 b_1 + \beta_2 b_2 + \beta_3 b_3
+        \end{aligned}
+        \right.
+        \]
+
+        \[
+        \Longrightarrow
+        \left\{
+        \begin{aligned}
+        X_a &= -\frac{5}{2} a_1 + \frac{1}{2} a_2 + \frac{3}{2} a_3 \\
+        X_b &= \frac{29}{3} b_1 - 9 b_2 + \frac{17}{3} b_3
+        \end{aligned}
+        \right.
+        \]
+        Таким образом получаем следующие координаты:
+        \[
+        \textbf{Координаты $X$ в базисе $a$} \quad \Longrightarrow \quad
+        \left(
+        \begin{array}{c}
+        -\frac{5}{2} \\
+        -1 \\
+        \frac{3}{2}
+        \end{array}
+        \right)
+        \]
+
+        \[
+        \textbf{Координаты $X$ в базисе $b$} \quad\Longrightarrow \quad
+        \left(
+        \begin{array}{c}
+        \frac{29}{3} \\
+        -9 \\
+        \frac{17}{3}
+        \end{array}
+        \right)
+        \]
+
+        \section{Найти координаты $y = 3a_1 - a_2 + 7a_3$ в базисе $\{b\}$} 
+        
+        \subsection{Решение:}
+        Запишем  уравнение $y = 3a_1 - a_2 + 7a_3$ в виде 
+                \[
+        Y_a = \left(
+        \begin{array}{c}
+        3 \\
+        -1 \\
+        7
+        \end{array}
+        \right)
+        \]
+
+        Подставим значения \( a_1, a_2, a_3 \):
+
+        \[
+        Y_a = 3 \begin{pmatrix} 1 \\ 1 \\ 0 \end{pmatrix} - \begin{pmatrix} 1 \\ 0 \\ 1 \end{pmatrix} + 7 \begin{pmatrix} 0 \\ 1 \\ 1 \end{pmatrix} = \begin{pmatrix} 3 - 1 + 0 \\ 3 - 0 + 7 \\ 0 - 1 + 7 \end{pmatrix} = \begin{pmatrix} 2 \\ 10 \\ 6 \end{pmatrix}
+        \]
+        Поскольку, 
+        
+        \[
+        b_1 = \begin{pmatrix} 1 \\ 2 \\ 2 \end{pmatrix}, \quad b_2 = \begin{pmatrix} 2 \\ 1 \\ 2 \end{pmatrix}, \quad b_3 = \begin{pmatrix} 2 \\ -2 \\ 1 \end{pmatrix} \Longrightarrow 
+        B = \begin{pmatrix}
+        1 & 2 & 2 \\
+        2 & 1 & -2 \\
+        2 & 2 & 1
+        \end{pmatrix}
+        \]
+        Таким образом, получаем:
+        
+        \[
+        \begin{pmatrix} 2 \\ 10 \\ 6 \end{pmatrix} = c_1 \begin{pmatrix} 1 \\ 2 \\ 2 \end{pmatrix} + c_2 \begin{pmatrix} 2 \\ 1 \\ 2 \end{pmatrix} + c_3 \begin{pmatrix} 2 \\ -2 \\ 1 \end{pmatrix}
+        \]
+                
+        
+        Таким образом, координаты уровнения в базисе  $\{b\}$:
+        \[
+        Y_b = \begin{pmatrix} 2 \\ 2 \\ -2 \end{pmatrix} \Longrightarrow y = 2b_1 + 2b_2 - 2b_3
+        \]
+        
+        \subsection{Ответ: $ \begin{pmatrix} 2 \\ 2 \\ -2 \end{pmatrix}$}
+        
+        
+\end{document}
+\documentclass{article}
+
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc} 
+\usepackage[english,russian]{babel} 
+\usepackage{graphicx} 
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{cancel}
+\usepackage{amsfonts}
+\usepackage{titlesec}
+\usepackage{titling} 
+\usepackage{geometry}
+\usepackage{pgfplots}
+\usepackage{esint}
+\pgfplotsset{compat=1.9}
+
+
+\titleformat{\section}
+{\normalfont\Large\bfseries}{\arabic{section}}{1em}{}
+\titleformat{\subsection}
+{\normalfont\large\bfseries}{}{1em}{}
+
+
+\setlength{\droptitle}{-3em} 
+\title{\vspace{-1cm}Домашняя работа №1 \\ по дисциплине "Дифференциальная геометрия и топология"}
+\author{Винницкая Дина Сергеевна}
+\date{Группа: Б9122-02.03.01сцт}
+
+\geometry{a4paper, margin=2cm}
+
+\begin{document}
+	
+	\maketitle
+
+	\section{Доказать являются ли вектора базисами} 
+        
+        \[
+        a_1 = \begin{pmatrix} 1 \\ 1 \\ 0 \end{pmatrix}, \quad a_2 = \begin{pmatrix} 1 \\ 0 \\ 1 \end{pmatrix}, \quad a_3 = \begin{pmatrix} 0 \\ 1 \\ 1 \end{pmatrix}
+        \]
+        \[
+        b_1 = \begin{pmatrix} 1 \\ 2 \\ 2 \end{pmatrix}, \quad b_2 = \begin{pmatrix} 2 \\ 1 \\ 2 \end{pmatrix}, \quad b_3 = \begin{pmatrix} 2 \\ -2 \\ 1 \end{pmatrix}
+        \]
+        
+	\subsection{Решение:}
+
+        \[
+        A = \begin{pmatrix}
+        1 & 1 & 0 \\
+        1 & 0 & 1 \\
+        0 & 1 & 1
+        \end{pmatrix}
+        = -1 - 1 = -2 \neq 0  \Longrightarrow  \text{линейно независимые вектора} \Longrightarrow  \text{базис}
+        \]
+        \[
+        B = \begin{pmatrix}
+        1 & 2 & 2 \\
+        2 & 1 & -2 \\
+        2 & 2 & 1
+        \end{pmatrix}
+         = 1 - 2 \cdot 2 = 1 - 4 = -3 \neq 0  \Longrightarrow \text{линейно независимые вектора}  \Longrightarrow  \text{базис}
+        \]
+        \subsection{Ответ: $\textbf{Являются базисами}$}
+
+        \section{Найти матрицу перехода от базиса $\{a\}$ к базису $\{b\}$} 
+        \subsection{Решение:}
+
+        \[
+        \begin{cases}
+         b_1 = \alpha^{1}_1 a_1 + \alpha^{2}_1  a_2 + \alpha^{3}_1  a_3 \\
+        b_2 = \alpha^{1}_2  a_1 + \alpha^{2}_2 a_2 + \alpha^{3}_2  a_3 \\
+        b_3 = \alpha^{1}_3  a_1 + \alpha^{2}_3 a_2 + \alpha^{3}_3  a_3
+        \end{cases}
+        \Longrightarrow
+        \]
+        \[
+        \Longrightarrow
+        \begin{cases}
+        b_1 = \frac{1}{2} a_1 + \frac{1}{2} a_2 + \frac{3}{2} a_3 \\
+        b_2 = \frac{1}{2} a_1 + \frac{3}{2} a_2 + \frac{1}{2} a_3 \\
+        b_3 = -\frac{1}{2} a_1 + \frac{5}{2} a_2 - \frac{3}{2} a_3
+        \end{cases}
+        \]
+        
+        Из этого следует то, что матрицей перехода будет матрица вида: \( A^T = \frac{1}{2} \begin{pmatrix}
+        1 & 1 & 3 \\
+        1 & 3 & 1 \\
+        -1 & 5 & -3
+        \end{pmatrix} \)
+
+        \subsection{Ответ: $ A^T = \frac{1}{2} \begin{pmatrix}
+        1 & 1 & 3 \\
+        1 & 3 & 1 \\
+        -1 & 5 & -3
+        \end{pmatrix}$}
+        
+        \section{Найти координаты вектора $X = \begin{pmatrix} -1 \\ 2 \\ 7 \end{pmatrix}$ в базисах $\{a\}$ и $\{b\}$} 
+        
+        \subsection{Решение:}
+        
+        
+        \[
+        \left\{
+        \begin{aligned}
+        X_a &= \alpha_1 a_1 + \alpha_2 a_2 + \alpha_3 a_3 \\
+        X_b &= \beta_1 b_1 + \beta_2 b_2 + \beta_3 b_3
+        \end{aligned}
+        \right.
+        \]
+
+        \[
+        \Longrightarrow
+        \left\{
+        \begin{aligned}
+        X_a &= -\frac{5}{2} a_1 + \frac{1}{2} a_2 + \frac{3}{2} a_3 \\
+        X_b &= \frac{29}{3} b_1 - 9 b_2 + \frac{17}{3} b_3
+        \end{aligned}
+        \right.
+        \]
+        Таким образом получаем следующие координаты:
+        \[
+        \textbf{Координаты $X$ в базисе $a$} \quad \Longrightarrow \quad
+        \left(
+        \begin{array}{c}
+        -\frac{5}{2} \\
+        -1 \\
+        \frac{3}{2}
+        \end{array}
+        \right)
+        \]
+
+        \[
+        \textbf{Координаты $X$ в базисе $b$} \quad\Longrightarrow \quad
+        \left(
+        \begin{array}{c}
+        \frac{29}{3} \\
+        -9 \\
+        \frac{17}{3}
+        \end{array}
+        \right)
+        \]
+
+        \section{Найти координаты $y = 3a_1 - a_2 + 7a_3$ в базисе $\{b\}$} 
+        
+        \subsection{Решение:}
+        Запишем  уравнение $y = 3a_1 - a_2 + 7a_3$ в виде 
+                \[
+        Y_a = \left(
+        \begin{array}{c}
+        3 \\
+        -1 \\
+        7
+        \end{array}
+        \right)
+        \]
+
+        Подставим значения \( a_1, a_2, a_3 \):
+
+        \[
+        Y_a = 3 \begin{pmatrix} 1 \\ 1 \\ 0 \end{pmatrix} - \begin{pmatrix} 1 \\ 0 \\ 1 \end{pmatrix} + 7 \begin{pmatrix} 0 \\ 1 \\ 1 \end{pmatrix} = \begin{pmatrix} 3 - 1 + 0 \\ 3 - 0 + 7 \\ 0 - 1 + 7 \end{pmatrix} = \begin{pmatrix} 2 \\ 10 \\ 6 \end{pmatrix}
+        \]
+        Поскольку, 
+        
+        \[
+        b_1 = \begin{pmatrix} 1 \\ 2 \\ 2 \end{pmatrix}, \quad b_2 = \begin{pmatrix} 2 \\ 1 \\ 2 \end{pmatrix}, \quad b_3 = \begin{pmatrix} 2 \\ -2 \\ 1 \end{pmatrix} \Longrightarrow 
+        B = \begin{pmatrix}
+        1 & 2 & 2 \\
+        2 & 1 & -2 \\
+        2 & 2 & 1
+        \end{pmatrix}
+        \]
+        Таким образом, получаем:
+        
+        \[
+        \begin{pmatrix} 2 \\ 10 \\ 6 \end{pmatrix} = c_1 \begin{pmatrix} 1 \\ 2 \\ 2 \end{pmatrix} + c_2 \begin{pmatrix} 2 \\ 1 \\ 2 \end{pmatrix} + c_3 \begin{pmatrix} 2 \\ -2 \\ 1 \end{pmatrix}
+        \]
+                
+        
+        Таким образом, координаты уровнения в базисе  $\{b\}$:
+        \[
+        Y_b = \begin{pmatrix} 2 \\ 2 \\ -2 \end{pmatrix} \Longrightarrow y = 2b_1 + 2b_2 - 2b_3
+        \]
+        
+        \subsection{Ответ: $ \begin{pmatrix} 2 \\ 2 \\ -2 \end{pmatrix}$}
+        
+        
+\end{document}
+\documentclass{article}
+
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc} 
+\usepackage[english,russian]{babel} 
+\usepackage{graphicx} 
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{cancel}
+\usepackage{amsfonts}
+\usepackage{titlesec}
+\usepackage{titling} 
+\usepackage{geometry}
+\usepackage{pgfplots}
+\usepackage{esint}
+\pgfplotsset{compat=1.9}
+
+
+\titleformat{\section}
+{\normalfont\Large\bfseries}{\arabic{section}}{1em}{}
+\titleformat{\subsection}
+{\normalfont\large\bfseries}{}{1em}{}
+
+
+\setlength{\droptitle}{-3em} 
+\title{\vspace{-1cm}Домашняя работа №1 \\ по дисциплине "Дифференциальная геометрия и топология"}
+\author{Винницкая Дина Сергеевна}
+\date{Группа: Б9122-02.03.01сцт}
+
+\geometry{a4paper, margin=2cm}
+
+\begin{document}
+	
+	\maketitle
+
+	\section{Доказать являются ли вектора базисами} 
+        
+        \[
+        a_1 = \begin{pmatrix} 1 \\ 1 \\ 0 \end{pmatrix}, \quad a_2 = \begin{pmatrix} 1 \\ 0 \\ 1 \end{pmatrix}, \quad a_3 = \begin{pmatrix} 0 \\ 1 \\ 1 \end{pmatrix}
+        \]
+        \[
+        b_1 = \begin{pmatrix} 1 \\ 2 \\ 2 \end{pmatrix}, \quad b_2 = \begin{pmatrix} 2 \\ 1 \\ 2 \end{pmatrix}, \quad b_3 = \begin{pmatrix} 2 \\ -2 \\ 1 \end{pmatrix}
+        \]
+        
+	\subsection{Решение:}
+
+        \[
+        A = \begin{pmatrix}
+        1 & 1 & 0 \\
+        1 & 0 & 1 \\
+        0 & 1 & 1
+        \end{pmatrix}
+        = -1 - 1 = -2 \neq 0  \Longrightarrow  \text{линейно независимые вектора} \Longrightarrow  \text{базис}
+        \]
+        \[
+        B = \begin{pmatrix}
+        1 & 2 & 2 \\
+        2 & 1 & -2 \\
+        2 & 2 & 1
+        \end{pmatrix}
+         = 1 - 2 \cdot 2 = 1 - 4 = -3 \neq 0  \Longrightarrow \text{линейно независимые вектора}  \Longrightarrow  \text{базис}
+        \]
+        \subsection{Ответ: $\textbf{Являются базисами}$}
+
+        \section{Найти матрицу перехода от базиса $\{a\}$ к базису $\{b\}$} 
+        \subsection{Решение:}
+
+        \[
+        \begin{cases}
+         b_1 = \alpha^{1}_1 a_1 + \alpha^{2}_1  a_2 + \alpha^{3}_1  a_3 \\
+        b_2 = \alpha^{1}_2  a_1 + \alpha^{2}_2 a_2 + \alpha^{3}_2  a_3 \\
+        b_3 = \alpha^{1}_3  a_1 + \alpha^{2}_3 a_2 + \alpha^{3}_3  a_3
+        \end{cases}
+        \Longrightarrow
+        \]
+        \[
+        \Longrightarrow
+        \begin{cases}
+        b_1 = \frac{1}{2} a_1 + \frac{1}{2} a_2 + \frac{3}{2} a_3 \\
+        b_2 = \frac{1}{2} a_1 + \frac{3}{2} a_2 + \frac{1}{2} a_3 \\
+        b_3 = -\frac{1}{2} a_1 + \frac{5}{2} a_2 - \frac{3}{2} a_3
+        \end{cases}
+        \]
+        
+        Из этого следует то, что матрицей перехода будет матрица вида: \( A^T = \frac{1}{2} \begin{pmatrix}
+        1 & 1 & 3 \\
+        1 & 3 & 1 \\
+        -1 & 5 & -3
+        \end{pmatrix} \)
+
+        \subsection{Ответ: $ A^T = \frac{1}{2} \begin{pmatrix}
+        1 & 1 & 3 \\
+        1 & 3 & 1 \\
+        -1 & 5 & -3
+        \end{pmatrix}$}
+        
+        \section{Найти координаты вектора $X = \begin{pmatrix} -1 \\ 2 \\ 7 \end{pmatrix}$ в базисах $\{a\}$ и $\{b\}$} 
+        
+        \subsection{Решение:}
+        
+        
+        \[
+        \left\{
+        \begin{aligned}
+        X_a &= \alpha_1 a_1 + \alpha_2 a_2 + \alpha_3 a_3 \\
+        X_b &= \beta_1 b_1 + \beta_2 b_2 + \beta_3 b_3
+        \end{aligned}
+        \right.
+        \]
+
+        \[
+        \Longrightarrow
+        \left\{
+        \begin{aligned}
+        X_a &= -\frac{5}{2} a_1 + \frac{1}{2} a_2 + \frac{3}{2} a_3 \\
+        X_b &= \frac{29}{3} b_1 - 9 b_2 + \frac{17}{3} b_3
+        \end{aligned}
+        \right.
+        \]
+        Таким образом получаем следующие координаты:
+        \[
+        \textbf{Координаты $X$ в базисе $a$} \quad \Longrightarrow \quad
+        \left(
+        \begin{array}{c}
+        -\frac{5}{2} \\
+        -1 \\
+        \frac{3}{2}
+        \end{array}
+        \right)
+        \]
+
+        \[
+        \textbf{Координаты $X$ в базисе $b$} \quad\Longrightarrow \quad
+        \left(
+        \begin{array}{c}
+        \frac{29}{3} \\
+        -9 \\
+        \frac{17}{3}
+        \end{array}
+        \right)
+        \]
+
+        \section{Найти координаты $y = 3a_1 - a_2 + 7a_3$ в базисе $\{b\}$} 
+        
+        \subsection{Решение:}
+        Запишем  уравнение $y = 3a_1 - a_2 + 7a_3$ в виде 
+                \[
+        Y_a = \left(
+        \begin{array}{c}
+        3 \\
+        -1 \\
+        7
+        \end{array}
+        \right)
+        \]
+
+        Подставим значения \( a_1, a_2, a_3 \):
+
+        \[
+        Y_a = 3 \begin{pmatrix} 1 \\ 1 \\ 0 \end{pmatrix} - \begin{pmatrix} 1 \\ 0 \\ 1 \end{pmatrix} + 7 \begin{pmatrix} 0 \\ 1 \\ 1 \end{pmatrix} = \begin{pmatrix} 3 - 1 + 0 \\ 3 - 0 + 7 \\ 0 - 1 + 7 \end{pmatrix} = \begin{pmatrix} 2 \\ 10 \\ 6 \end{pmatrix}
+        \]
+        Поскольку, 
+        
+        \[
+        b_1 = \begin{pmatrix} 1 \\ 2 \\ 2 \end{pmatrix}, \quad b_2 = \begin{pmatrix} 2 \\ 1 \\ 2 \end{pmatrix}, \quad b_3 = \begin{pmatrix} 2 \\ -2 \\ 1 \end{pmatrix} \Longrightarrow 
+        B = \begin{pmatrix}
+        1 & 2 & 2 \\
+        2 & 1 & -2 \\
+        2 & 2 & 1
+        \end{pmatrix}
+        \]
+        Таким образом, получаем:
+        
+        \[
+        \begin{pmatrix} 2 \\ 10 \\ 6 \end{pmatrix} = c_1 \begin{pmatrix} 1 \\ 2 \\ 2 \end{pmatrix} + c_2 \begin{pmatrix} 2 \\ 1 \\ 2 \end{pmatrix} + c_3 \begin{pmatrix} 2 \\ -2 \\ 1 \end{pmatrix}
+        \]
+                
+        
+        Таким образом, координаты уровнения в базисе  $\{b\}$:
+        \[
+        Y_b = \begin{pmatrix} 2 \\ 2 \\ -2 \end{pmatrix} \Longrightarrow y = 2b_1 + 2b_2 - 2b_3
+        \]
+        
+        \subsection{Ответ: $ \begin{pmatrix} 2 \\ 2 \\ -2 \end{pmatrix}$}
+        
+        
+\end{document}
+\documentclass{article}
+
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc} 
+\usepackage[english,russian]{babel} 
+\usepackage{graphicx} 
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{cancel}
+\usepackage{amsfonts}
+\usepackage{titlesec}
+\usepackage{titling} 
+\usepackage{geometry}
+\usepackage{pgfplots}
+\usepackage{esint}
+\pgfplotsset{compat=1.9}
+
+
+\titleformat{\section}
+{\normalfont\Large\bfseries}{\arabic{section}}{1em}{}
+\titleformat{\subsection}
+{\normalfont\large\bfseries}{}{1em}{}
+
+
+\setlength{\droptitle}{-3em} 
+\title{\vspace{-1cm}Домашняя работа №1 \\ по дисциплине "Дифференциальная геометрия и топология"}
+\author{Винницкая Дина Сергеевна}
+\date{Группа: Б9122-02.03.01сцт}
+
+\geometry{a4paper, margin=2cm}
+
+\begin{document}
+	
+	\maketitle
+
+	\section{Доказать являются ли вектора базисами} 
+        
+        \[
+        a_1 = \begin{pmatrix} 1 \\ 1 \\ 0 \end{pmatrix}, \quad a_2 = \begin{pmatrix} 1 \\ 0 \\ 1 \end{pmatrix}, \quad a_3 = \begin{pmatrix} 0 \\ 1 \\ 1 \end{pmatrix}
+        \]
+        \[
+        b_1 = \begin{pmatrix} 1 \\ 2 \\ 2 \end{pmatrix}, \quad b_2 = \begin{pmatrix} 2 \\ 1 \\ 2 \end{pmatrix}, \quad b_3 = \begin{pmatrix} 2 \\ -2 \\ 1 \end{pmatrix}
+        \]
+        
+	\subsection{Решение:}
+
+        \[
+        A = \begin{pmatrix}
+        1 & 1 & 0 \\
+        1 & 0 & 1 \\
+        0 & 1 & 1
+        \end{pmatrix}
+        = -1 - 1 = -2 \neq 0  \Longrightarrow  \text{линейно независимые вектора} \Longrightarrow  \text{базис}
+        \]
+        \[
+        B = \begin{pmatrix}
+        1 & 2 & 2 \\
+        2 & 1 & -2 \\
+        2 & 2 & 1
+        \end{pmatrix}
+         = 1 - 2 \cdot 2 = 1 - 4 = -3 \neq 0  \Longrightarrow \text{линейно независимые вектора}  \Longrightarrow  \text{базис}
+        \]
+        \subsection{Ответ: $\textbf{Являются базисами}$}
+
+        \section{Найти матрицу перехода от базиса $\{a\}$ к базису $\{b\}$} 
+        \subsection{Решение:}
+
+        \[
+        \begin{cases}
+         b_1 = \alpha^{1}_1 a_1 + \alpha^{2}_1  a_2 + \alpha^{3}_1  a_3 \\
+        b_2 = \alpha^{1}_2  a_1 + \alpha^{2}_2 a_2 + \alpha^{3}_2  a_3 \\
+        b_3 = \alpha^{1}_3  a_1 + \alpha^{2}_3 a_2 + \alpha^{3}_3  a_3
+        \end{cases}
+        \Longrightarrow
+        \]
+        \[
+        \Longrightarrow
+        \begin{cases}
+        b_1 = \frac{1}{2} a_1 + \frac{1}{2} a_2 + \frac{3}{2} a_3 \\
+        b_2 = \frac{1}{2} a_1 + \frac{3}{2} a_2 + \frac{1}{2} a_3 \\
+        b_3 = -\frac{1}{2} a_1 + \frac{5}{2} a_2 - \frac{3}{2} a_3
+        \end{cases}
+        \]
+        
+        Из этого следует то, что матрицей перехода будет матрица вида: \( A^T = \frac{1}{2} \begin{pmatrix}
+        1 & 1 & 3 \\
+        1 & 3 & 1 \\
+        -1 & 5 & -3
+        \end{pmatrix} \)
+
+        \subsection{Ответ: $ A^T = \frac{1}{2} \begin{pmatrix}
+        1 & 1 & 3 \\
+        1 & 3 & 1 \\
+        -1 & 5 & -3
+        \end{pmatrix}$}
+        
+        \section{Найти координаты вектора $X = \begin{pmatrix} -1 \\ 2 \\ 7 \end{pmatrix}$ в базисах $\{a\}$ и $\{b\}$} 
+        
+        \subsection{Решение:}
+        
+        
+        \[
+        \left\{
+        \begin{aligned}
+        X_a &= \alpha_1 a_1 + \alpha_2 a_2 + \alpha_3 a_3 \\
+        X_b &= \beta_1 b_1 + \beta_2 b_2 + \beta_3 b_3
+        \end{aligned}
+        \right.
+        \]
+
+        \[
+        \Longrightarrow
+        \left\{
+        \begin{aligned}
+        X_a &= -\frac{5}{2} a_1 + \frac{1}{2} a_2 + \frac{3}{2} a_3 \\
+        X_b &= \frac{29}{3} b_1 - 9 b_2 + \frac{17}{3} b_3
+        \end{aligned}
+        \right.
+        \]
+        Таким образом получаем следующие координаты:
+        \[
+        \textbf{Координаты $X$ в базисе $a$} \quad \Longrightarrow \quad
+        \left(
+        \begin{array}{c}
+        -\frac{5}{2} \\
+        -1 \\
+        \frac{3}{2}
+        \end{array}
+        \right)
+        \]
+
+        \[
+        \textbf{Координаты $X$ в базисе $b$} \quad\Longrightarrow \quad
+        \left(
+        \begin{array}{c}
+        \frac{29}{3} \\
+        -9 \\
+        \frac{17}{3}
+        \end{array}
+        \right)
+        \]
+
+        \section{Найти координаты $y = 3a_1 - a_2 + 7a_3$ в базисе $\{b\}$} 
+        
+        \subsection{Решение:}
+        Запишем  уравнение $y = 3a_1 - a_2 + 7a_3$ в виде 
+                \[
+        Y_a = \left(
+        \begin{array}{c}
+        3 \\
+        -1 \\
+        7
+        \end{array}
+        \right)
+        \]
+
+        Подставим значения \( a_1, a_2, a_3 \):
+
+        \[
+        Y_a = 3 \begin{pmatrix} 1 \\ 1 \\ 0 \end{pmatrix} - \begin{pmatrix} 1 \\ 0 \\ 1 \end{pmatrix} + 7 \begin{pmatrix} 0 \\ 1 \\ 1 \end{pmatrix} = \begin{pmatrix} 3 - 1 + 0 \\ 3 - 0 + 7 \\ 0 - 1 + 7 \end{pmatrix} = \begin{pmatrix} 2 \\ 10 \\ 6 \end{pmatrix}
+        \]
+        Поскольку, 
+        
+        \[
+        b_1 = \begin{pmatrix} 1 \\ 2 \\ 2 \end{pmatrix}, \quad b_2 = \begin{pmatrix} 2 \\ 1 \\ 2 \end{pmatrix}, \quad b_3 = \begin{pmatrix} 2 \\ -2 \\ 1 \end{pmatrix} \Longrightarrow 
+        B = \begin{pmatrix}
+        1 & 2 & 2 \\
+        2 & 1 & -2 \\
+        2 & 2 & 1
+        \end{pmatrix}
+        \]
+        Таким образом, получаем:
+        
+        \[
+        \begin{pmatrix} 2 \\ 10 \\ 6 \end{pmatrix} = c_1 \begin{pmatrix} 1 \\ 2 \\ 2 \end{pmatrix} + c_2 \begin{pmatrix} 2 \\ 1 \\ 2 \end{pmatrix} + c_3 \begin{pmatrix} 2 \\ -2 \\ 1 \end{pmatrix}
+        \]
+                
+        
+        Таким образом, координаты уровнения в базисе  $\{b\}$:
+        \[
+        Y_b = \begin{pmatrix} 2 \\ 2 \\ -2 \end{pmatrix} \Longrightarrow y = 2b_1 + 2b_2 - 2b_3
+        \]
+        
+        \subsection{Ответ: $ \begin{pmatrix} 2 \\ 2 \\ -2 \end{pmatrix}$}
+        
+        
+\end{document}
+\documentclass{article}
+
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc} 
+\usepackage[english,russian]{babel} 
+\usepackage{graphicx} 
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{cancel}
+\usepackage{amsfonts}
+\usepackage{titlesec}
+\usepackage{titling} 
+\usepackage{geometry}
+\usepackage{pgfplots}
+\usepackage{esint}
+\pgfplotsset{compat=1.9}
+
+
+\titleformat{\section}
+{\normalfont\Large\bfseries}{\arabic{section}}{1em}{}
+\titleformat{\subsection}
+{\normalfont\large\bfseries}{}{1em}{}
+
+
+\setlength{\droptitle}{-3em} 
+\title{\vspace{-1cm}Домашняя работа №1 \\ по дисциплине "Дифференциальная геометрия и топология"}
+\author{Винницкая Дина Сергеевна}
+\date{Группа: Б9122-02.03.01сцт}
+
+\geometry{a4paper, margin=2cm}
+
+\begin{document}
+	
+	\maketitle
+
+	\section{Доказать являются ли вектора базисами} 
+        
+        \[
+        a_1 = \begin{pmatrix} 1 \\ 1 \\ 0 \end{pmatrix}, \quad a_2 = \begin{pmatrix} 1 \\ 0 \\ 1 \end{pmatrix}, \quad a_3 = \begin{pmatrix} 0 \\ 1 \\ 1 \end{pmatrix}
+        \]
+        \[
+        b_1 = \begin{pmatrix} 1 \\ 2 \\ 2 \end{pmatrix}, \quad b_2 = \begin{pmatrix} 2 \\ 1 \\ 2 \end{pmatrix}, \quad b_3 = \begin{pmatrix} 2 \\ -2 \\ 1 \end{pmatrix}
+        \]
+        
+	\subsection{Решение:}
+
+        \[
+        A = \begin{pmatrix}
+        1 & 1 & 0 \\
+        1 & 0 & 1 \\
+        0 & 1 & 1
+        \end{pmatrix}
+        = -1 - 1 = -2 \neq 0  \Longrightarrow  \text{линейно независимые вектора} \Longrightarrow  \text{базис}
+        \]
+        \[
+        B = \begin{pmatrix}
+        1 & 2 & 2 \\
+        2 & 1 & -2 \\
+        2 & 2 & 1
+        \end{pmatrix}
+         = 1 - 2 \cdot 2 = 1 - 4 = -3 \neq 0  \Longrightarrow \text{линейно независимые вектора}  \Longrightarrow  \text{базис}
+        \]
+        \subsection{Ответ: $\textbf{Являются базисами}$}
+
+        \section{Найти матрицу перехода от базиса $\{a\}$ к базису $\{b\}$} 
+        \subsection{Решение:}
+
+        \[
+        \begin{cases}
+         b_1 = \alpha^{1}_1 a_1 + \alpha^{2}_1  a_2 + \alpha^{3}_1  a_3 \\
+        b_2 = \alpha^{1}_2  a_1 + \alpha^{2}_2 a_2 + \alpha^{3}_2  a_3 \\
+        b_3 = \alpha^{1}_3  a_1 + \alpha^{2}_3 a_2 + \alpha^{3}_3  a_3
+        \end{cases}
+        \Longrightarrow
+        \]
+        \[
+        \Longrightarrow
+        \begin{cases}
+        b_1 = \frac{1}{2} a_1 + \frac{1}{2} a_2 + \frac{3}{2} a_3 \\
+        b_2 = \frac{1}{2} a_1 + \frac{3}{2} a_2 + \frac{1}{2} a_3 \\
+        b_3 = -\frac{1}{2} a_1 + \frac{5}{2} a_2 - \frac{3}{2} a_3
+        \end{cases}
+        \]
+        
+        Из этого следует то, что матрицей перехода будет матрица вида: \( A^T = \frac{1}{2} \begin{pmatrix}
+        1 & 1 & 3 \\
+        1 & 3 & 1 \\
+        -1 & 5 & -3
+        \end{pmatrix} \)
+
+        \subsection{Ответ: $ A^T = \frac{1}{2} \begin{pmatrix}
+        1 & 1 & 3 \\
+        1 & 3 & 1 \\
+        -1 & 5 & -3
+        \end{pmatrix}$}
+        
+        \section{Найти координаты вектора $X = \begin{pmatrix} -1 \\ 2 \\ 7 \end{pmatrix}$ в базисах $\{a\}$ и $\{b\}$} 
+        
+        \subsection{Решение:}
+        
+        
+        \[
+        \left\{
+        \begin{aligned}
+        X_a &= \alpha_1 a_1 + \alpha_2 a_2 + \alpha_3 a_3 \\
+        X_b &= \beta_1 b_1 + \beta_2 b_2 + \beta_3 b_3
+        \end{aligned}
+        \right.
+        \]
+
+        \[
+        \Longrightarrow
+        \left\{
+        \begin{aligned}
+        X_a &= -\frac{5}{2} a_1 + \frac{1}{2} a_2 + \frac{3}{2} a_3 \\
+        X_b &= \frac{29}{3} b_1 - 9 b_2 + \frac{17}{3} b_3
+        \end{aligned}
+        \right.
+        \]
+        Таким образом получаем следующие координаты:
+        \[
+        \textbf{Координаты $X$ в базисе $a$} \quad \Longrightarrow \quad
+        \left(
+        \begin{array}{c}
+        -\frac{5}{2} \\
+        -1 \\
+        \frac{3}{2}
+        \end{array}
+        \right)
+        \]
+
+        \[
+        \textbf{Координаты $X$ в базисе $b$} \quad\Longrightarrow \quad
+        \left(
+        \begin{array}{c}
+        \frac{29}{3} \\
+        -9 \\
+        \frac{17}{3}
+        \end{array}
+        \right)
+        \]
+
+        \section{Найти координаты $y = 3a_1 - a_2 + 7a_3$ в базисе $\{b\}$} 
+        
+        \subsection{Решение:}
+        Запишем  уравнение $y = 3a_1 - a_2 + 7a_3$ в виде 
+                \[
+        Y_a = \left(
+        \begin{array}{c}
+        3 \\
+        -1 \\
+        7
+        \end{array}
+        \right)
+        \]
+
+        Подставим значения \( a_1, a_2, a_3 \):
+
+        \[
+        Y_a = 3 \begin{pmatrix} 1 \\ 1 \\ 0 \end{pmatrix} - \begin{pmatrix} 1 \\ 0 \\ 1 \end{pmatrix} + 7 \begin{pmatrix} 0 \\ 1 \\ 1 \end{pmatrix} = \begin{pmatrix} 3 - 1 + 0 \\ 3 - 0 + 7 \\ 0 - 1 + 7 \end{pmatrix} = \begin{pmatrix} 2 \\ 10 \\ 6 \end{pmatrix}
+        \]
+        Поскольку, 
+        
+        \[
+        b_1 = \begin{pmatrix} 1 \\ 2 \\ 2 \end{pmatrix}, \quad b_2 = \begin{pmatrix} 2 \\ 1 \\ 2 \end{pmatrix}, \quad b_3 = \begin{pmatrix} 2 \\ -2 \\ 1 \end{pmatrix} \Longrightarrow 
+        B = \begin{pmatrix}
+        1 & 2 & 2 \\
+        2 & 1 & -2 \\
+        2 & 2 & 1
+        \end{pmatrix}
+        \]
+        Таким образом, получаем:
+        
+        \[
+        \begin{pmatrix} 2 \\ 10 \\ 6 \end{pmatrix} = c_1 \begin{pmatrix} 1 \\ 2 \\ 2 \end{pmatrix} + c_2 \begin{pmatrix} 2 \\ 1 \\ 2 \end{pmatrix} + c_3 \begin{pmatrix} 2 \\ -2 \\ 1 \end{pmatrix}
+        \]
+                
+        
+        Таким образом, координаты уровнения в базисе  $\{b\}$:
+        \[
+        Y_b = \begin{pmatrix} 2 \\ 2 \\ -2 \end{pmatrix} \Longrightarrow y = 2b_1 + 2b_2 - 2b_3
+        \]
+        
+        \subsection{Ответ: $ \begin{pmatrix} 2 \\ 2 \\ -2 \end{pmatrix}$}
+        
+        
+\end{document}
+\documentclass{article}
+
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc} 
+\usepackage[english,russian]{babel} 
+\usepackage{graphicx} 
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{cancel}
+\usepackage{amsfonts}
+\usepackage{titlesec}
+\usepackage{titling} 
+\usepackage{geometry}
+\usepackage{pgfplots}
+\usepackage{esint}
+\pgfplotsset{compat=1.9}
+
+
+\titleformat{\section}
+{\normalfont\Large\bfseries}{\arabic{section}}{1em}{}
+\titleformat{\subsection}
+{\normalfont\large\bfseries}{}{1em}{}
+
+
+\setlength{\droptitle}{-3em} 
+\title{\vspace{-1cm}Домашняя работа №1 \\ по дисциплине "Дифференциальная геометрия и топология"}
+\author{Винницкая Дина Сергеевна}
+\date{Группа: Б9122-02.03.01сцт}
+
+\geometry{a4paper, margin=2cm}
+
+\begin{document}
+	
+	\maketitle
+
+	\section{Доказать являются ли вектора базисами} 
+        
+        \[
+        a_1 = \begin{pmatrix} 1 \\ 1 \\ 0 \end{pmatrix}, \quad a_2 = \begin{pmatrix} 1 \\ 0 \\ 1 \end{pmatrix}, \quad a_3 = \begin{pmatrix} 0 \\ 1 \\ 1 \end{pmatrix}
+        \]
+        \[
+        b_1 = \begin{pmatrix} 1 \\ 2 \\ 2 \end{pmatrix}, \quad b_2 = \begin{pmatrix} 2 \\ 1 \\ 2 \end{pmatrix}, \quad b_3 = \begin{pmatrix} 2 \\ -2 \\ 1 \end{pmatrix}
+        \]
+        
+	\subsection{Решение:}
+
+        \[
+        A = \begin{pmatrix}
+        1 & 1 & 0 \\
+        1 & 0 & 1 \\
+        0 & 1 & 1
+        \end{pmatrix}
+        = -1 - 1 = -2 \neq 0  \Longrightarrow  \text{линейно независимые вектора} \Longrightarrow  \text{базис}
+        \]
+        \[
+        B = \begin{pmatrix}
+        1 & 2 & 2 \\
+        2 & 1 & -2 \\
+        2 & 2 & 1
+        \end{pmatrix}
+         = 1 - 2 \cdot 2 = 1 - 4 = -3 \neq 0  \Longrightarrow \text{линейно независимые вектора}  \Longrightarrow  \text{базис}
+        \]
+        \subsection{Ответ: $\textbf{Являются базисами}$}
+
+        \section{Найти матрицу перехода от базиса $\{a\}$ к базису $\{b\}$} 
+        \subsection{Решение:}
+
+        \[
+        \begin{cases}
+         b_1 = \alpha^{1}_1 a_1 + \alpha^{2}_1  a_2 + \alpha^{3}_1  a_3 \\
+        b_2 = \alpha^{1}_2  a_1 + \alpha^{2}_2 a_2 + \alpha^{3}_2  a_3 \\
+        b_3 = \alpha^{1}_3  a_1 + \alpha^{2}_3 a_2 + \alpha^{3}_3  a_3
+        \end{cases}
+        \Longrightarrow
+        \]
+        \[
+        \Longrightarrow
+        \begin{cases}
+        b_1 = \frac{1}{2} a_1 + \frac{1}{2} a_2 + \frac{3}{2} a_3 \\
+        b_2 = \frac{1}{2} a_1 + \frac{3}{2} a_2 + \frac{1}{2} a_3 \\
+        b_3 = -\frac{1}{2} a_1 + \frac{5}{2} a_2 - \frac{3}{2} a_3
+        \end{cases}
+        \]
+        
+        Из этого следует то, что матрицей перехода будет матрица вида: \( A^T = \frac{1}{2} \begin{pmatrix}
+        1 & 1 & 3 \\
+        1 & 3 & 1 \\
+        -1 & 5 & -3
+        \end{pmatrix} \)
+
+        \subsection{Ответ: $ A^T = \frac{1}{2} \begin{pmatrix}
+        1 & 1 & 3 \\
+        1 & 3 & 1 \\
+        -1 & 5 & -3
+        \end{pmatrix}$}
+        
+        \section{Найти координаты вектора $X = \begin{pmatrix} -1 \\ 2 \\ 7 \end{pmatrix}$ в базисах $\{a\}$ и $\{b\}$} 
+        
+        \subsection{Решение:}
+        
+        
+        \[
+        \left\{
+        \begin{aligned}
+        X_a &= \alpha_1 a_1 + \alpha_2 a_2 + \alpha_3 a_3 \\
+        X_b &= \beta_1 b_1 + \beta_2 b_2 + \beta_3 b_3
+        \end{aligned}
+        \right.
+        \]
+
+        \[
+        \Longrightarrow
+        \left\{
+        \begin{aligned}
+        X_a &= -\frac{5}{2} a_1 + \frac{1}{2} a_2 + \frac{3}{2} a_3 \\
+        X_b &= \frac{29}{3} b_1 - 9 b_2 + \frac{17}{3} b_3
+        \end{aligned}
+        \right.
+        \]
+        Таким образом получаем следующие координаты:
+        \[
+        \textbf{Координаты $X$ в базисе $a$} \quad \Longrightarrow \quad
+        \left(
+        \begin{array}{c}
+        -\frac{5}{2} \\
+        -1 \\
+        \frac{3}{2}
+        \end{array}
+        \right)
+        \]
+
+        \[
+        \textbf{Координаты $X$ в базисе $b$} \quad\Longrightarrow \quad
+        \left(
+        \begin{array}{c}
+        \frac{29}{3} \\
+        -9 \\
+        \frac{17}{3}
+        \end{array}
+        \right)
+        \]
+
+        \section{Найти координаты $y = 3a_1 - a_2 + 7a_3$ в базисе $\{b\}$} 
+        
+        \subsection{Решение:}
+        Запишем  уравнение $y = 3a_1 - a_2 + 7a_3$ в виде 
+                \[
+        Y_a = \left(
+        \begin{array}{c}
+        3 \\
+        -1 \\
+        7
+        \end{array}
+        \right)
+        \]
+
+        Подставим значения \( a_1, a_2, a_3 \):
+
+        \[
+        Y_a = 3 \begin{pmatrix} 1 \\ 1 \\ 0 \end{pmatrix} - \begin{pmatrix} 1 \\ 0 \\ 1 \end{pmatrix} + 7 \begin{pmatrix} 0 \\ 1 \\ 1 \end{pmatrix} = \begin{pmatrix} 3 - 1 + 0 \\ 3 - 0 + 7 \\ 0 - 1 + 7 \end{pmatrix} = \begin{pmatrix} 2 \\ 10 \\ 6 \end{pmatrix}
+        \]
+        Поскольку, 
+        
+        \[
+        b_1 = \begin{pmatrix} 1 \\ 2 \\ 2 \end{pmatrix}, \quad b_2 = \begin{pmatrix} 2 \\ 1 \\ 2 \end{pmatrix}, \quad b_3 = \begin{pmatrix} 2 \\ -2 \\ 1 \end{pmatrix} \Longrightarrow 
+        B = \begin{pmatrix}
+        1 & 2 & 2 \\
+        2 & 1 & -2 \\
+        2 & 2 & 1
+        \end{pmatrix}
+        \]
+        Таким образом, получаем:
+        
+        \[
+        \begin{pmatrix} 2 \\ 10 \\ 6 \end{pmatrix} = c_1 \begin{pmatrix} 1 \\ 2 \\ 2 \end{pmatrix} + c_2 \begin{pmatrix} 2 \\ 1 \\ 2 \end{pmatrix} + c_3 \begin{pmatrix} 2 \\ -2 \\ 1 \end{pmatrix}
+        \]
+                
+        
+        Таким образом, координаты уровнения в базисе  $\{b\}$:
+        \[
+        Y_b = \begin{pmatrix} 2 \\ 2 \\ -2 \end{pmatrix} \Longrightarrow y = 2b_1 + 2b_2 - 2b_3
+        \]
+        
+        \subsection{Ответ: $ \begin{pmatrix} 2 \\ 2 \\ -2 \end{pmatrix}$}
+        
+        
+\end{document}
+\documentclass{article}
+
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc} 
+\usepackage[english,russian]{babel} 
+\usepackage{graphicx} 
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{cancel}
+\usepackage{amsfonts}
+\usepackage{titlesec}
+\usepackage{titling} 
+\usepackage{geometry}
+\usepackage{pgfplots}
+\usepackage{esint}
+\pgfplotsset{compat=1.9}
+
+
+\titleformat{\section}
+{\normalfont\Large\bfseries}{\arabic{section}}{1em}{}
+\titleformat{\subsection}
+{\normalfont\large\bfseries}{}{1em}{}
+
+
+\setlength{\droptitle}{-3em} 
+\title{\vspace{-1cm}Домашняя работа №1 \\ по дисциплине "Дифференциальная геометрия и топология"}
+\author{Винницкая Дина Сергеевна}
+\date{Группа: Б9122-02.03.01сцт}
+
+\geometry{a4paper, margin=2cm}
+
+\begin{document}
+	
+	\maketitle
+
+	\section{Доказать являются ли вектора базисами} 
+        
+        \[
+        a_1 = \begin{pmatrix} 1 \\ 1 \\ 0 \end{pmatrix}, \quad a_2 = \begin{pmatrix} 1 \\ 0 \\ 1 \end{pmatrix}, \quad a_3 = \begin{pmatrix} 0 \\ 1 \\ 1 \end{pmatrix}
+        \]
+        \[
+        b_1 = \begin{pmatrix} 1 \\ 2 \\ 2 \end{pmatrix}, \quad b_2 = \begin{pmatrix} 2 \\ 1 \\ 2 \end{pmatrix}, \quad b_3 = \begin{pmatrix} 2 \\ -2 \\ 1 \end{pmatrix}
+        \]
+        
+	\subsection{Решение:}
+
+        \[
+        A = \begin{pmatrix}
+        1 & 1 & 0 \\
+        1 & 0 & 1 \\
+        0 & 1 & 1
+        \end{pmatrix}
+        = -1 - 1 = -2 \neq 0  \Longrightarrow  \text{линейно независимые вектора} \Longrightarrow  \text{базис}
+        \]
+        \[
+        B = \begin{pmatrix}
+        1 & 2 & 2 \\
+        2 & 1 & -2 \\
+        2 & 2 & 1
+        \end{pmatrix}
+         = 1 - 2 \cdot 2 = 1 - 4 = -3 \neq 0  \Longrightarrow \text{линейно независимые вектора}  \Longrightarrow  \text{базис}
+        \]
+        \subsection{Ответ: $\textbf{Являются базисами}$}
+
+        \section{Найти матрицу перехода от базиса $\{a\}$ к базису $\{b\}$} 
+        \subsection{Решение:}
+
+        \[
+        \begin{cases}
+         b_1 = \alpha^{1}_1 a_1 + \alpha^{2}_1  a_2 + \alpha^{3}_1  a_3 \\
+        b_2 = \alpha^{1}_2  a_1 + \alpha^{2}_2 a_2 + \alpha^{3}_2  a_3 \\
+        b_3 = \alpha^{1}_3  a_1 + \alpha^{2}_3 a_2 + \alpha^{3}_3  a_3
+        \end{cases}
+        \Longrightarrow
+        \]
+        \[
+        \Longrightarrow
+        \begin{cases}
+        b_1 = \frac{1}{2} a_1 + \frac{1}{2} a_2 + \frac{3}{2} a_3 \\
+        b_2 = \frac{1}{2} a_1 + \frac{3}{2} a_2 + \frac{1}{2} a_3 \\
+        b_3 = -\frac{1}{2} a_1 + \frac{5}{2} a_2 - \frac{3}{2} a_3
+        \end{cases}
+        \]
+        
+        Из этого следует то, что матрицей перехода будет матрица вида: \( A^T = \frac{1}{2} \begin{pmatrix}
+        1 & 1 & 3 \\
+        1 & 3 & 1 \\
+        -1 & 5 & -3
+        \end{pmatrix} \)
+
+        \subsection{Ответ: $ A^T = \frac{1}{2} \begin{pmatrix}
+        1 & 1 & 3 \\
+        1 & 3 & 1 \\
+        -1 & 5 & -3
+        \end{pmatrix}$}
+        
+        \section{Найти координаты вектора $X = \begin{pmatrix} -1 \\ 2 \\ 7 \end{pmatrix}$ в базисах $\{a\}$ и $\{b\}$} 
+        
+        \subsection{Решение:}
+        
+        
+        \[
+        \left\{
+        \begin{aligned}
+        X_a &= \alpha_1 a_1 + \alpha_2 a_2 + \alpha_3 a_3 \\
+        X_b &= \beta_1 b_1 + \beta_2 b_2 + \beta_3 b_3
+        \end{aligned}
+        \right.
+        \]
+
+        \[
+        \Longrightarrow
+        \left\{
+        \begin{aligned}
+        X_a &= -\frac{5}{2} a_1 + \frac{1}{2} a_2 + \frac{3}{2} a_3 \\
+        X_b &= \frac{29}{3} b_1 - 9 b_2 + \frac{17}{3} b_3
+        \end{aligned}
+        \right.
+        \]
+        Таким образом получаем следующие координаты:
+        \[
+        \textbf{Координаты $X$ в базисе $a$} \quad \Longrightarrow \quad
+        \left(
+        \begin{array}{c}
+        -\frac{5}{2} \\
+        -1 \\
+        \frac{3}{2}
+        \end{array}
+        \right)
+        \]
+
+        \[
+        \textbf{Координаты $X$ в базисе $b$} \quad\Longrightarrow \quad
+        \left(
+        \begin{array}{c}
+        \frac{29}{3} \\
+        -9 \\
+        \frac{17}{3}
+        \end{array}
+        \right)
+        \]
+
+        \section{Найти координаты $y = 3a_1 - a_2 + 7a_3$ в базисе $\{b\}$} 
+        
+        \subsection{Решение:}
+        Запишем  уравнение $y = 3a_1 - a_2 + 7a_3$ в виде 
+                \[
+        Y_a = \left(
+        \begin{array}{c}
+        3 \\
+        -1 \\
+        7
+        \end{array}
+        \right)
+        \]
+
+        Подставим значения \( a_1, a_2, a_3 \):
+
+        \[
+        Y_a = 3 \begin{pmatrix} 1 \\ 1 \\ 0 \end{pmatrix} - \begin{pmatrix} 1 \\ 0 \\ 1 \end{pmatrix} + 7 \begin{pmatrix} 0 \\ 1 \\ 1 \end{pmatrix} = \begin{pmatrix} 3 - 1 + 0 \\ 3 - 0 + 7 \\ 0 - 1 + 7 \end{pmatrix} = \begin{pmatrix} 2 \\ 10 \\ 6 \end{pmatrix}
+        \]
+        Поскольку, 
+        
+        \[
+        b_1 = \begin{pmatrix} 1 \\ 2 \\ 2 \end{pmatrix}, \quad b_2 = \begin{pmatrix} 2 \\ 1 \\ 2 \end{pmatrix}, \quad b_3 = \begin{pmatrix} 2 \\ -2 \\ 1 \end{pmatrix} \Longrightarrow 
+        B = \begin{pmatrix}
+        1 & 2 & 2 \\
+        2 & 1 & -2 \\
+        2 & 2 & 1
+        \end{pmatrix}
+        \]
+        Таким образом, получаем:
+        
+        \[
+        \begin{pmatrix} 2 \\ 10 \\ 6 \end{pmatrix} = c_1 \begin{pmatrix} 1 \\ 2 \\ 2 \end{pmatrix} + c_2 \begin{pmatrix} 2 \\ 1 \\ 2 \end{pmatrix} + c_3 \begin{pmatrix} 2 \\ -2 \\ 1 \end{pmatrix}
+        \]
+                
+        
+        Таким образом, координаты уровнения в базисе  $\{b\}$:
+        \[
+        Y_b = \begin{pmatrix} 2 \\ 2 \\ -2 \end{pmatrix} \Longrightarrow y = 2b_1 + 2b_2 - 2b_3
+        \]
+        
+        \subsection{Ответ: $ \begin{pmatrix} 2 \\ 2 \\ -2 \end{pmatrix}$}
+        
+        
+\end{document}
+\documentclass{article}
+
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc} 
+\usepackage[english,russian]{babel} 
+\usepackage{graphicx} 
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{cancel}
+\usepackage{amsfonts}
+\usepackage{titlesec}
+\usepackage{titling} 
+\usepackage{geometry}
+\usepackage{pgfplots}
+\usepackage{esint}
+\pgfplotsset{compat=1.9}
+
+
+\titleformat{\section}
+{\normalfont\Large\bfseries}{\arabic{section}}{1em}{}
+\titleformat{\subsection}
+{\normalfont\large\bfseries}{}{1em}{}
+
+
+\setlength{\droptitle}{-3em} 
+\title{\vspace{-1cm}Домашняя работа №1 \\ по дисциплине "Дифференциальная геометрия и топология"}
+\author{Винницкая Дина Сергеевна}
+\date{Группа: Б9122-02.03.01сцт}
+
+\geometry{a4paper, margin=2cm}
+
+\begin{document}
+	
+	\maketitle
+
+	\section{Доказать являются ли вектора базисами} 
+        
+        \[
+        a_1 = \begin{pmatrix} 1 \\ 1 \\ 0 \end{pmatrix}, \quad a_2 = \begin{pmatrix} 1 \\ 0 \\ 1 \end{pmatrix}, \quad a_3 = \begin{pmatrix} 0 \\ 1 \\ 1 \end{pmatrix}
+        \]
+        \[
+        b_1 = \begin{pmatrix} 1 \\ 2 \\ 2 \end{pmatrix}, \quad b_2 = \begin{pmatrix} 2 \\ 1 \\ 2 \end{pmatrix}, \quad b_3 = \begin{pmatrix} 2 \\ -2 \\ 1 \end{pmatrix}
+        \]
+        
+	\subsection{Решение:}
+
+        \[
+        A = \begin{pmatrix}
+        1 & 1 & 0 \\
+        1 & 0 & 1 \\
+        0 & 1 & 1
+        \end{pmatrix}
+        = -1 - 1 = -2 \neq 0  \Longrightarrow  \text{линейно независимые вектора} \Longrightarrow  \text{базис}
+        \]
+        \[
+        B = \begin{pmatrix}
+        1 & 2 & 2 \\
+        2 & 1 & -2 \\
+        2 & 2 & 1
+        \end{pmatrix}
+         = 1 - 2 \cdot 2 = 1 - 4 = -3 \neq 0  \Longrightarrow \text{линейно независимые вектора}  \Longrightarrow  \text{базис}
+        \]
+        \subsection{Ответ: $\textbf{Являются базисами}$}
+
+        \section{Найти матрицу перехода от базиса $\{a\}$ к базису $\{b\}$} 
+        \subsection{Решение:}
+
+        \[
+        \begin{cases}
+         b_1 = \alpha^{1}_1 a_1 + \alpha^{2}_1  a_2 + \alpha^{3}_1  a_3 \\
+        b_2 = \alpha^{1}_2  a_1 + \alpha^{2}_2 a_2 + \alpha^{3}_2  a_3 \\
+        b_3 = \alpha^{1}_3  a_1 + \alpha^{2}_3 a_2 + \alpha^{3}_3  a_3
+        \end{cases}
+        \Longrightarrow
+        \]
+        \[
+        \Longrightarrow
+        \begin{cases}
+        b_1 = \frac{1}{2} a_1 + \frac{1}{2} a_2 + \frac{3}{2} a_3 \\
+        b_2 = \frac{1}{2} a_1 + \frac{3}{2} a_2 + \frac{1}{2} a_3 \\
+        b_3 = -\frac{1}{2} a_1 + \frac{5}{2} a_2 - \frac{3}{2} a_3
+        \end{cases}
+        \]
+        
+        Из этого следует то, что матрицей перехода будет матрица вида: \( A^T = \frac{1}{2} \begin{pmatrix}
+        1 & 1 & 3 \\
+        1 & 3 & 1 \\
+        -1 & 5 & -3
+        \end{pmatrix} \)
+
+        \subsection{Ответ: $ A^T = \frac{1}{2} \begin{pmatrix}
+        1 & 1 & 3 \\
+        1 & 3 & 1 \\
+        -1 & 5 & -3
+        \end{pmatrix}$}
+        
+        \section{Найти координаты вектора $X = \begin{pmatrix} -1 \\ 2 \\ 7 \end{pmatrix}$ в базисах $\{a\}$ и $\{b\}$} 
+        
+        \subsection{Решение:}
+        
+        
+        \[
+        \left\{
+        \begin{aligned}
+        X_a &= \alpha_1 a_1 + \alpha_2 a_2 + \alpha_3 a_3 \\
+        X_b &= \beta_1 b_1 + \beta_2 b_2 + \beta_3 b_3
+        \end{aligned}
+        \right.
+        \]
+
+        \[
+        \Longrightarrow
+        \left\{
+        \begin{aligned}
+        X_a &= -\frac{5}{2} a_1 + \frac{1}{2} a_2 + \frac{3}{2} a_3 \\
+        X_b &= \frac{29}{3} b_1 - 9 b_2 + \frac{17}{3} b_3
+        \end{aligned}
+        \right.
+        \]
+        Таким образом получаем следующие координаты:
+        \[
+        \textbf{Координаты $X$ в базисе $a$} \quad \Longrightarrow \quad
+        \left(
+        \begin{array}{c}
+        -\frac{5}{2} \\
+        -1 \\
+        \frac{3}{2}
+        \end{array}
+        \right)
+        \]
+
+        \[
+        \textbf{Координаты $X$ в базисе $b$} \quad\Longrightarrow \quad
+        \left(
+        \begin{array}{c}
+        \frac{29}{3} \\
+        -9 \\
+        \frac{17}{3}
+        \end{array}
+        \right)
+        \]
+
+        \section{Найти координаты $y = 3a_1 - a_2 + 7a_3$ в базисе $\{b\}$} 
+        
+        \subsection{Решение:}
+        Запишем  уравнение $y = 3a_1 - a_2 + 7a_3$ в виде 
+                \[
+        Y_a = \left(
+        \begin{array}{c}
+        3 \\
+        -1 \\
+        7
+        \end{array}
+        \right)
+        \]
+
+        Подставим значения \( a_1, a_2, a_3 \):
+
+        \[
+        Y_a = 3 \begin{pmatrix} 1 \\ 1 \\ 0 \end{pmatrix} - \begin{pmatrix} 1 \\ 0 \\ 1 \end{pmatrix} + 7 \begin{pmatrix} 0 \\ 1 \\ 1 \end{pmatrix} = \begin{pmatrix} 3 - 1 + 0 \\ 3 - 0 + 7 \\ 0 - 1 + 7 \end{pmatrix} = \begin{pmatrix} 2 \\ 10 \\ 6 \end{pmatrix}
+        \]
+        Поскольку, 
+        
+        \[
+        b_1 = \begin{pmatrix} 1 \\ 2 \\ 2 \end{pmatrix}, \quad b_2 = \begin{pmatrix} 2 \\ 1 \\ 2 \end{pmatrix}, \quad b_3 = \begin{pmatrix} 2 \\ -2 \\ 1 \end{pmatrix} \Longrightarrow 
+        B = \begin{pmatrix}
+        1 & 2 & 2 \\
+        2 & 1 & -2 \\
+        2 & 2 & 1
+        \end{pmatrix}
+        \]
+        Таким образом, получаем:
+        
+        \[
+        \begin{pmatrix} 2 \\ 10 \\ 6 \end{pmatrix} = c_1 \begin{pmatrix} 1 \\ 2 \\ 2 \end{pmatrix} + c_2 \begin{pmatrix} 2 \\ 1 \\ 2 \end{pmatrix} + c_3 \begin{pmatrix} 2 \\ -2 \\ 1 \end{pmatrix}
+        \]
+                
+        
+        Таким образом, координаты уровнения в базисе  $\{b\}$:
+        \[
+        Y_b = \begin{pmatrix} 2 \\ 2 \\ -2 \end{pmatrix} \Longrightarrow y = 2b_1 + 2b_2 - 2b_3
+        \]
+        
+        \subsection{Ответ: $ \begin{pmatrix} 2 \\ 2 \\ -2 \end{pmatrix}$}
         
         
 \end{document}
