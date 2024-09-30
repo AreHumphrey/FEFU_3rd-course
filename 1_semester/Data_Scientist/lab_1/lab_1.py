@@ -6,6 +6,7 @@ img_name = "img/lab_1.jpg"
 img_name2 = "img/lab_1_1.jpg"
 
 # Загрузка оригинального изображения в цвете для всех заданий, кроме 2-го
+
 img = cv.imread(img_name)
 img2 = cv.imread(img_name2)
 
