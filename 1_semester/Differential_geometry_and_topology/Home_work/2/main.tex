@@ -1,0 +1,136 @@
+\documentclass{article}
+
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc} 
+\usepackage[english,russian]{babel} 
+\usepackage{graphicx} 
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{cancel}
+\usepackage{amsfonts}
+\usepackage{titlesec}
+\usepackage{titling} 
+\usepackage{geometry}
+\usepackage{pgfplots}
+\usepackage{esint}
+\pgfplotsset{compat=1.9}
+\usepackage{amsthm}
+
+
+\titleformat{\section}
+{\normalfont\Large\bfseries}{\arabic{section}}{1em}{}
+\titleformat{\subsection}
+{\normalfont\large\bfseries}{}{1em}{}
+
+
+\setlength{\droptitle}{-3em} 
+\title{\vspace{-1cm}Домашняя работа №2 \\ по дисциплине "Дифференциальная геометрия и топология"}
+\author{Винницкая Дина Сергеевна}
+\date{Группа: Б9122-02.03.01сцт}
+
+\geometry{a4paper, margin=2cm}
+
+\begin{document}
+	
+	\maketitle
+
+        \section{Задание} 
+
+       \begin{enumerate}
+            \item Доказать, что открытые множества, введённые в доказательстве бесконечности $\mathbb{P}$, образуют топологию на $\mathbb{Z}$.
+            
+            \item Набор $\Sigma$ открытых множеств является базой  $\tau$:
+            \[
+            \tau \iff \forall U \in E \ \forall x \in U \ \exists \mathbb{Z}  \subset U : x \in \mathbb{Z}  \subset U
+            \]
+        \end{enumerate}
+
+
+        \section{Доказать, что открытые множества, введённые в доказательстве бесконечности $\mathbb{P}$, образуют топологию на $\mathbb{Z}$.} 
+        
+        \subsection{Решение:}
+
+        Известно, что для того чтобы множество являлось топологией, оно должно удовлетворять следующим условиям:
+        
+        \[
+        \emptyset, \mathbb{Z}  \in \tau
+        \]
+        
+        По определению, $U$ может быть пустым множеством $\emptyset$.
+        
+        Также $\forall a \in U \ \exists b = 1 > 0 \in \mathbb{Z} : U = \mathbb{Z}  \subset \mathbb{Z}  \implies \mathbb{Z}  \in \tau$
+        
+        \textbf{Если} $\{U_i \in \tau | i \in J\}$, \textbf{то} объединение $\left( U_1 \cup U_2 \cup \dots \cup U_n \right) \in \tau$
+        
+        \[
+        U = \bigcup U_i \implies \forall a \in U \ \exists  U_i : a \in U_i
+        \]
+        \[
+        U_i \in \tau \implies \exists b > 0 \in \mathbb{Z}  : N_{a,b} \subset U_i \subset U \implies N_{a,b} \subset U
+        \]
+        
+        Следовательно:
+        \[
+        \forall a \in U \ \exists b > 0 \in \mathbb{Z}  : N_{a,b} \subset U \implies U \in \tau
+        \]
+        
+        \[
+        \forall U_1, U_2 \in \tau; \quad U_1 \cap U_2 \in \tau
+        \]
+        
+        \[
+        U = \bigcap U_i
+        \]
+        \[
+        \forall a = a_1 = a_2 \in U \ \exists b = \prod_{i=1}^{2} b_i > 0 \in \mathbb{Z}  : N_{a,b} \subset U_i \implies N_{a,b} \subset U \implies U \in \tau
+        \]
+        \[
+        \{a + b \cdot k \cdot n \} \subset \{a + b \cdot n \}
+        \]
+        \[
+        \qed 
+        \]
+
+        \section{Набор $\Sigma$ открытых множеств является базой  $\tau$:
+            \[
+            \tau \iff \forall U \in \tau \ \forall x \in U \ \exists \mathbb{V} \in \Sigma : x \in \mathbb{V} \subseteq  U
+            \]} 
+        
+        \subsection{Решение:}
+        Из определения базы топологии $B$. Пусть набор $B = \{V_i | i \in I \}$:
+        \[
+        B = \{V_i\} : \forall U \in \tau \implies \exists I \subset \mathbb{N} : U = \bigcup_{i \in I} V_i
+        \]
+        
+        \textbf{Необходимое условие}:
+        Необходимо доказать, что если $\Sigma$ — база, то выполняется данное условие.
+        
+        Предпологаем, что $\Sigma$ — база топологии:
+        \[
+        \forall U \in \tau \implies U = \bigcup_{i \in I} V_i, \quad V_i \in \Sigma
+        \]
+        \[
+        U = \bigcup V_i \implies \forall x \in U \ \exists V_i : x \in V_i
+        \]
+        \[
+        \implies \forall x \in U \ \exists V_i \in \Sigma : x \in V_i  \subset U
+        \]
+        
+        \textbf{Достаточное условие}:
+        Теперь покажем, что если выполняется данное условие, то $\Sigma$ является базой.
+        
+        Из условия следует, что
+        \[
+        \exists I \subset \mathbb{N} : V_i \subset U, \quad i \in I
+        \]
+        \[
+        \forall U \in \tau \ \exists I \subset \mathbb{N} : U = \bigcup_{i \in I} V_i
+        \]
+        Следовательно, $\Sigma = \{V_i\}$ — это база топологии.
+        
+        \[
+        \qed 
+        \]
+               
+        
+\end{document}
