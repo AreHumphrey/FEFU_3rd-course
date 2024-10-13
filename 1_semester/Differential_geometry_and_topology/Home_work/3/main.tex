@@ -1,0 +1,97 @@
+\documentclass{article}
+
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc} 
+\usepackage[english,russian]{babel} 
+\usepackage{graphicx} 
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{cancel}
+\usepackage{amsfonts}
+\usepackage{titlesec}
+\usepackage{titling} 
+\usepackage{geometry}
+\usepackage{pgfplots}
+\usepackage{esint}
+\pgfplotsset{compat=1.9}
+\usepackage{amsthm}
+
+
+\titleformat{\section}
+{\normalfont\Large\bfseries}{\arabic{section}}{1em}{}
+\titleformat{\subsection}
+{\normalfont\large\bfseries}{}{1em}{}
+
+
+\setlength{\droptitle}{-3em} 
+\title{\vspace{-1cm}Домашняя работа №3 \\ по дисциплине "Дифференциальная геометрия и топология"}
+\author{Винницкая Дина Сергеевна}
+\date{Группа: Б9122-02.03.01сцт}
+
+\geometry{a4paper, margin=2cm}
+
+\begin{document}
+	
+	\maketitle
+
+        \section{Задание} 
+
+     \begin{enumerate}
+        \item $\Sigma^2$ - все открытые круги \quad
+        $B^2((x_0, y_0), \varepsilon) = \{(x, y) \mid (x - x_0)^2 + (y - y_0)^2 < \varepsilon \} $
+        
+        \item  $\Sigma^\infty$ - все открытые квадраты \quad
+        $k((x_0, y_0), \varepsilon) = \{(x, y) \mid \max \{|x - x_0|, |y - y_0|\} < \varepsilon \}$
+        
+        \item $\Sigma^1$ - все открытые квадраты \quad
+        $k'((x_0, y_0), \varepsilon) = \{(x, y) \mid |x - x_0| + |y - y_0| \leq \varepsilon \}$\\ \\
+        Доказать, что они являются базами канонической топологии на $\mathbb{R}^$
+    \end{enumerate}
+
+
+        \section{$\Sigma^2$ - все открытые круги $B^2((x_0, y_0), \varepsilon) = \{(x, y) \mid (x - x_0)^2 + (y - y_0)^2 < \varepsilon \}$} 
+        
+        \subsection{Решение:}
+    
+        Чтобы $\Sigma^2$ была базой канонической топологии $T^2$, необходимо, чтобы
+        \[\forall U^2 \in T^2 \quad\ \forall (x_i, y_i) \in U^2 \ \quad \exists  B^2((x_i, y_i), \varepsilon) \in \Sigma^2 \quad: x \in B^2 \subset U^2 \]
+        Согласно условию, $\Sigma = \{ B^2_i \mid i \in I \}$, где $B^2 = \{ (x, y) \mid (x - x_0)^2 + (y - y_0)^2 < \varepsilon \}$.\\ \\
+        Видно, что $\Sigma^2$ принадлежит топологии и представляет собой набор множеств открытых кругов.\\ \\Следовательно, для любого круга из $U^2$ можно найти аналогичный круг из $\Sigma^2$, который имеет центр в точке $(x, y)$ и радиус $\varepsilon$.
+
+        
+        \section{ $\Sigma^\infty$ - все открытые квадраты $k((x_0, y_0), \varepsilon) = \{(x, y) \mid \max \{|x - x_0|, \ |y - y_0|\} < \varepsilon \}$}
+
+        
+        \subsection{Решение}
+        Чтобы $\Sigma^\infty$ была базой канонической топологии $T^2$, необходимо, чтобы
+        \[\forall U^2 \in T^2 \ \quad \forall (x_i, y_i) \in U^2 \ \quad \exists k^2((x_i, y_i), \varepsilon) \in \Sigma^2 : x \in k^2 \subset U^2 \]
+        Требуется, чтобы любая точка любого круга $U^2((x_0, y_0), \varepsilon)$ могла быть покрыта квадратом $k^2((x_1, y_1), \varepsilon_1)$.\\ \\Требуется рассмотреть случай, когда центр круга не совпадает с точкой $(x_1, y_1)$. Необходимо найти квадрат, который будет иметь своим центром эту точку.\\ \\Пусть $\rho = \sqrt{(x_1 - x_0)^2 + (y_1 - y_0)^2}$.
+        Тогда для точки $(x_1, y_1)$ можно записать следующее неравенство:
+        \[
+        \max \{|x - x_1|, \ |y - y_1|\} < \frac{\varepsilon - \rho}{2}
+        \]Таким образом, для любой точки из $U^2$ найдётся квадрат, описывающий эту точку.
+        
+        \[
+        \square
+        \]
+
+        \section{ $\Sigma^1$ - все открытые квадраты $k'((x_0, y_0)) = \{(x, y) \mid |x - x_0| + |y - y_0| < \varepsilon \}$}
+
+        \subsection{Решение}
+
+        Чтобы $\Sigma^1$ была базой канонической топологии $T^2$, необходимо, чтобы
+        \[\forall U^2 \in T^2 \ \quad \forall (x_i, y_i) \in U^2 \ \quad \exists k'^2((x_i, y_i), \varepsilon) \in \Sigma^1 : x \in k'^2 \subset U^2 \]
+        Необходимо, чтобы любая точка из любого круга $U^2((x_0, y_0), \varepsilon)$ могла быть покрыта квадратом $k'^2((x_1, y_1), \varepsilon_1)$.\\ \\Требуется рассмотреть случай, когда центр круга не совпадает с точкой $(x_1, y_1)$.\\ \\Необходимо найти квадрат, который будет содержать эту точку в качестве своего центра.\\ \\Пусть $\rho = \sqrt{(x_1 - x_0)^2 + (y_1 - y_0)^2}$.\\ \\Для точки $(x_1, y_1)$ можно записать следующее неравенство:
+        \[
+        |x - x_1| + |y - y_1| < \varepsilon - \rho
+        \]\\Таким образом, для любой точки из $U^2$ найдётся квадрат, содержащий эту точку.
+        
+        \[
+        \square
+        \]
+        
+
+        
+               
+        
+\end{document}
