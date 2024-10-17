@@ -1,0 +1,151 @@
+\documentclass{article}
+
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc} 
+\usepackage[english,russian]{babel} 
+\usepackage{graphicx} 
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{cancel}
+\usepackage{amsfonts}
+\usepackage{titlesec}
+\usepackage{titling} 
+\usepackage{geometry}
+\usepackage{pgfplots}
+\usepackage{esint}
+\pgfplotsset{compat=1.9}
+\usepackage{amsthm}
+
+
+\titleformat{\section}
+{\normalfont\Large\bfseries}{\arabic{section}}{1em}{}
+\titleformat{\subsection}
+{\normalfont\large\bfseries}{}{1em}{}
+
+
+\setlength{\droptitle}{-3em} 
+\title{\vspace{-1cm}Домашняя работа №4 \\ по дисциплине "Дифференциальная геометрия и топология"}
+\author{Винницкая Дина Сергеевна}
+\date{Группа: Б9122-02.03.01сцт}
+
+\geometry{a4paper, margin=2cm}
+
+\begin{document}
+	
+	\maketitle
+
+        \section{Задание} 
+
+     \begin{enumerate}
+        \item Найти примеры и доказать, что множества, открытые в подпространстве, не обязательно открыты в объемлющем пространстве.
+        \item Доказать, что \( F \) замкнуто в подпространстве \( A \subseteq X \), тогда и только тогда, когда \( F = A \cap E \), где \( E \) - замкнуто в \( X \).
+    \end{enumerate}
+
+
+        \section*{Найти примеры и доказать, что множества, открытые в подпространстве, не обязательно открыты в объемлющем пространстве.} 
+        
+
+        \subsection*{Решение}
+        Рассмотрим следующее определение подпространства:
+        \[
+        \text{Пусть} \quad (X, T) - \text{топологическое пространство}.
+        \]
+        \[
+        A \subseteq X - \text{произвольное подмножество}.
+        \]
+        Множество \( T_A \) представляет собой коллекцию множеств вида \( \{A \cap U \, | \, U \in T \} \), 
+        а пару \( (A, T_A) \) называют подпространством топологического пространства \( (X, T) \).
+        Топология \( T_A \) называется топологией, индуцированной на \( A \) топологическим пространством \( (X, T) \).
+
+        
+        \[
+        X = \{a, b, c, d\}
+        \]
+        \[
+        T_X = \{\{a, b\}, \{c, d\}, \varnothing, X\}
+        \]
+        \[
+        A = \{b, c\}
+        \]
+        \[
+        T_A = \{\{b\}, \{c\}, \varnothing, A\}
+        \]
+        \[
+        \{b, c\} \notin T_X
+        \]
+        Следовательно, множество \( \{b, c\} \), которое открыто в подпространстве, не является открытым в \( (X, T) \). 
+        
+        \[
+        \square
+        \]
+        
+        Теперь рассмотрим этот же факт в более формальной записи:
+        
+        Пусть \( (X, T) \) - топологическое пространство. 
+        
+        Пусть \( A \subseteq X \), но при этом \( A \notin T_A \).
+        
+        Тогда множество \( A \cap U = X \) не будет элементом \( T_X \).
+
+        \[
+        \square
+        \]
+
+        \section*{  Доказать, что \( F \) замкнуто в подпространстве \( A \subseteq X \), тогда и только тогда, когда \( F = A \cap E \), где \( E \) - замкнуто в \( X \).} 
+
+        \subsection*{Решение}
+
+        
+        \textbf{Необходимое условие:} 
+        
+        Пусть \( F \) замкнуто в \( A \), то есть существует \( L \in T_A \) такое, что \( F = A \setminus L \).
+        
+        Так как \( L = A \cap U \in T_X \) (по свойствам подпространства), имеем:
+        
+        \[
+        F = A \setminus (A \cap U) = A \cap (X \setminus U) = A \cap E, \, где \, E = X \setminus U.
+        \]
+        Так как \( U \in T_X \), то \( E \) замкнуто в \( T_X \).
+        
+        \[
+        A \setminus (A \cap U) = A \cap (X \setminus U)
+        \]
+        \[
+        A \cap B = \{x \, | \, x \in A \text{ и } x \in B \}
+        \]
+        \[
+        A \setminus B = \{x \, | \, x \in A \text{ и } x \notin B \}
+        \]
+        \[
+        A \subseteq X \Longrightarrow E \in X.
+        \]
+        
+        \[
+        A \cap (A \cap U) = \{x \, | \, x \in A, x \in (A \cap B)\} = \{x \, | \, x \in A, x \notin B\}
+        \]
+        \[
+        A \cap (X \setminus U) = \{x \, | \, x \in A, x \in (X \setminus B)\} = \{x \, | \, x \in A, x \notin B\}
+        \]
+        
+        \textbf{Достаточное условие:}\\
+        
+        Пусть \( F = A \cap E \), где \( E \) замкнуто в \( T_X \) и является дополнением к открытому множеству \( U \).
+        
+        Для того чтобы \( F \) было замкнутым в \( A \), необходимо, чтобы \( F = A \setminus L \), где \( L \in T_A \).
+        
+        \[
+        F = A \cap E = A \cap (X \setminus U) = A \setminus (A \cap U) = A \setminus L
+        \]
+        \[
+        L = A \cap U \, \text{и} \, является элементом топологии подпространства по определению.
+        \]
+        Таким образом, \( F \) является дополнением к открытому множеству в подпространстве, следовательно, оно замкнуто.
+        
+        \[
+        \square
+        \]
+
+        
+               
+        
+\end{document}
