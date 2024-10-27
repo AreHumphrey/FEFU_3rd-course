@@ -1,0 +1,158 @@
+\documentclass{article}
+
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc} 
+\usepackage[english,russian]{babel} 
+\usepackage{graphicx} 
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{cancel}
+\usepackage{amsfonts}
+\usepackage{titlesec}
+\usepackage{titling} 
+\usepackage{geometry}
+\usepackage{pgfplots}
+\usepackage{esint}
+\pgfplotsset{compat=1.9}
+\usepackage{amsthm}
+
+
+\titleformat{\section}
+{\normalfont\Large\bfseries}{\arabic{section}}{1em}{}
+\titleformat{\subsection}
+{\normalfont\large\bfseries}{}{1em}{}
+
+
+\setlength{\droptitle}{-3em} 
+\title{\vspace{-1cm}Домашняя работа №5 \\ по дисциплине "Дифференциальная геометрия и топология"}
+\author{Винницкая Дина Сергеевна}
+\date{Группа: Б9122-02.03.01сцт}
+
+\geometry{a4paper, margin=2cm}
+
+\begin{document}
+	
+	\maketitle
+
+
+        \section{Задание}
+
+        Найти \( Int(0, 1) \) в топологии Зарисского. 
+        
+        Пусть:
+        \[
+        X = \mathbb{R}
+        \]
+        \[
+        T = \text{все множества, являющиеся дополнениями конечных подмножеств, или пустое множество}
+        \]
+        \subsection{Решение:}
+    
+        Рассмотрим множество:
+        \[
+        A = \mathbb{R} \setminus ((-\infty, 0] \cup [1, +\infty))
+        \]
+        Предположим, что существует такая точка \( x \in A \), что найдётся её окрестность \( U_x \subset Int(A) \), где \( U_x = \mathbb{R} \setminus V \), при этом \(V\) — конечное множество.
+        
+        \[
+        V = \mathbb{R} \setminus U_x
+        \]
+        \[
+        \mathbb{R} \setminus A \subset V
+        \]
+        \[
+        V\supset \mathbb{R} \setminus A = (-\infty, 0] \cup [1, +\infty)
+        \]
+        Следовательно, \(V\) оказывается бесконечным, что противоречит предположению о его конечности.
+        Таким образом, предположение оказалось неверным.
+        Следовательно, \( Int(0, 1) = \emptyset \).
+
+
+        
+        \section{Задание}
+        В \( \mathbb{R}, \, \mathcal{T}_{\text{канонич}} \): найти \( Cl([0, 1]), Cl(\mathbb{Q}), Cl(\mathbb{R} \setminus \mathbb{Q}), Cl(\{a\}) \) в \( \xi \):
+
+\[
+\xi = \begin{pmatrix}
+X = \{a, b, c, d\} \\
+T_X = \{\emptyset, X, \{a\}, \{b\}, \{a, b\}, \{a, b, c\}, \{a, b\}\}
+\end{pmatrix}
+\]
+
+\section*{Решение}
+
+Замыканием множества \( A \) называется совокупность всех его точек прикосновения, и обозначается как \( Cl_x(A) \).
+
+\[
+Cl_x(A) = \{x \in X \,|\, \forall U_x \quad U_x \cap A \neq \emptyset\}
+\]
+\[
+Cl(A) = \bigcap F_i, \quad F_i - \text{замкнуто и} \quad F_i \supset A
+\]
+Каноническая топология на \( \mathbb{R} \) определяется как топология, в основе которой лежат открытые интервалы, то есть:
+
+\[
+U \in \mathcal{T} \quad \Longleftrightarrow \quad U = \emptyset \quad \text{или} \quad \forall x \in U \, \exists V : V = \{x \,|\, |x - x_0| < \varepsilon\} : V \subseteq U
+\]
+\[
+\mathbb{R} \setminus A = (-\infty, 0) \cup (1; +\infty) \quad \text{– открытое}
+\]
+\[
+\Rightarrow [0, 1] \quad \text{– замкнутое, и является наименьшим замкнутым множеством, содержащим} \, A
+\]
+\[
+Cl([0, 1]) = [0, 1]
+\]
+
+\subsection*{Замыкание \( Cl(\mathbb{Q}) \)}
+\[
+\forall x \in \mathbb{R} \, \forall U_x \, \text{в каждой окрестности существуют рациональные точки}
+\]
+\[
+\text{Следовательно, любая точка} \, \mathbb{R} \, \text{– точка прикосновения множества} \, \mathbb{Q}
+\]
+\[
+Cl(\mathbb{Q}) = \mathbb{R}
+\]
+
+\subsection*{Замыкание \( Cl(\mathbb{R} \setminus \mathbb{Q}) \)}
+\[
+\forall x \in (\mathbb{R} \setminus \mathbb{Q}) \, \forall \, U_x, \, \text{в каждой окрестности существуют рациональные точки}
+\]
+\[
+\text{Следовательно, любая точка множества} \, \mathbb{R} \, \text{– точка прикосновения множества} \, \mathbb{R} \setminus \mathbb{Q}
+\]
+\[
+Cl(\mathbb{R} \setminus \mathbb{Q}) = \mathbb{R}
+\]
+
+\subsection*{Замыкание \( Cl(\{a\}) \)}
+\[
+\{a, c, d\} = X \setminus \{d\}
+\]
+\[
+Cl(\{a\}) = \{a, c, d\}
+\]
+
+        
+        \section*{Задание}
+        Показать, что множество \( A \) замкнуто тогда и только тогда, когда его граница \(A\) содержится в самом множестве \(A\), то есть:
+        \[
+        A \, \text{замкнуто} \quad \Longleftrightarrow \quad \partial A \subseteq A
+        \]
+        
+        \section*{Решение}
+Граница \( A = \partial A \)\\\\
+\textbf{Необходимость}\\\\
+\( A \) — замкнутое множество \(\Rightarrow X \setminus A \in T \Rightarrow \forall x \in X \setminus A \, \exists U_x = X \setminus A : U_x \cap A = \emptyset\)
+\(\Rightarrow x\) не является граничной точкой для \( A \) \(\forall x \in X \setminus A \Rightarrow \partial A \subseteq A\)\\\\
+\textbf{Достаточность}\\\\
+\(\partial A \subseteq A \Rightarrow \exists x \in A : \forall U_x, \, U_x \cap A \neq \emptyset \, \lor \, U_x \cap V \neq \emptyset, \, V = X \setminus A\)\\
+Поскольку \(\partial A \nsubseteq V\), то \(\forall x \in V \, \exists U_x \subseteq V\), так что \( U_x \cap A = \emptyset \)\\
+Следовательно, \( Cl(A) = A \)
+Так как \( Cl \) — замкнуто, то и \( A \) — замкнутое
+
+        
+               
+        
+\end{document}
