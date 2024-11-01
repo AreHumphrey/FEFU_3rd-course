@@ -1,0 +1,134 @@
+\documentclass{article}
+
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc} 
+\usepackage[english,russian]{babel} 
+\usepackage{graphicx} 
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{cancel}
+\usepackage{amsfonts}
+\usepackage{titlesec}
+\usepackage{titling} 
+\usepackage{geometry}
+\usepackage{pgfplots}
+\usepackage{esint}
+\pgfplotsset{compat=1.9}
+\usepackage{amsthm}
+
+
+\titleformat{\section}
+{\normalfont\Large\bfseries}{\arabic{section}}{1em}{}
+\titleformat{\subsection}
+{\normalfont\large\bfseries}{}{1em}{}
+
+
+\setlength{\droptitle}{-3em} 
+\title{\vspace{-1cm}Домашняя работа №6 \\ по дисциплине "Дифференциальная геометрия и топология"}
+\author{Винницкая Дина Сергеевна}
+\date{Группа: Б9122-02.03.01сцт}
+
+\geometry{a4paper, margin=2cm}
+
+\begin{document}
+	
+	\maketitle
+
+
+        \section{Задание}
+
+        \begin{enumerate}
+            \item Образ сверху плотно или нет при сюръекции. Например, образ открытого всегда плотен?
+            
+            \item Непрерывна ли в топологии, индуцирующей каноническую топологию на $\mathbb{R}$, эта функция?
+            
+            \[
+            f: \{0, 2\} \to \{0, 2\}, \quad f(x) = 
+            \begin{cases}
+                x, & x \in [0, 1] \\
+                3 - x, & x \in [1, 2]
+            \end{cases}
+            \]
+            Почему?
+            
+            \item Может ли минимум быть одновременно сверху плотным и снизу не плотным?
+        \end{enumerate}
+
+        \section{Образ всюду плотного множества при сюръективном и непрерывном отображении также будет всюду плотным.}
+
+        
+        \section*{Решение}
+        Пусть $f : X \to Y$ — непрерывное и сюръективное отображение.  
+        Из этого следует, что для любого непустого открытого множества $U$ в $Y$, прообраз $f^{-1}(U)$ является непустым открытым множеством в $X$.  
+        Пусть $f^{-1}(U) = K$ и $f(A) = B$.
+        
+        Рассмотрим два важных свойства:
+        
+        \begin{enumerate}
+            \item $K \cap A \neq \emptyset$, поскольку если $K \cap A$ было бы пустым, то $X \backslash K$ было бы замкнутым множеством, и $A \in X \backslash K$, что противоречит тому, что замыкание $A$ должно быть равно $X$.
+            \item Для всех $x \in K \cap A$ имеем $x \in A$ и $x \in K$, что влечёт $f(x) \in B$ и $x \in f(K) \subset U$, а значит, $f(x) \in B \cap U$.
+        \end{enumerate}
+        Из этих свойств следует, что $B \cap U \neq \emptyset$, и, следовательно, $B$ не содержится в замкнутом дополнении $Y \backslash U$.  \\
+        Таким образом, любое замкнутое подмножество $Y$, кроме самого $Y$, не содержит $B$.  \\
+        Следовательно, единственным замкнутым множеством, которое включает $B$, является всё пространство $Y$, то есть
+        
+        \[
+        Cl(B) = Y \Rightarrow B = f(A)
+        \]
+        Таким образом, $B$ является всюду плотным.
+
+        \section{Условие}
+        Определить, является ли отображение $f : [0, 2] \rightarrow [0, 2]$ непрерывным в топологическом пространстве с топологией, индуцированной из канонической топологии на $\mathbb{R}$, где
+        
+        \[
+        f(x) = 
+        \begin{cases} 
+        x, & x \in [0, 1) \\
+        3 - x, & x \in [1, 2]
+        \end{cases}
+        \]
+        
+        \section*{Решение}
+        Функция $f : X \rightarrow Y$ является непрерывной тогда и только тогда, когда прообраз любого открытого множества в $Y$ также открыт. \\ \\ 
+        Каноническая топология на $\mathbb{R}$ определяется как топология, базой которой являются открытые интервалы, то есть
+        \[
+        U \in T \quad \Longleftrightarrow \quad \forall x \in U \; \exists V : V = \{ x \mid |x - x_0| < \varepsilon \} \; \Rightarrow \; V \subset U,\quad U = \emptyset
+        \]
+        Предположим, что $x \in [0, 1)$.\\   \\
+        Пусть $V_{f(x)}$ — окрестность точки $f(x)$ в пространстве $Y$. \\ \\
+        Предположим также, что часть этой окрестности $K \subset V_{f(x)}$ лежит в другой части отрезка, то есть $K \subset [1, 2]$. \\ \\
+        Теперь возьмем $V_{f(x)} \neq Y$.  
+        Тогда прообраз множества $f^{-1} \big(V_{f(x)} \backslash K \big)$ будет подмножеством некоторой окрестности $U_x$ точки $x$ в $X$. \\ \\
+        Однако $f^{-1} (K) \cup f^{-1} \big(V_{f(x)} \backslash K \big) \notin T_X$ по построению (между $f^{-1} (K)$ и $f^{-1} \big(V_{f(x)} \backslash K \big)$ существует некоторое непустое множество $P = [1, a)$, где $a$ — прообраз правой границы $V_{f(x)}$; кроме того, $f^{-1} (K) \cap U_x \neq f^{-1}(K)$). \\ \\
+        Следовательно, если прообраз $V_{f(x)}$ не является открытым, то, по определению непрерывности, функция $f$ не является непрерывной.
+        
+
+        \section{Может ли множество быть всюду плотным и нигде не плотным}
+
+
+       \section*{Решение}
+        
+        Переформулируем условие:  
+        Существует ли множество $A \subset X$ такое, что $Cl(A) = X$ и $Cl(Int(X \setminus A)) = X$?
+        Рассмотрим условия, которые должны выполняться для $A$:
+        \begin{itemize}
+            \item $A \neq X$, так как $Cl(Int(X \setminus A)) = Cl(\emptyset) = \emptyset \neq X$.
+            \item $A \neq \emptyset$, так как $Cl(A) = \emptyset \neq X$.
+            \item $A$ не является замкнутым, иначе $Cl(A) = A \neq X$.
+            \item $A$ не является открытым, иначе $Cl(Int(X \setminus A)) = X \setminus A$.
+        \end{itemize}
+        
+        Предположим, что существует $A \subset X$ такое, что $A = X$ и $Cl(Int(X \setminus A)) = X$.
+        
+        \begin{itemize}
+            \item Тогда $A \neq \emptyset$, и это влечет за собой, что $X \setminus A \notin T$.
+        \end{itemize} 
+        Предположим, что существует $U \in T$, $U \neq \emptyset$, такое, что $U \subset X \setminus A$, иначе $Int(X \setminus A) = \emptyset$ и $Cl(Int(X \setminus A)) = \emptyset \neq X$.  
+        Значит, $X \setminus A$ — непустое. \\ \\
+        Тогда $A \subset X \setminus U \Rightarrow Cl(A) \subset X \setminus U$ (так как $X \setminus U$ — замкнутое), что приводит к $Cl(A) \neq X$. \\ \\ 
+        Возникает противоречие.\\ \\
+        Следовательно, не существует множества, удовлетворяющего этим условиям.
+                                
+                               
+                
+\end{document}
