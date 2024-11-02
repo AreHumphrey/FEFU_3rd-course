@@ -8,7 +8,7 @@
 - **Конкуренты** — таблица с преимуществами и недостатками решений конкурентов.
 - **Параметры проектов** — таблица параметров для трёх абстрактных проектов разного масштаба (объем работ, качество, сроки, стоимость и т.д.).
 
-[Открыть проект ➔](https://miro.com/welcomeonboard/MEg4ZGF1UnQyNmFTcVAyN0dTS2xxdTBwZE85cTJzcmx2NWhhNXhndTY1cG9jWnJBZkpZSXBLOERGSVB4QUtLMHwzNDU4NzY0NTg3MzMzMjkwMzA0fDI=?share_link_id=424339921744)
+[Открыть проект ➔](https://miro.com/welcomeonboard/alJzbWRFMldnZlpiVnVyTkxCdG10VUJPRTVLd3NtRXljQ0JXc1FEQkt3MjM4Zll5dHkzZVJJVTVxRjBaeWNGeHwzNDU4NzY0NTg3MzMzMjkwMzA0fDI=?share_link_id=600827595634)
 
 ---
 
@@ -27,7 +27,8 @@
 
 Вся информация представлена в виде презентации в PDF.
 
-[Открыть проект ➔](https://miro.com/welcomeonboard/alJzbWRFMldnZlpiVnVyTkxCdG10VUJPRTVLd3NtRXljQ0JXc1FEQkt3MjM4Zll5dHkzZVJJVTVxRjBaeWNGeHwzNDU4NzY0NTg3MzMzMjkwMzA0fDI=?share_link_id=600827595634)
+[Открыть проект ➔]
+(https://miro.com/welcomeonboard/MEg4ZGF1UnQyNmFTcVAyN0dTS2xxdTBwZE85cTJzcmx2NWhhNXhndTY1cG9jWnJBZkpZSXBLOERGSVB4QUtLMHwzNDU4NzY0NTg3MzMzMjkwMzA0fDI=?share_link_id=424339921744)
 
 ---
 
