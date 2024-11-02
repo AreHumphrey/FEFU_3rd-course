@@ -27,8 +27,7 @@
 
 Вся информация представлена в виде презентации в PDF.
 
-[Открыть проект ➔]
-(https://miro.com/welcomeonboard/MEg4ZGF1UnQyNmFTcVAyN0dTS2xxdTBwZE85cTJzcmx2NWhhNXhndTY1cG9jWnJBZkpZSXBLOERGSVB4QUtLMHwzNDU4NzY0NTg3MzMzMjkwMzA0fDI=?share_link_id=424339921744)
+[Открыть проект ➔](https://miro.com/welcomeonboard/MEg4ZGF1UnQyNmFTcVAyN0dTS2xxdTBwZE85cTJzcmx2NWhhNXhndTY1cG9jWnJBZkpZSXBLOERGSVB4QUtLMHwzNDU4NzY0NTg3MzMzMjkwMzA0fDI=?share_link_id=424339921744)
 
 ---
 
