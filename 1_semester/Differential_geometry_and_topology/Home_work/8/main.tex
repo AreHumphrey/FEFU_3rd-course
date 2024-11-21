@@ -1,0 +1,246 @@
+\documentclass{article}
+
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc} 
+\usepackage[english,russian]{babel} 
+\usepackage{graphicx} 
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{cancel}
+\usepackage{amsfonts}
+\usepackage{titlesec}
+\usepackage{titling} 
+\usepackage{geometry}
+\usepackage{pgfplots}
+\usepackage{esint}
+\pgfplotsset{compat=1.9}
+\usepackage{amsthm}
+
+
+\titleformat{\section}
+{\normalfont\Large\bfseries}{\arabic{section}}{1em}{}
+\titleformat{\subsection}
+{\normalfont\large\bfseries}{}{1em}{}
+
+
+\setlength{\droptitle}{-3em} 
+\title{\vspace{-1cm}Домашняя работа №8 \\ по дисциплине "Дифференциальная геометрия и топология"}
+\author{Винницкая Дина Сергеевна}
+\date{Группа: Б9122-02.03.01сцт}
+
+\geometry{a4paper, margin=2cm}
+
+\begin{document}
+	
+	\maketitle
+
+
+        \subsection*{Условие задачи}
+        Рассмотрим кривую, заданную параметрически:
+        \[
+        \gamma(t) = (t, \sin(t), \cos(t)).
+        \]
+        \section{Найти уравнение касательной в t = 0}
+
+        \section*{Решение}
+        Для нахождения уравнения касательной, найдем производную параметризации \( \gamma(t) \):
+        \[
+        \gamma'(t) = \left(1, \cos(t), -\sin(t)\right).
+        \]
+        
+        Подставим значение параметра \( t = 0 \) в функцию \( \gamma(t) \) и её производную:
+        \[
+        \gamma(0) = (0, \sin(0), \cos(0)) = (0, 0, 1),
+        \]
+        \[
+        \gamma'(0) = \left(1, \cos(0), -\sin(0)\right) = (1, 1, 0).
+        \]
+        
+        Уравнение касательной в параметрическом виде задается формулой:
+        \[
+        x = x_0 + t \cdot \frac{dx}{dt}, \quad
+        y = y_0 + t \cdot \frac{dy}{dt}, \quad
+        z = z_0 + t \cdot \frac{dz}{dt}.
+        \]
+        
+        Подставляя \( \gamma(0) = (0, 0, 1) \) и \( \gamma'(0) = (1, 1, 0) \), получаем:
+        \[
+        x = 0 + t \cdot 1, \quad y = 0 + t \cdot 1, \quad z = 1 + t \cdot 0.
+        \]
+        
+        Запишем это в каноническом виде прямой:
+        \[
+        \frac{x - 1}{1} = \frac{y}{1} = \frac{z - 1}{0}
+        \]
+        
+
+        \section{Найти длину дуги кривой \( \gamma(t) = (t, \sin(t), \cos(t)) \) на интервале \( t \in [0, 2\pi] \).}
+        \section*{Решение}
+
+        Для нахождения длины дуги кривой используем формулу:
+        \[
+        L(\gamma) = \int_0^{2\pi} \left|\gamma'(t)\right| \, dt,
+        \]
+        где \( \gamma'(t) \) — производная параметрической кривой.
+        
+        \paragraph{1. Найдём производную \( \gamma'(t) \):}
+        \[
+        \gamma'(t) = \left( \frac{d}{dt}t, \frac{d}{dt}\sin(t), \frac{d}{dt}\cos(t) \right) = \left( 1, \cos(t), -\sin(t) \right).
+        \]
+        
+        \paragraph{2. Найдём длину вектора \( \gamma'(t) \):}
+        \[
+        \left|\gamma'(t)\right| = \sqrt{1^2 + \cos^2(t) + (-\sin(t))^2}.
+        \]
+        
+        Упростим выражение, зная тригонометрическое тождество \( \cos^2(t) + \sin^2(t) = 1 \):
+        \[
+        \left|\gamma'(t)\right| = \sqrt{1 + \cos^2(t) + \sin^2(t)}
+        \]
+        
+        \paragraph{3. Вычислим длину дуги \( L(\gamma) \):}
+        Подставим значение \( \left|\gamma'(t)\right| = \sqrt{2} \) в формулу длины дуги:
+        \[
+        L(\gamma) = \int_0^{2\pi} \sqrt{1^2 + 1} \, dt.
+        \]
+        
+        Так как \( \sqrt{2} \) является константой, она выносится за знак интеграла:
+        \[
+        L(\gamma) = \sqrt{2} \int_0^{2\pi} 1 \, dt.
+        \]
+        
+        Рассчитаем интеграл:
+        \[
+        \int_0^{2\pi} 1 \, dt = \left[t\right]_0^{2\pi} = 2\pi - 0 = 2\pi.
+        \]
+        
+        Подставляем результат:
+        \[
+        L(\gamma) = \sqrt{2} \cdot 2\pi = 2\sqrt{2}\pi.
+        \]
+        
+        \subsection*{Ответ:}
+        Длина дуги кривой \( \gamma(t) \) на интервале \( t \in [0, 2\pi] \) равна:
+        \[
+        L(\gamma) = 2\sqrt{2}\pi.
+        \]
+
+
+        \section{Задание}
+        \[
+        \text{Найти базис Френеля в } t = 0
+        \]
+        \[
+        \left( \vec{v}, \vec{n}, \vec{b} \right)
+        \]
+        \[
+        \vec{v} = \frac{\gamma'(t)}{\left|\gamma'(t)\right|}
+        \]
+        \[
+        \vec{n} = \frac{\vec{v}'}{\left|\vec{v}'\right|}
+        \]
+        \[
+        \vec{b} = \frac{[\vec{v}, \vec{n}]}{\left|[\vec{v}, \vec{n}]\right|}
+        \]
+        \section*{Решение}
+        \paragraph{1. Найдём производную параметризации \(\gamma(t)\):}
+        Производная вектора \(\gamma(t)\) задается как:
+        \[
+        \gamma'(t) = \left( \frac{d}{dt}t, \frac{d}{dt}\sin(t), \frac{d}{dt}\cos(t) \right).
+        \]
+        Выполняем вычисления:
+        \[
+        \gamma'(t) = (1, \cos(t), -\sin(t)).
+        \]
+        
+        \paragraph{2. Найдём длину вектора \(\gamma'(t)\):}
+        Длина вектора \(\gamma'(t)\) вычисляется по формуле:
+        \[
+        \left|\gamma'(t)\right| = \sqrt{1^2 + \cos^2(t) + \sin^2(t)}.
+        \]
+        Используя тригонометрическое тождество \( \cos^2(t) + \sin^2(t) = 1 \), получаем:
+        \[
+        \left|\gamma'(t)\right| = \sqrt{1 + 1} = \sqrt{2}.
+        \]
+        
+        \paragraph{3. Найдём единичный касательный вектор \(\vec{v}\):}
+        Касательный вектор определяется как:
+        \[
+        \vec{v} = \frac{\gamma'(t)}{\left|\gamma'(t)\right|}.
+        \]
+        Подставляя \(\gamma'(t)\) и \(\left|\gamma'(t)\right|\), получаем:
+        \[
+        \vec{v} = \left(\frac{1}{\sqrt{2}}, \frac{\cos(t)}{\sqrt{2}}, \frac{-\sin(t)}{\sqrt{2}}\right).
+        \]
+        
+        \paragraph{4. Найдём производную касательного вектора \(\vec{v}'\):}
+        Производная вектора \(\vec{v}\) задается как:
+        \[
+        \vec{v}' = \left(0, -\frac{\sin(t)}{\sqrt{2}}, -\frac{\cos(t)}{\sqrt{2}}\right).
+        \]
+        
+        \paragraph{5. Найдём длину вектора \(\vec{v}'\):}
+        Длина вектора \(\vec{v}'\) вычисляется по формуле:
+        \[
+        \left|\vec{v}'\right| = \sqrt{\left(-\frac{\sin(t)}{\sqrt{2}}\right)^2 + \left(-\frac{\cos(t)}{\sqrt{2}}\right)^2}.
+        \]
+        Подставляя тригонометрическое тождество:
+        \[
+        \left|\vec{v}'\right| = \sqrt{\frac{\sin^2(t)}{2} + \frac{\cos^2(t)}{2}} = \sqrt{\frac{\sin^2(t) + \cos^2(t)}{2}} = \sqrt{\frac{1}{2}} = \frac{1}{\sqrt{2}}.
+        \]
+        
+        \paragraph{6. Найдём единичный нормальный вектор \(\vec{n}\):}
+        Нормальный вектор определяется как:
+        \[
+        \vec{n} = \frac{\vec{v}'}{\left|\vec{v}'\right|}.
+        \]
+        Подставляя \(\vec{v}'\) и \(\left|\vec{v}'\right|\), получаем:
+        \[
+        \vec{n} = (0, -\sin(t), -\cos(t)).
+        \]
+        
+        \paragraph{7. Найдём векторное произведение \([\vec{v}, \vec{n}]\):}
+        Для вычисления бинормального вектора используем векторное произведение:
+        \[
+        [\vec{v}, \vec{n}] = \frac{1}{\sqrt{2}}(1, \cos(t), -\sin(t)).
+        \]
+        
+        \paragraph{8. Найдём длину вектора \([\vec{v}, \vec{n}]\):}
+        Длина вектора \([\vec{v}, \vec{n}]\) равна:
+        \[
+        \left|[\vec{v}, \vec{n}]\right| = \sqrt{\frac{1}{2}(1 + \cos^2(t) + \sin^2(t))}.
+        \]
+        Используя тригонометрическое тождество \( \cos^2(t) + \sin^2(t) = 1 \), получаем:
+        \[
+        \left|[\vec{v}, \vec{n}]\right| = 1.
+        \]
+        
+        \paragraph{9. Найдём единичный бинормальный вектор \(\vec{b}\):}
+        Бинормальный вектор определяется как:
+        \[
+        \vec{b} = \frac{[\vec{v}, \vec{n}]}{\left|[\vec{v}, \vec{n}]\right|}.
+        \]
+        Подставляя значения, получаем:
+        \[
+        \vec{b} = \frac{1}{\sqrt{2}}(1, \cos(t), -\sin(t)).
+        \]
+        
+        \paragraph{10. Подставляем \(t = 0\):}
+        Для \(t = 0\) вычисляем:
+        \[
+        \vec{n}(0) = (0, 0, -1), \quad
+        \vec{b}(0) = \frac{1}{\sqrt{2}}(1, 1, 0).
+        \]
+        
+        \subsection*{Ответ:}
+        \[
+        \vec{n}(0) = (0, 0, -1), \quad
+        \vec{b}(0) = \frac{1}{\sqrt{2}}(1, 1, 0).
+        \]
+
+                    
+        
+       
+                              
+                
+\end{document}
