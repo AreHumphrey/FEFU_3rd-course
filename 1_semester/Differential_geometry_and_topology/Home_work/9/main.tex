@@ -1,0 +1,338 @@
+\documentclass{article}
+
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc} 
+\usepackage[english,russian]{babel} 
+\usepackage{graphicx} 
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{cancel}
+\usepackage{amsfonts}
+\usepackage{titlesec}
+\usepackage{titling} 
+\usepackage{geometry}
+\usepackage{pgfplots}
+\usepackage{esint}
+\pgfplotsset{compat=1.9}
+\usepackage{amsthm}
+
+
+\titleformat{\section}
+{\normalfont\Large\bfseries}{\arabic{section}}{1em}{}
+\titleformat{\subsection}
+{\normalfont\large\bfseries}{}{1em}{}
+
+
+\setlength{\droptitle}{-3em} 
+\title{\vspace{-1cm}Домашняя работа №9 \\ по дисциплине "Дифференциальная геометрия и топология"}
+\author{Винницкая Дина Сергеевна}
+\date{Группа: Б9122-02.03.01сцт}
+
+\geometry{a4paper, margin=2cm}
+
+\begin{document}
+	
+	\maketitle
+
+
+        \subsection*{Условие задачи}
+        Найти кривизну и кручение:
+        \begin{enumerate}
+                \item Окружности
+                \item Винтовой линии
+                \item $\vec{\gamma}(t) = \left(t - \sin(t), 1 - \cos(t), 4 \sin\left(\frac{t}{2}\right)\right), \quad t = \pi$
+        \end{enumerate}
+            
+        \section*{Решение}
+       \subsubsection*{Выкладки}
+        Кривизна:
+        \[
+        k(t) = \frac{\|\vec{\gamma}' \times \vec{\gamma}''\|}{\|\vec{\gamma}'\|^3}.
+        \]
+        
+        Кручение:
+        \[
+        \Xi(t) = \frac{(\vec{\gamma}', \vec{\gamma}'', \vec{\gamma}''')}{\|\vec{\gamma}' \times \vec{\gamma}''\|^2}.
+        \]
+        
+        \subsubsection*{1. Окружность}
+        
+        Задана окружность:
+        \[
+        \vec{\gamma}(t) = (r \cos(t), r \sin(t), c).
+        \]
+        
+        \textbf{Производные:}
+        \[
+        \vec{\gamma}'(t) = (-r \sin(t), r \cos(t), 0),
+        \]
+        \[
+        \vec{\gamma}''(t) = (-r \cos(t), -r \sin(t), 0),
+        \]
+        \[
+        \vec{\gamma}' \times \vec{\gamma}'' = (0, 0, r^2).
+        \]
+        
+        \textbf{Модули:}
+        \[
+        \|\vec{\gamma}'\| = r, \quad \|\vec{\gamma}' \times \vec{\gamma}''\| = r^2.
+        \]
+        
+        \textbf{Кривизна:}
+        Кривизна вычисляется по стандартной формуле. Для окружности:
+        \[
+        k(t) = \frac{\|\vec{\gamma}' \times \vec{\gamma}''\|}{\|\vec{\gamma}'\|^3} = \frac{r^2}{r^3} = \frac{1}{r}.
+        \]
+        Это означает, что кривизна окружности обратна её радиусу $r$.
+        
+        \textbf{Кручение:}
+        Так как окружность — двумерная фигура, кручение определяется, но его значение всегда равно нулю:
+        \[
+        \Xi(t) = 0.
+        \]
+        Физически это связано с тем, что окружность не имеет третьей координаты для "закручивания" в пространстве.
+        
+        Таким образом:
+        \begin{itemize}
+            \item Кривизна окружности равна $\frac{1}{r}$.
+            \item Кручение существует и равно нулю.
+        \end{itemize}
+        
+        \subsubsection*{2. Винтовая линия}
+        
+        Задана винтовая линия:
+        \[
+        \vec{\gamma}(t) = \left(r \cos(t), r \sin(t), ht\right).
+        \]
+        
+        \textbf{Производные:}
+        \[
+        \vec{\gamma}' = \left(-r \sin(t), r \cos(t), h\right),
+        \]
+        \[
+        \vec{\gamma}'' = \left(-r \cos(t), -r \sin(t), 0\right),
+        \]
+        \[
+        \vec{\gamma}''' = \left(r \sin(t), -r \cos(t), 0\right).
+        \]
+        
+        \textbf{Векторное произведение:}
+        \[
+       [ \vec{\gamma}' ,  \vec{\gamma}'' ] = 
+        \begin{pmatrix}
+        hr \sin(t) \\
+        -hr \cos(t) \\
+        r^2
+        \end{pmatrix}.
+        \]
+        
+        \textbf{Модули:}
+        \[
+        \|\vec{\gamma}' \| = \sqrt{r^2 + h^2}, \quad
+        \|\vec{\gamma}',  \vec{\gamma}''\| = r\sqrt{h^2 + r^2}.
+        \]
+        
+        \textbf{Кривизна:}
+        Кривизна вычисляется как:
+        \[
+        k(t) = \frac{\|\vec{\gamma}' \times \vec{\gamma}''\|}{\|\vec{\gamma}'\|^3} = \frac{r}{\left(h^2 + r^2\right)}.
+        \]
+        
+        \textbf{Смешанное произведение:}
+        \[
+        (\vec{\gamma}', \vec{\gamma}'', \vec{\gamma}''') = hr^2.
+        \]
+        
+        \textbf{Кручение:}
+        Кручение вычисляется как:
+        \[
+        \Xi = \frac{(\vec{\gamma}', \vec{\gamma}'', \vec{\gamma}''')}{\|\vec{\gamma}' \times \vec{\gamma}''\|^2} = \frac{h}{h^2 + r^2}.
+        \]
+        
+        \textbf{Вывод:}
+        \begin{itemize}
+            \item Кривизна винтовой линии равна:
+            \[
+            k(t) = \frac{r}{h^2 + r^2}.
+            \]
+            \item Кручение винтовой линии существует и вычисляется как:
+            \[
+            \Xi(t) = \frac{h}{h^2 + r^2}.
+            \]
+        \end{itemize}
+    \subsubsection*{3. Пространственная кривая}
+        
+        Задана пространственная кривая:
+        \[
+        \vec{\gamma}(t) = \left(t - \sin(t), 1 - \cos(t), 4 \sin\left(\frac{t}{2}\right)\right), \quad t = \pi.
+        \]
+        
+        \textbf{Производные:}
+        \[
+        \vec{\gamma}'(t) = \left(1 - \cos(t), \sin(t), 2 \cos\left(\frac{t}{2}\right)\right),
+        \]
+        \[
+        \vec{\gamma}''(t) = \left(\sin(t), \cos(t), -\sin\left(\frac{t}{2}\right)\right),
+        \]
+        \[
+        \vec{\gamma}'''(t) = \left(\cos(t), -\sin(t), -\frac{1}{2} \cos\left(\frac{t}{2}\right)\right).
+        \]
+        
+        \textbf{Вычисление в точке $t = \pi$:}
+        \[
+        \vec{\gamma}(\pi) = \left(\pi, 1 + 1, 0\right) = \left(\pi, 2, 0\right),
+        \]
+        \[
+        \vec{\gamma}'(\pi) = \left(2, 0, 0\right),
+        \]
+        \[
+        \vec{\gamma}''(\pi) = \left(0, 1, -1\right),
+        \]
+        \[
+        \vec{\gamma}'''(\pi) = \left(1, 0, 0\right).
+        \]
+        
+        \textbf{Векторное произведение:}
+        \[
+        \vec{\gamma}' , \vec{\gamma}'' = \left(0, 2, 2\right).
+        \]
+        
+        \textbf{Модули:}
+        \[
+        \|\vec{\gamma}' , \vec{\gamma}''\| = 2\sqrt{2}, \quad \|\vec{\gamma}'\| = 2.
+        \]
+        
+        \textbf{Смешанное произведение:}
+        \[
+        (\vec{\gamma}', \vec{\gamma}'', \vec{\gamma}''') = 0.
+        \]
+        
+        \textbf{Кривизна:}
+        Кривизна рассчитывается по формуле:
+        \[
+        k(t) = \frac{\|\vec{\gamma}' , \vec{\gamma}''\|}{\|\vec{\gamma}'\|^3} = \frac{2\sqrt{2}}{2^3} = 2^{-\frac{3}{2}}.
+        \]
+        
+        \textbf{Кручение:}
+        Кручение рассчитывается по формуле:
+        \[
+        \Xi = \frac{(\vec{\gamma}', \vec{\gamma}'', \vec{\gamma}''')}{\|\vec{\gamma}' , \vec{\gamma}''\|^2} = 0.
+        \]
+        \subsection*{Условие задачи}
+        Доказать, что кривая плоская:
+        \[
+        \vec{\gamma}(t) = \left(2t, 3t + 4, t^2 - 3\right).
+        \]
+        
+        Найти уравнение плоскости, в которой лежит эта кривая.
+            
+        \section*{Решение}
+        \[\textbf{Способ через нормаль к соприкасающейся |bad|}\\
+        
+        Найдем базис Френе для данной кривой:
+        \[
+        \vec{\gamma}(t) = \left(2t, 3t + 4, t^2 - 3\right).
+        \]
+        Первая производная:
+        \[
+        \vec{\gamma}'(t) = \left(2, 3, 2t\right).
+        \]
+        Нормируем вектор производной:
+        \[
+        \vec{v}(t) = \frac{\vec{\gamma}'(t)}{\|\vec{\gamma}'(t)\|} = \frac{\left(2, 3, 2t\right)}{\sqrt{4 + 9 + 4t^2}} = \left(\frac{2}{\sqrt{4t^2 + 13}}, \frac{3}{\sqrt{4t^2 + 13}}, \frac{2t}{\sqrt{4t^2 + 13}}\right).
+        \]
+        Вторая производная:
+        \[
+        \vec{v}'(t) = \left(-\frac{8t}{(4t^2 + 13)^{3/2}}, -\frac{12t}{(4t^2 + 13)^{3/2}}, \frac{4}{\sqrt{4t^2 + 13}} - \frac{4t^2}{(4t^2 + 13)^{3/2}}\right).
+        \]
+        Модуль вектора второй производной:
+        \[
+        \|\vec{v}'\| = \frac{26}{4t^2 \sqrt{13} + 13^{3/2}}.
+        \]
+        Комментарий: данный способ требует нахождения второго и третьего производных и анализа нормали. Однако он является сложным и неоптимальным для задачи проверки плоскостности, поскольку метод базиса Френе избыточен.
+        \[\textbf{Способ через кручение}\]
+
+        Используем кривую:
+        \[
+        \vec{\gamma}(t) = \left(2t, 3t + 4, t^2 - 3\right).
+        \]
+        Первая производная:
+        \[
+        \vec{\gamma}'(t) = \left(2, 3, 2t\right).
+        \]
+        Вторая производная:
+        \[
+        \vec{\gamma}''(t) = \left(0, 0, 2\right).
+        \]
+        Третья производная:
+        \[
+        \vec{\gamma}'''(t) = \left(0, 0, 0\right).
+        \]
+        Смешанное произведение:
+        \[
+        (\vec{\gamma}', \vec{\gamma}'', \vec{\gamma}''') = 0.
+        \]
+        Кручение вычисляется как:
+        \[
+        \Xi = \frac{(\vec{\gamma}', \vec{\gamma}'', \vec{\gamma}''')}{\|\vec{\gamma}' \times \vec{\gamma}''\|^2}.
+        \]
+        Поскольку числитель равен нулю, кручение:
+        \[
+        \Xi = 0.
+        \]
+        Вывод: кручение равно нулю, следовательно, кривая плоская.
+        \subsubsection*{Нахождение соприкасающейся плоскости}
+        Построим плоскость по 3 точкам при $t \in \{-1, 0, 1\}$:
+        \[
+        \vec{\gamma}(-1) = (-2, 1, -2), \quad \vec{\gamma}(0) = (0, 4, -3), \quad \vec{\gamma}(1) = (2, 7, -2).
+        \]
+        
+        Уравнение плоскости запишем через определитель:
+        \[
+        \begin{vmatrix}
+        x - x_A & y - y_A & z - z_A \\
+        x_B - x_A & y_B - y_A & z_B - z_A \\
+        x_C - x_A & y_C - y_A & z_C - z_A
+        \end{vmatrix} = 0.
+        \]
+        
+        Подставляем координаты точек:
+        \[
+        \begin{vmatrix}
+        x + 2 & y - 1 & z + 2 \\
+        2 & 3 & -1 \\
+        4 & 6 & 0
+        \end{vmatrix} = 0.
+        \]
+        
+        Раскрываем определитель:
+        \[
+        (x + 2)(3 \cdot 0 - 6 \cdot (-1)) - (y - 1)(2 \cdot 0 - 4 \cdot (-1)) + (z + 2)(2 \cdot 6 - 4 \cdot 3) = 0.
+        \]
+        
+        Упрощаем:
+        \[
+        (x + 2)(6) - (y - 1)(-4) + (z + 2)(0) = 0.
+        \]
+        
+        Далее:
+        \[
+        6x + 12 + 4y - 4 = 0.
+        \]
+        
+        Итоговое уравнение плоскости:
+        \[
+        6x + 4y + 8 = 0.
+        \]
+        
+        Ответ:
+        \[
+        3x - 2y + 8 = 0.
+        \]
+
+        
+                        
+               
+                                      
+                
+\end{document}
