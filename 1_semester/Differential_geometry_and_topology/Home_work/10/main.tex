@@ -1,0 +1,328 @@
+\documentclass{article}
+
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc} 
+\usepackage[english,russian]{babel} 
+\usepackage{graphicx} 
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{cancel}
+\usepackage{amsfonts}
+\usepackage{titlesec}
+\usepackage{titling} 
+\usepackage{geometry}
+\usepackage{pgfplots}
+\usepackage{esint}
+\pgfplotsset{compat=1.9}
+\usepackage{amsthm}
+
+
+\titleformat{\section}
+{\normalfont\Large\bfseries}{\arabic{section}}{1em}{}
+\titleformat{\subsection}
+{\normalfont\large\bfseries}{}{1em}{}
+
+
+\setlength{\droptitle}{-3em} 
+\title{\vspace{-1cm}Домашняя работа №10 \\ по дисциплине "Дифференциальная геометрия и топология"}
+\author{Винницкая Дина Сергеевна}
+\date{Группа: Б9122-02.03.01сцт}
+
+\geometry{a4paper, margin=2cm}
+
+\begin{document}
+	
+	\maketitle
+
+
+        \subsection*{Условие задачи}
+        
+        Найти натуральное уравнение кривой.
+        
+        \subsection*{Кривизна:}
+        \[
+        k(t) = \frac{\|\vec{\gamma}' \times \vec{\gamma}''\|}{\|\vec{\gamma}'\|^3}
+        \]
+        
+        \subsection*{Кручение:}
+        \[
+        \Xi(t) = \frac{(\vec{\gamma}', \vec{\gamma}'', \vec{\gamma}'''}{\|\vec{\gamma}' \times \vec{\gamma}''\|^2}
+        \]
+
+        \subsection*{Условие задачи №1}
+        Задана кривая:
+        \[
+        \gamma(t) = \big(a \cos(t), a \sin(t), bt\big), \quad t \geq 0
+        \]
+        
+        \section*{Решение}
+       Для вычислений требуется найти первые три производные векторной функции \(\gamma(t)\).
+
+        \paragraph{1. Первая производная:}
+        \[
+        \gamma'(t) = (-a \sin(t), a \cos(t), b)
+        \]
+        \paragraph{2. Модуль первой производной:}
+        \[
+        \|\gamma'(t)\| = \sqrt{a^2 \sin^2(t) + a^2 \cos^2(t) + b^2} = \sqrt{a^2 + b^2}
+        \]
+        
+        \paragraph{3. Вторая производная:}
+        \[
+        \gamma''(t) = (-a \cos(t), -a \sin(t), 0)
+        \]
+        
+        \paragraph{4. Третья производная:}
+        \[
+        \gamma'''(t) = (a \sin(t), -a \cos(t), 0)
+        \]
+        \subsection*{Вычисление кривизны}
+        Вычисляем векторное произведение \(\gamma'(t) \times \gamma''(t)\):
+        \[
+        \gamma'(t) \times \gamma''(t) = (ab \sin(t), -ab \cos(t), a^2)
+        \]
+        Модуль векторного произведения:
+        \[
+        \|\gamma'(t) \times \gamma''(t)\| = \sqrt{a^2b^2 \sin^2(t) + a^2b^2 \cos^2(t) + a^4} = a \sqrt{a^2 + b^2}
+        \]
+        Кривизна:
+        \[
+        k(t) = \frac{\|\gamma'(t) \times \gamma''(t)\|}{\|\gamma'(t)\|^3} = \frac{a \sqrt{a^2 + b^2}}{(a^2 + b^2)^{3/2}} = \frac{a}{a^2 + b^2}
+        \]
+        
+        \subsection*{Вычисление кручения}
+        Находим определитель трёх векторов \((\gamma'(t), \gamma''(t), \gamma'''(t))\):
+        \[
+        \det\big(\gamma'(t), \gamma''(t), \gamma'''(t)\big) =
+        \begin{vmatrix}
+        -a \sin(t) & a \cos(t) & b \\
+        -a \cos(t) & -a \sin(t) & 0 \\
+        a \sin(t) & -a \cos(t) & 0
+        \end{vmatrix}
+        \]
+        Вычисляем определитель:
+        \[
+        \det = a^2 b
+        \]
+        
+        \[
+        \Xi(t)  = \frac{a^2 b}{a^2 (a^2 + b^2)} = \frac{b}{a^2 + b^2}
+        \]
+        Для завершения решения мы перейдём к вычислению параметризации кривой с использованием натуральной длины дуги \(s\). \\
+        Длина дуги определяется следующим образом:
+        \[
+        s(t) = \int_{0}^{t} \|\gamma'(\phi)\| \, d\phi
+        \]
+        Так как \(\|\gamma'(\phi)\| = \sqrt{a^2 + b^2}\) :
+        \[
+        s(t) = \int_{0}^{t} \sqrt{a^2 + b^2} \, d\phi = \sqrt{a^2 + b^2} \cdot t
+        \]
+        Таким образом, получаем зависимость длины дуги \(s\) от параметра \(t\):
+        \[
+        s(t) = \sqrt{a^2 + b^2} \cdot t
+        \]
+        
+        \subsection*{Выражение \(t\) через \(s\)}
+        Из выражения для длины дуги \(s(t)\) находим параметр \(t\) через \(s\):
+        \[
+        t = \frac{s}{\sqrt{a^2 + b^2}}
+        \]
+        Это позволяет нам выразить кривую через параметр \(s\).
+        
+        \subsection*{Параметризация кривой \(\gamma(s)\)}
+        Подставляем найденное \(t\) в исходное уравнение кривой:
+        \[
+        \gamma(t) = \big(a \cos(t), a \sin(t), bt\big)
+        \]
+        С учётом того, что \(t = \frac{s}{\sqrt{a^2 + b^2}}\), получаем:
+        \[
+        \gamma(s(t)) = \left(
+        a \cos\left(\frac{s}{\sqrt{a^2 + b^2}}\right), 
+        a \sin\left(\frac{s}{\sqrt{a^2 + b^2}}\right), 
+        \frac{b s}{\sqrt{a^2 + b^2}}
+        \right)
+        \]
+        Теперь кривая представлена в параметрической форме относительно натуральной длины дуги \(s\).
+        \subsection*{Кривизна \(k(s)\)}
+        Кривизна в натуральной параметризации остаётся неизменной, так как она не зависит от конкретного выбора параметра:
+        \[
+        k(s) = \frac{a}{a^2 + b^2}
+        \]
+        Аналогично, кручение не меняется и выражается как:
+        \[
+        \Xi(s) = \frac{b}{a^2 + b^2}
+        \]
+        \subsection*{Условие задачи №2}
+        Задана кривая:
+        \[
+        \gamma(t) = \left(\frac{t^2}{2}, \frac{2t^3}{3}, \frac{t^4}{2}\right), \quad t \geq 0
+        \]
+        \section*{Решение}
+        \paragraph{1. Первая производная:}
+        \[
+        \gamma'(t) = \left(t, 2t^2, 2t^3\right)
+        \]
+        
+        \paragraph{2. Модуль первой производной:}
+        \[
+        \|\gamma'(t)\| = \sqrt{t^2 + 4t^4 + 4t^6} = 2t^3 + t
+        \]
+        \paragraph{3. Вторая производная:}
+        \[
+        \gamma''(t) = \left(1, 4t, 6t^2\right)
+        \]
+        
+        \paragraph{4. Векторное произведение первой и второй производных:}
+        \[
+        \|\gamma' \times \gamma''\| = \left(4t^4, -4t^3, 2t^2\right)
+        \]
+        Модуль этого векторного произведения:
+        \[
+        \|\gamma' \times \gamma''\| = 2t^2 \sqrt{(2t^2 + 1)}
+        \]
+        
+        \paragraph{5. Третья производная:}
+        \[
+        \gamma'''(t) = \left(0, 4, 12t\right)
+        \]
+        
+        \paragraph{6. Векторное произведение второй и третьей производных:}
+        \[
+        \|\gamma'' \times \gamma'''\| = \left(24t^2, -12t, 4\right)
+        \]
+        Модуль этого векторного произведения:
+        \[
+        \|\gamma'' \times \gamma'''\| = 4\sqrt{36t^4 + 9t^2 + 1}
+        \]
+        Определитель трёх векторов:
+        \[
+        (\gamma', \gamma'', \gamma''') = 8t^3
+        \]
+        
+        \paragraph{7. Кривизна:}
+        \[
+        k(t) = \frac{\|\gamma' \times \gamma''\|}{\|\gamma'\|^3} = \frac{2}{t(2t^2 + 1)^2}
+        \]
+        
+        \paragraph{8. Кручение:}
+        \[
+        \Xi(t) = \frac{(\gamma', \gamma'', \gamma''')}{\|\gamma' \times \gamma''\|^2} = \frac{2}{36t^4 + 9t^2 + 1}
+        \]
+        
+        \paragraph{9. Длина дуги:}
+        \[
+        s(t) = \int_{0}^{t} \|\gamma'(\phi)\| d\phi = \int_{0}^{t} \left(2\phi^3 + \phi\right) d\phi
+        \]
+        Вычисляем интеграл:
+        \[
+        s(t) = \frac{t^4 + t^2}{2}
+        \]
+        
+        \paragraph{10. Особые значения:}
+        \[
+        t_{1,2} = \pm \frac{\sqrt{\sqrt{8s + 1} - 1}}{\sqrt{2}}, \quad t_{3,4} = \pm \frac{\sqrt{\sqrt{8s + 1} + 1}}{\sqrt{2}}
+        \]
+        \section*{Переход к параметризации через $s$}
+        Так как \(t \geq 0\), то из зависимости длины дуги \(s(t)\) находим \(t\) через \(s\):
+        \[
+        t = \frac{\sqrt{\sqrt{8s + 1} - 1}}{\sqrt{2}}
+        \]
+        \subsection*{Кривизна \(k(s)\):}
+        Кривизна \(k(s)\) выражается через параметризацию по \(s\) следующим образом:
+        \[
+        k(s) = \frac{2}{\left( \frac{\sqrt{\sqrt{8s + 1} - 1}}{\sqrt{2}} \right) \cdot \left( 2 \left( \frac{\sqrt{\sqrt{8s + 1} - 1}}{\sqrt{2}} \right)^2 + 1 \right)^2}
+        \]
+        Кручение \(\Xi(s)\) через параметризацию по \(s\) принимает вид:
+        \[
+        \Xi(s) = \frac{\left( \frac{\sqrt{\sqrt{8s + 1} - 1}}{\sqrt{2}} \right)^3}
+        {2 \left( 36 \left( \frac{\sqrt{\sqrt{8s + 1} - 1}}{\sqrt{2}} \right)^4 + 9 \left( \frac{\sqrt{\sqrt{8s + 1} - 1}}{\sqrt{2}} \right)^2 + 1 \right)}
+        \]
+
+        \subsection*{Условие задачи №3}
+        Задана кривая:
+        \[
+        \gamma(t) = \big(a \cdot \cosh(t), b \cdot \sinh(t), at\big), \quad a > 0
+        \]
+        \section*{Решение}
+        Для данной кривой необходимо найти кривизну \(k(t)\), кручение \(\Xi(t)\), а также выразить её через длину дуги \(s\).
+        
+        \paragraph{1. Первая производная:}
+        Вектор первой производной:
+        \[
+        \gamma'(t) = \big(a \sinh(t), b \cosh(t), a\big)
+        \]     
+        \paragraph{2. Вторая производная:}
+        \[
+        \gamma''(t) = \big(a \cosh(t), b \sinh(t), 0\big)
+        \]
+        Производные:
+        \begin{itemize}
+            \item - Производная от \(a \sinh(t)\) равна \(a \cosh(t)\),
+            \item - Производная от \(b \cosh(t)\) равна \(b \sinh(t)\),
+            \item - Производная от \(a\) равна \(0\), так как это константа.
+        \end{itemize}
+        
+        \paragraph{3. Третья производная:}
+        \[
+        \gamma'''(t) = \big(a \sinh(t), b \cosh(t), 0\big)
+        \]
+        Производные:
+        \begin{itemize}
+            \item - Производная от \(a \cosh(t)\) равна \(a \sinh(t)\),
+            \item - Производная от \(b \sinh(t)\) равна \(b \cosh(t)\),
+            \item - Производная от \(0\) равна \(0\).
+        \end{itemize}
+        
+        \paragraph{4. Кривизна:}
+        Кривизна выражается формулой:
+        \[
+        k(t) = \frac{a}{\cosh^2(t) \cdot (a^2 + b^2)}
+        \]  
+        \paragraph{5. Кручение:}
+        Кручение определяется как:
+        \[
+        \Xi(t) = \frac{b}{\cosh^2(t) \cdot (a^2 + b^2)}
+        \]
+    
+        \paragraph{6. Длина дуги:}
+        Формула длины дуги:
+        \[
+        s(t) = \int_{0}^{t} \sqrt{a^2 (\sinh^2(\phi) + 1) + b^2 \cosh^2(\phi)} d\phi
+        \]
+        Упрощая, используя свойства гиперболических функций (\(\sinh^2(x) + 1 = \cosh^2(x)\)):
+        \[
+        s(t) = \sqrt{a^2 + b^2} \sinh(t)
+        \]
+        
+        \paragraph{7. Выражение \(t\) через \(s\):}
+        Из найденного выражения для \(s(t)\), находим:
+        \[
+        t = \operatorname{arsinh}\left(\frac{s}{\sqrt{a^2 + b^2}}\right)
+        \]
+        
+        \paragraph{8. Выражение кривой через \(s\):}
+        Подставляем \(t = \operatorname{arsinh}\left(\frac{s}{\sqrt{a^2 + b^2}}\right)\) в кривую:
+        \[
+        \gamma = \left(\left(\operatorname{arsinh}\left(\frac{s}{\sqrt{a^2 + b^2}}\right)\right), b, a\right)
+        \]
+        
+        \paragraph{9. Свойства гиперболического косинуса:}
+        Используем свойства гиперболических функций:
+        \[
+        \cosh(\operatorname{arsinh}(x)) = \sqrt{1 + x^2}
+        \]
+        Подставляя:
+        \[
+        \cosh^2\left(\operatorname{arsinh}\left(\frac{s}{\sqrt{a^2 + b^2}}\right)\right) = 1 + \left(\frac{s}{\sqrt{a^2 + b^2}}\right)^2 = \frac{a^2 + b^2 + s^2}{a^2 + b^2}
+        \]
+        Кривизна через длину дуги:
+        \[
+        k(s) = \frac{a}{a^2 + b^2 + s^2}
+        \]
+        Кручение через длину дуги:
+        \[
+        \Xi(s) = \frac{b}{a^2 + b^2 + s^2}
+        \]
+        
+    
+\end{document}
