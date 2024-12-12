@@ -1,0 +1,128 @@
+\documentclass{article}
+
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc} 
+\usepackage[english,russian]{babel} 
+\usepackage{graphicx} 
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{cancel}
+\usepackage{amsfonts}
+\usepackage{titlesec}
+\usepackage{titling} 
+\usepackage{geometry}
+\usepackage{pgfplots}
+\usepackage{esint}
+\pgfplotsset{compat=1.9}
+\usepackage{amsthm}
+
+
+\titleformat{\section}
+{\normalfont\Large\bfseries}{\arabic{section}}{1em}{}
+\titleformat{\subsection}
+{\normalfont\large\bfseries}{}{1em}{}
+
+
+\setlength{\droptitle}{-3em} 
+\title{\vspace{-1cm}Домашняя работа №11 \\ по дисциплине "Дифференциальная геометрия и топология"}
+\author{Винницкая Дина Сергеевна}
+\date{Группа: Б9122-02.03.01сцт}
+
+\geometry{a4paper, margin=2cm}
+
+\begin{document}
+	
+	\maketitle
+
+
+        \subsection*{Условие задачи}
+         Вывести уравнение соприкасающейся окружности для произвольной параметризации.
+        
+        \section*{Решение}
+        Рассмотрим кривую, заданную параметрически:
+        \[
+        \gamma(t) = (x(t), y(t)),
+        \]
+        а также окружность с радиусом $R$, заданную в параметрическом виде:
+        \[
+        r(t) = (R \cos t, R \sin t).
+        \]
+        Чтобы найти уравнение соприкасающейся окружности, нужно определить её кривизну, радиус и вектор нормали.
+        
+        \subsection*{№1 Нахождение кривизны окружности}
+        Кривизна определяется как мера изгиба кривой в точке. Для параметрической кривой её значение вычисляется по формуле:
+        \[
+        k(t) = \frac{\| r'(t), r''(t) \|}{|r'(t)|^3}.
+        \]
+        Сначала найдем первую производную $r'(t)$ по параметру $t$:
+        \[
+        r(t) = (R \cos t, R \sin t),
+        \]
+        \[
+        r'(t) = \left(\frac{d}{dt}(R \cos t), \frac{d}{dt}(R \sin t)\right) = (-R \sin t, R \cos t).
+        \]
+        Теперь найдём вторую производную $r''(t)$:
+        \[
+        r''(t) = \left(\frac{d}{dt}(-R \sin t), \frac{d}{dt}(R \cos t)\right) = (-R \cos t, -R \sin t).
+        \]
+        Далее вычислим длины производных:
+        \[
+        |r'(t)| = \sqrt{(-R \sin t)^2 + (R \cos t)^2} = \sqrt{R^2 (\sin^2 t + \cos^2 t)} = R,
+        \]
+        \[
+        |[ r'(t), r''(t) |] = |R|^2.
+        \]
+        Подставляя значения в формулу кривизны:
+        \[
+        k(t) = \frac{|[ r'(t), r''(t) ]|}{|r'(t)|^3} = \frac{|R|^2}{R^3} = \frac{1}{R}.
+        \]
+        Таким образом, радиус окружности равен:
+        \[
+        R = \frac{1}{k(t)}.
+        \]
+        
+        \subsection*{№2 Нахождение вектора нормали}
+        Нормальный вектор направлен перпендикулярно касательной к кривой в точке. Для его нахождения нужно определить направление вектора производной и нормализовать его. Используем формулы для нормали:
+        \[
+        v(t) = 
+        \frac{\gamma'(t)}{|\gamma''(t)|}.
+    , \quad 
+        n(t) = \frac{v(t)}{|v(t)|}.
+        \]
+        Для кривой $\gamma(t)$ параметры $x(t)$ и $y(t)$ связаны производными. Формула кривизны также выражается как:
+        \[
+        k(t) = \frac{|\gamma', \gamma''|}{|\gamma'|^3}.
+        \]
+        И отсюда радиус определяется:
+        \[
+        R = \frac{1}{k(t)} = \frac{|\gamma'|^3}{|[\gamma', \gamma'']|}.
+        \]
+        Для двумерной кривой это упрощается до:
+        \[
+        R = \frac{(x'^2 + y'^2)^{\frac{3}{2}}}{|x'y'' - y'x''|}.
+        \]
+        
+        \subsection*{№3 Уравнение соприкасающейся окружности}
+        Соприкасающаяся окружность в каждой точке $\gamma(t)$ состоит из трёх компонентов:
+        \begin{itemize}
+            \item вектора положения кривой $\gamma(t)$;
+            \item отрицательного нормального вектора $n(t)$, умноженного на радиус $R$;
+            \item параметрической записи окружности радиуса $R$.
+        \end{itemize}
+        Формула окружности:
+        \[
+        R(t, \phi) = \gamma(t) - Rn(t) + r(\phi),
+        \]
+        где $r(\phi)$ — это параметрическое представление окружности:
+        \[
+        r(\phi) = (R \cos \phi, R \sin \phi).
+        \]
+        Подставляя выражение для радиуса и нормали, получаем итоговую формулу:
+        \[
+        R(t, \phi) = \gamma(t) - \frac{1}{k(t)} n(t) + \frac{1}{k(t)} (\cos \phi, \sin \phi).
+        \]
+
+       
+        
+    
+\end{document}
