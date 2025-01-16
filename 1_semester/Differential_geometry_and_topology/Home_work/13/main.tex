@@ -1,0 +1,138 @@
+\documentclass{article}
+
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc} 
+\usepackage[english,russian]{babel} 
+\usepackage{graphicx} 
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{cancel}
+\usepackage{amsfonts}
+\usepackage{titlesec}
+\usepackage{titling} 
+\usepackage{geometry}
+\usepackage{pgfplots}
+\usepackage{esint}
+\pgfplotsset{compat=1.9}
+\usepackage{amsthm}
+
+
+\titleformat{\section}
+{\normalfont\Large\bfseries}{\arabic{section}}{1em}{}
+\titleformat{\subsection}
+{\normalfont\large\bfseries}{}{1em}{}
+
+
+\setlength{\droptitle}{-3em} 
+\title{\vspace{-1cm}Домашняя работа №13 \\ по дисциплине "Дифференциальная геометрия и топология"}
+\author{Винницкая Дина Сергеевна}
+\date{Группа: Б9122-02.03.01сцт}
+
+\geometry{a4paper, margin=2cm}
+
+\begin{document}
+	
+	\maketitle
+
+
+        \subsection*{Условие задачи}
+        Вычислить коэффициент \(I\), где \(I\) — параметр, проверяющий свойства цилиндра.
+
+            
+        \section*{Решение}
+       \subsection*{Параметризация цилиндра}
+
+Цилиндр параметризуется следующим образом:
+\[
+\vec{R}(u, v) = \begin{pmatrix}
+R \cdot \cos u, \\
+R \cdot \sin u, \\
+v
+\end{pmatrix},
+\]
+где:
+\begin{itemize}
+    \item \(R\) — радиус цилиндра;
+    \item \(u\) — угол, задающий положение точки на окружности (основе цилиндра);
+    \item \(v\) — вертикальная координата вдоль оси цилиндра.
+\end{itemize}
+
+\subsection*{Частные производные параметризации}
+
+Рассчитаем частные производные параметризации по параметрам \(u\) и \(v\).
+
+\paragraph{Производная по \(u\):}
+\[
+\frac{\partial \vec{R}}{\partial u} = \begin{pmatrix}
+\frac{\partial}{\partial u}(R \cdot \cos u), \\
+\frac{\partial}{\partial u}(R \cdot \sin u), \\
+\frac{\partial}{\partial u}(v)
+\end{pmatrix}
+= \begin{pmatrix}
+-R \cdot \sin u, \\
+R \cdot \cos u, \\
+0
+\end{pmatrix}.
+\]
+
+\paragraph{Производная по \(v\):}
+\[
+\frac{\partial \vec{R}}{\partial v} = \begin{pmatrix}
+\frac{\partial}{\partial v}(R \cdot \cos u), \\
+\frac{\partial}{\partial v}(R \cdot \sin u), \\
+\frac{\partial}{\partial v}(v)
+\end{pmatrix}
+= \begin{pmatrix}
+0, \\
+0, \\
+1
+\end{pmatrix}.
+\]
+
+\subsection*{Коэффициенты метрики}
+
+С помощью частных производных определим коэффициенты первой фундаментальной формы.
+
+\paragraph{Коэффициент \(E\):}
+\[
+E = \left\|\frac{\partial \vec{R}}{\partial u}\right\|^2 = (-R \cdot \sin u)^2 + (R \cdot \cos u)^2 + 0^2.
+\]
+Учитывая тригонометрическую идентичность \(\sin^2 u + \cos^2 u = 1\), получаем:
+\[
+E = R^2 \cdot (\sin^2 u + \cos^2 u) = R^2.
+\]
+
+\paragraph{Коэффициент \(F\):}
+\[
+F = \frac{\partial \vec{R}}{\partial u} \cdot \frac{\partial \vec{R}}{\partial v} = 
+(-R \cdot \sin u) \cdot 0 + (R \cdot \cos u) \cdot 0 + 0 \cdot 1.
+\]
+Отсюда:
+\[
+F = 0.
+\]
+
+\paragraph{Коэффициент \(G\):}
+\[
+G = \left\|\frac{\partial \vec{R}}{\partial v}\right\|^2 = 0^2 + 0^2 + 1^2 = 1.
+\]
+
+\subsection*{Итоговый результат}
+
+Коэффициенты метрики цилиндра:
+\[
+E = R^2, \quad F = 0, \quad G = 1.
+\]
+
+Таким образом, параметризация цилиндра выражается в следующем виде:
+\[
+\vec{R}(u, v) = \begin{pmatrix}
+R \cdot \cos u, \\
+R \cdot \sin u, \\
+v
+\end{pmatrix},
+\]
+где коэффициенты \(E\), \(F\), \(G\) подтверждают корректность параметризации.
+                
+                
+\end{document}
