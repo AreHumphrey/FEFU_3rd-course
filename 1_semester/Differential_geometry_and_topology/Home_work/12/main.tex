@@ -1,0 +1,335 @@
+\documentclass{article}
+
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc} 
+\usepackage[english,russian]{babel} 
+\usepackage{graphicx} 
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{cancel}
+\usepackage{amsfonts}
+\usepackage{titlesec}
+\usepackage{titling} 
+\usepackage{geometry}
+\usepackage{pgfplots}
+\usepackage{esint}
+\pgfplotsset{compat=1.9}
+\usepackage{amsthm}
+
+
+\titleformat{\section}
+{\normalfont\Large\bfseries}{\arabic{section}}{1em}{}
+\titleformat{\subsection}
+{\normalfont\large\bfseries}{}{1em}{}
+
+
+\setlength{\droptitle}{-3em} 
+\title{\vspace{-1cm}Домашняя работа №12 \\ по дисциплине "Дифференциальная геометрия и топология"}
+\author{Винницкая Дина Сергеевна}
+\date{Группа: Б9122-02.03.01сцт}
+
+\geometry{a4paper, margin=2cm}
+
+\begin{document}
+	
+	\maketitle
+       
+
+        \subsection*{Условие задачи}
+        \begin{enumerate}
+            \item Где параметризация ленты мебиуса не регулярна
+            \item Найти кривизну и кручение её границы
+        \end{enumerate}
+        \section*{Решение}
+
+        \section*{Векторное произведение и Мебиусова лента}
+        Векторное произведение двух векторов $a$ и $b$ в трёхмерном пространстве определяется следующим образом:
+        \[
+        F_{VecDot}(a, b) = \begin{pmatrix}
+            a_y b_z - a_z b_y, \\
+            a_z b_x - a_x b_z, \\
+            a_x b_y - a_y b_x
+        \end{pmatrix}
+        \]
+        Здесь $a = (a_x, a_y, a_z)$ и $b = (b_x, b_y, b_z)$ представляют собой координаты векторов $a$ и $b$.
+        
+        \subsection*{Мебиусова лента и её граница}
+        Мебиусова лента определяется параметрически функцией $\mu(u, v)$, которая описывает её поверхность:
+        \[
+        \mu(u, v) = \left(
+        \left( 1 + \frac{v}{2} \cos{\frac{u}{2}} \right) \cos{u}, \\
+        \left( 1 + \frac{v}{2} \cos{\frac{u}{2}} \right) \sin{u}, \\
+        \frac{v}{2} \sin{\frac{u}{2}}
+        \right)
+        \]
+        Границы параметров определяют форму и размер ленты:
+        \[
+        \begin{aligned}
+            \mu(u, v): & \quad 0 \leq u \leq 2\pi, \quad -1 \leq v \leq 1, \\
+            \mu(u, 1): & \quad 0 \leq u \leq 4\pi.
+        \end{aligned}
+        \]
+        Параметр $u$ задаёт положение вдоль ленты, а $v$ описывает поперечное смещение относительно центральной линии.
+        
+        \subsection*{Частные производные ленты и их векторное произведение}
+        Частные производные параметризации $\mu(u, v)$ вычисляются по переменным $u$ и $v$:
+        \[
+        \mu_u = \frac{\partial}{\partial u} \mu(u, v), \quad
+        0 \leq u \leq 2\pi, \quad -1 \leq v \leq 1,
+        \]
+        \[
+        \mu_v = \frac{\partial}{\partial v} \mu(u, v), \quad
+        0 \leq u \leq 4\pi, \quad -1 \leq v \leq 1.
+        \]
+        Векторное произведение частных производных $\mu_u$ и $\mu_v$ даёт нормальный вектор к поверхности Мебиусовой ленты:
+        \[
+        F_{VecDot}(\mu_u, \mu_v), \quad -2\pi \leq u \leq 4\pi, \quad -1 \leq v \leq 1.
+        \]
+        
+        \subsection*{Производные от $\mu$}
+        Рассчитаем частную производную по параметру $u$:
+        \[
+        \frac{\partial}{\partial u} 
+        \begin{pmatrix}
+        \left( 1 + \frac{v}{2} \cos{\frac{u}{2}} \right) \cos{u}, \\
+        \left( 1 + \frac{v}{2} \cos{\frac{u}{2}} \right) \sin{u}, \\
+        \frac{v}{2} \sin{\frac{u}{2}}
+        \end{pmatrix}.
+        \]
+        Развёрнутое выражение частной производной по $u$ имеет вид:
+        \[
+        \mu_u = \begin{pmatrix}
+            -\frac{v}{4} \sin{\frac{u}{2}} \cos{u} - \left(1 + \frac{v}{2} \cos{\frac{u}{2}}\right) \sin{u}, \\
+            -\frac{v}{4} \sin{\frac{u}{2}} \sin{u} + \left(1 + \frac{v}{2} \cos{\frac{u}{2}}\right) \cos{u}, \\
+            \frac{v}{4} \cos{\frac{u}{2}}.
+        \end{pmatrix}
+        \]
+        Для параметра $v$ производная выглядит следующим образом:
+        \[
+        \mu_v = \frac{\partial}{\partial v} 
+        \begin{pmatrix}
+        \left( 1 + \frac{v}{2} \cos{\frac{u}{2}} \right) \cos{u}, \\
+        \left( 1 + \frac{v}{2} \cos{\frac{u}{2}} \right) \sin{u}, \\
+        \frac{v}{2} \sin{\frac{u}{2}}
+        \end{pmatrix}.
+        \]
+        Результат:
+        \[
+        \mu_v = \begin{pmatrix}
+            \frac{1}{2} \cos{\frac{u}{2}} \cos{u}, \\
+            \frac{1}{2} \cos{\frac{u}{2}} \sin{u}, \\
+            \frac{1}{2} \sin{\frac{u}{2}}.
+        \end{pmatrix}
+        \]
+        Наконец, векторное произведение $\mu_u$ и $\mu_v$ вычисляется по формуле:
+        \[
+        [\mu_u, \mu_v] = \begin{pmatrix}
+            \mu_{u2} \mu_{v3} - \mu_{u3} \mu_{v2}, \\
+            \mu_{u3} \mu_{v1} - \mu_{u1} \mu_{v3}, \\
+            \mu_{u1} \mu_{v2} - \mu_{u2} \mu_{v1}.
+        \end{pmatrix}
+        \]
+        
+                
+                \subsection*{Примерные вычисления}
+        
+        В данном разделе приведены вычисления компонентов векторов $A$ и $B$, их суммы, а также модуль вектора $B$. \\ \\Кроме того, проводится проверка регулярности и рассчитываются кривизна и торсия для заданной параметризации.
+        
+        Компоненты вектора $A$:
+        \[
+        A.x = -\frac{v}{8} \sin{u}
+        \]
+        Компонента $x$ вектора $A$ вычисляется как результат производной параметрической функции $\mu(u, v)$ по переменной $u$, включающей поперечные и продольные слагаемые.\\ \\ Здесь $v$ определяет поперечное смещение, а $\sin{u}$ отвечает за изменение компоненты $x$ по основному направлению $u$.
+        
+        \[
+        A.y = -\frac{v}{8} \cos{u}
+        \]\\ \\
+        Компонента $y$ аналогично зависит от $\cos{u}$, который контролирует изменение по направлению $y$ при фиксированном $v$.
+        
+        \[
+        A.z = 0
+        \]
+        
+        Значение $A.z$ равно нулю, так как параметризация не включает компоненту по $z$ для производной $\mu_u$ в этом направлении.\\ \\
+        Итоговый вид вектора $A$:
+        \[
+        A = \begin{pmatrix}
+        -\frac{v}{8} \sin{u}, \\
+        -\frac{v}{8} \cos{u}, \\
+        0
+        \end{pmatrix}
+        \]
+        
+        \subsection*{Компоненты $B$}
+        Для вектора $B$ вычисляем компоненты, учитывая производные параметризации $\mu$ по $v$.
+        
+        \[
+        B.x = \left( \left( 1 + \frac{v}{2} \cos{\frac{u}{2}} \right) \cos{u} \right) 
+        \left( \frac{1}{2} \sin{\frac{u}{2}} \right) - 0 = 
+        \left( \left( 1 + \frac{v}{2} \cos{\frac{u}{2}} \right) \cos{u} \right) 
+        \left( \frac{1}{2} \sin{\frac{u}{2}} \right)
+        \]
+        Здесь $B.x$ представляет собой произведение двух слагаемых: первого, описывающего основной вклад параметра $u$, и второго, включающего производную по $v$.
+        
+        \[
+        B.y = 0 - \left( \left( 1 + \frac{v}{2} \cos{\frac{u}{2}} \right) \sin{u} \right) 
+        \left( \frac{1}{2} \sin{\frac{u}{2}} \right) = 
+        -\left( \left( 1 + \frac{v}{2} \cos{\frac{u}{2}} \right) \sin{u} \right) 
+        \left( \frac{1}{2} \sin{\frac{u}{2}} \right)
+        \]
+        Компонента $B.y$ включает аналогичное произведение, но с отрицательным знаком, определяемым направлением производной.
+        
+        \[
+        B.z = -\left( \left( 1 + \frac{v}{2} \cos{\frac{u}{2}} \right) \cos{u} \right) 
+        \left( \frac{1}{2} \cos{\frac{u}{2}} \sin{u} \right) - 
+        \left( \left( 1 + \frac{v}{2} \cos{\frac{u}{2}} \right) \cos{u} \right) 
+        \left( \frac{1}{2} \cos{\frac{u}{2}} \cos{u} \right)
+        \]
+        
+        \[
+        = -\left( 1 + \frac{v}{2} \cos{\frac{u}{2}} \right) 
+        \left( \frac{1}{2} \left[ (\sin{u})(\sin{u}) + (\cos{u})(\cos{u}) \right] \right) = 
+        -\left( 1 + \frac{v}{2} \cos{\frac{u}{2}} \right) 
+        \left( \frac{1}{2} \cos{\frac{u}{2}} \right)
+        \]
+        Итоговый вектор $B$ имеет вид:
+        \[
+        B = [\mu_{u2}, \mu_v] = \begin{pmatrix}
+        \left( 1 + \frac{v}{2} \cos{\frac{u}{2}} \right) \left( \frac{1}{2} \sin{\frac{u}{2}} \right), \\
+        \left( 1 + \frac{v}{2} \cos{\frac{u}{2}} \right) \sin{u}, \\
+        -\left( 1 + \frac{v}{2} \cos{\frac{u}{2}} \right) \left( \frac{1}{2} \cos{\frac{u}{2}} \right)
+        \end{pmatrix}
+        \]
+        
+        \subsection*{Сумма $A_m + B_m$}
+        
+        \[
+        A_m = \begin{pmatrix}
+        -\frac{v}{8} \sin{u}, \\
+        -\frac{v}{8} \cos{u}, \\
+        0
+        \end{pmatrix}, \quad 0 \leq u \leq 4\pi, \quad -1 \leq v \leq 1
+        \]
+        
+        \[
+        B_m = \begin{pmatrix}
+        \left( 1 + \frac{v}{2} \cos{\frac{u}{2}} \right) \left( \frac{1}{2} \sin{\frac{u}{2}} \right), \\
+        \left( 1 + \frac{v}{2} \cos{\frac{u}{2}} \right) \sin{u}, \\
+        -\left( 1 + \frac{v}{2} \cos{\frac{u}{2}} \right) \left( \frac{1}{2} \cos{\frac{u}{2}} \right)
+        \end{pmatrix}
+        \]
+        
+        Сумма векторов:
+        \[
+        A_m + B_m, \quad 0 \leq u \leq 4\pi, \quad -1 \leq v \leq 1
+        \]
+        
+        \subsection*{Модуль вектора $B$}
+        
+        \[
+        |B| = \sqrt{
+        \left( \left( 1 + \frac{v}{2} \cos{\frac{u}{2}} \right) \cos{u} 
+        \left( \frac{1}{2} \sin{\frac{u}{2}} \right) \right)^2 + 
+        \left( \left( 1 + \frac{v}{2} \cos{\frac{u}{2}} \right) \sin{u} 
+        \left( \frac{1}{2} \sin{\frac{u}{2}} \right) \right)^2 + 
+        \left( \left( 1 + \frac{v}{2} \cos{\frac{u}{2}} \right) 
+        \left( \frac{1}{2} \cos{\frac{u}{2}} \right) \right)^2
+        }
+        \]
+        
+        \[
+        = \sqrt{
+        \left( 1 + \frac{v}{2} \cos{\frac{u}{2}} \right)^2 
+        \left( \frac{1}{4} \left( \cos^2{u} + \sin^2{u} \right) \right)
+        } = \sqrt{
+        \frac{1}{4} \left( 1 + \frac{v}{2} \cos{\frac{u}{2}} \right)^2
+        }
+        \]
+        
+        \[
+        = \frac{1}{2} \left| 1 + \frac{v}{2} \cos{\frac{u}{2}} \right|
+        \]
+        
+        \subsection*{Проверка на регулярность}
+        Проверяем условие регулярности. Если модуль вектора $B$ зануляется:
+        \[
+        \frac{1}{2} \left| 1 + \frac{v}{2} \cos{\frac{u}{2}} \right| = 0 \implies 
+        \frac{v}{2} \cos{\frac{u}{2}} = -1 \implies 
+        v = -\frac{2}{\cos{\frac{u}{2}}}
+        \]
+        Однако при таких условиях параметризация остаётся регулярной, так как условие зануления не выполняется на всей области $[0, 4\pi] \times [-1, 1]$.\\
+        Таким образом, лента Мебиуса регулярна везде.
+        
+        \subsection*{Кривизна и торсия}
+        Формулы для кривизны $k(t)$ и торсии $\tau(t)$:
+        \[
+        k(t) = \frac{\| \gamma'(t) \times \gamma''(t) \|}{\| \gamma'(t) \|^3}, \quad 
+        \tau(t) = \frac{\left[ \gamma'(t) \times \gamma''(t) \right] \cdot \gamma'''(t)}{\| \gamma'(t) \times \gamma''(t) \|^2}
+        \]
+        Где $\gamma(t)$, $\gamma'(t)$, $\gamma''(t)$ и $\gamma'''(t)$ — параметризация и её производные по параметру $t$.
+        
+        \subsection*{Параметризация и производные}
+        Параметризация $\gamma(t)$ и её производные:
+        \[
+        \gamma(t) = \begin{pmatrix}
+        \cos{t} + \frac{1}{4} \cos{\frac{t}{2}}, \\
+        \sin{t} + \frac{1}{4} \sin{\frac{t}{2}}, \\
+        \frac{1}{4} \sin{\frac{3t}{2}}
+        \end{pmatrix}
+        \]
+        
+        \[
+        \gamma'(t) = \begin{pmatrix}
+        -\sin{t} - \frac{1}{8} \sin{\frac{t}{2}}, \\
+        \cos{t} + \frac{1}{8} \cos{\frac{t}{2}}, \\
+        \frac{3}{8} \cos{\frac{3t}{2}}
+        \end{pmatrix}
+        \]
+        
+        \[
+        \gamma''(t) = \begin{pmatrix}
+        -\cos{t} - \frac{1}{16} \cos{\frac{t}{2}}, \\
+        -\sin{t} - \frac{1}{16} \sin{\frac{t}{2}}, \\
+        -\frac{9}{16} \sin{\frac{3t}{2}}
+        \end{pmatrix}
+        \]
+        
+        \[
+        \gamma'''(t) = \begin{pmatrix}
+        \sin{t} + \frac{1}{32} \sin{\frac{t}{2}}, \\
+        \cos{t} + \frac{27}{32} \cos{\frac{3t}{2}}, \\
+        -\frac{9}{16} \cos{\frac{3t}{2}}
+        \end{pmatrix}
+        \]
+        
+        \subsection*{Векторное произведение}
+        Векторное произведение $A = [\gamma'(t), \gamma''(t)]$ вычисляется как:
+        \[
+        A_x = \left(-\sin{t} - \frac{1}{8} \sin{\frac{t}{2}}\right)
+        \left(-\frac{9}{16} \sin{\frac{3t}{2}}\right) - 
+        \left(\frac{3}{8} \cos{\frac{3t}{2}}\right)
+        \left(-\sin{t} - \frac{1}{16} \sin{\frac{t}{2}}\right)
+        \]
+        
+        \[
+        A_y = \cdots
+        \]
+        
+        \subsection*{Итоговые выражения}
+        Кривизна и торсия:
+        \[
+        k(t) = \frac{|A_x, A_y, A_z|}{|\gamma'(t)|^3}, \quad \tau(t) = \frac{[A_x, A_y, A_z] \cdot \gamma'''(t)}{|[A_x, A_y, A_z]|^2}
+        \]
+        
+        \[
+        y = k(x), \quad y = \tau(x)
+        \]
+        
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=0.5\textwidth]{dif_top_12.png}
+            \caption{График}
+            \label{fig:my_label}
+        \end{figure}
+        
+\end{document}
