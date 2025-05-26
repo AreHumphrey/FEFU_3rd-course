@@ -202,3 +202,57 @@ def print_predictions_bow(model, X_test, y_test, model_name):
             print(f"  Наиболее вероятные варианты: {', '.join(top_words)}\n")
 
 print_predictions_bow(bow, X_test_bow, y_test_bow, "BoW")
+
+
+def train_model(model, batches, epochs=100):
+    loss_fn = nn.CrossEntropyLoss()
+    optimizer = optim.Adam(model.parameters(), lr=0.01)
+    loss_history = []
+
+    for epoch in range(epochs):
+        model.train()
+        total_loss = 0
+        for batch in batches:
+            x_batch = torch.stack([x for x, _ in batch])
+            y_batch = torch.tensor([y for _, y in batch])
+            optimizer.zero_grad()
+            outputs = model(x_batch)
+            loss = loss_fn(outputs, y_batch)
+            loss.backward()
+            optimizer.step()
+            total_loss += loss.item()
+        loss_history.append(total_loss)
+        if epoch % 20 == 0:
+            print(f"Epoch {epoch}: Loss = {total_loss:.4f}")
+    return loss_history
+
+import matplotlib.pyplot as plt
+
+losses = {}
+
+print("\n--- RNN Training ---")
+rnn = RNNModel(vocab_size, embedding_dim, hidden_dim)
+losses["RNN"] = train_model(rnn, batchify(X_train, y_train), 100)
+
+print("\n--- GRU Training ---")
+gru = GRUModel(vocab_size, embedding_dim, hidden_dim)
+losses["GRU"] = train_model(gru, batchify(X_train, y_train), 100)
+
+print("\n--- LSTM Training ---")
+lstm = LSTMModel(vocab_size, embedding_dim, hidden_dim)
+losses["LSTM"] = train_model(lstm, batchify(X_train, y_train), 100)
+
+print("\n--- BoW Training ---")
+bow = BoWModel(vocab_size, hidden_dim)
+losses["BoW"] = train_model(bow, batchify(X_train_bow, y_train_bow), 100)
+
+plt.figure(figsize=(10, 6))
+for name, loss_vals in losses.items():
+    plt.plot(loss_vals, label=name)
+plt.title("График потерь по эпохам")
+plt.xlabel("Эпоха")
+plt.ylabel("Суммарная потеря")
+plt.legend()
+plt.grid(True)
+plt.tight_layout()
+plt.show()
