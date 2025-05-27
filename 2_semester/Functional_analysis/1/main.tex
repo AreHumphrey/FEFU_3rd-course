@@ -1,0 +1,79 @@
+\documentclass{article}
+
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc} 
+\usepackage[english,russian]{babel} 
+\usepackage{graphicx} 
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{cancel}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{titlesec}
+\usepackage{titling} 
+\usepackage{geometry}
+\usepackage{pgfplots}
+\usepackage{esint}
+\pgfplotsset{compat=1.9}
+\usepackage{amsthm}
+\usepackage{array} 
+\usepackage{longtable}
+\usepackage{booktabs} 
+\usepackage{xcolor}
+
+
+\titleformat{\section}
+{\normalfont\Huge\bfseries}{\arabic{section}}{1em}{}
+\titleformat{\subsection}
+{\normalfont\Large\bfseries}{}{1em}{}
+
+\setlength{\droptitle}{-3em} 
+\title{\textbf{ИДЗ №1 \\ по дисциплине "Функциональный анализ"}}
+\author{Винницкая Дина Сергеевна}
+\date{Группа: Б9122-02.03.01сцт}
+
+\geometry{a4paper, margin=2cm}
+
+\usepackage{setspace}
+\onehalfspacing  
+
+\renewcommand{\baselinestretch}{1.6} 
+
+\begin{document}
+	
+	\maketitle
+
+\subsection{Задание 1.20. (д)} Построить шары $B[0, 1]$ в пространстве $\mathbb{R}^3$, если для $x = (\xi_1, \xi_2, \xi_3) \in \mathbb{R}^3$ нормы определены следующим образом:
+ $$\|x\| = \sqrt{4\xi_1^2 + \dfrac{1}{9}\xi_2^2 + \xi_3^2}.$$
+
+
+\subsection{Решение}
+
+Пусть \( x = (\xi_1, \xi_2, \xi_3) \in \mathbb{R}^3 \). Тогда шар \( B[0,1] \) при норме из задания определяется как множество всех \( x \), для которых выполняется неравенство:
+
+\[
+\|x\| = \sqrt{4|\xi_1|^2 + \frac{1}{9}|\xi_2|^2 + |\xi_3|^2}
+\]
+то есть:
+
+\[
+\sqrt{4\xi_1^2 + \frac{1}{9}\xi_2^2 + \xi_3^2} \leq 1.
+\]
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{fu_1.png}
+    
+    \textit{Рисунок: График эллипсоида $\sqrt{4x^2 + \frac{1}{9}y^2 + z^2} \leq 1$}
+\end{center}
+Это множество представляет собой эллипсоид, сжатый по оси $\xi_1$ (в 2 раза), растянутый по оси $\xi_2$ (в 3 раза), и со стандартной масштабировкой по $\xi_3$.
+
+
+
+
+
+
+
+\end{document}
+
+
+
+\end{document}
