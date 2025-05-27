@@ -1,0 +1,111 @@
+\documentclass{article}
+
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc} 
+\usepackage[english,russian]{babel} 
+\usepackage{graphicx} 
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{cancel}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{titlesec}
+\usepackage{titling} 
+\usepackage{geometry}
+\usepackage{pgfplots}
+\usepackage{esint}
+\pgfplotsset{compat=1.9}
+\usepackage{amsthm}
+\usepackage{array} 
+\usepackage{longtable}
+\usepackage{booktabs} 
+\usepackage{xcolor}
+
+
+\titleformat{\section}
+{\normalfont\Huge\bfseries}{\arabic{section}}{1em}{}
+\titleformat{\subsection}
+{\normalfont\Large\bfseries}{}{1em}{}
+
+\setlength{\droptitle}{-3em} 
+\title{\textbf{ИДЗ №2}}
+\author{Винницкая Дина Сергеевна}
+\date{Группа: Б9122-02.03.01сцт}
+
+\geometry{a4paper, margin=2cm}
+
+\usepackage{setspace}
+\onehalfspacing  
+
+\renewcommand{\baselinestretch}{1.6} 
+
+\begin{document}
+	
+	\maketitle
+
+\subsection{Задание 5.16. (б)}
+ Пусть $A: \ell_p \to \ell_p$, 
+\[
+Ax = \left\{ \sum_{j=1}^{\infty} a_{kj} \xi_j \right\}_{k=1}^{\infty}
+\]
+Тогда $A$ — сжимающее отображение в пространстве $\ell_p$, если
+    \[
+    \sup_{k \in \mathbb{N}} \sum_{j=1}^{\infty} |a_{kj}| < 1 \quad \text{при } p = \infty;
+    \]
+
+\subsection{Решение}
+
+Пусть $x = (\xi_j) \in \ell_\infty$. Это означает, что существует константа $M$, такая что для всех $j \in \mathbb{N}$ выполнено $|\xi_j| \leq M$. Другими словами, последовательность $x$ ограничена по модулю, и её супремум конечен:
+\[
+\|x\|_\infty = \sup_j |\xi_j| < \infty
+\]
+
+Теперь рассмотрим, как действует оператор $A$ на такой вектор $x$. Его $k$-ая координата равна:
+\[
+(Ax)_k = \sum_{j=1}^\infty a_{kj} \xi_j
+\]
+
+Нас интересует, насколько может быть большим модуль этой суммы. Применим неравенство треугольника:
+\[
+|(Ax)_k| = \left| \sum_{j=1}^\infty a_{kj} \xi_j \right| \leq \sum_{j=1}^\infty |a_{kj}| \cdot |\xi_j|
+\]
+
+Так как $|\xi_j| \leq \|x\|_\infty$ для всех $j$, то:
+\[
+|(Ax)_k| \leq \left( \sum_{j=1}^\infty |a_{kj}| \right) \cdot \|x\|_\infty.
+\]
+
+Теперь найдём норму всего вектора $Ax$:
+\[
+\|Ax\|_\infty = \sup_k |(Ax)_k| \leq \sup_k \left( \sum_{j=1}^\infty |a_{kj}| \cdot \|x\|_\infty \right)
+\]
+
+Вынесем константу за скобки:
+\[
+\|Ax\|_\infty \leq \left( \sup_k \sum_{j=1}^\infty |a_{kj}| \right) \cdot \|x\|_\infty
+\]
+
+Обозначим:
+\[
+\alpha := \sup_k \sum_{j=1}^\infty |a_{kj}|
+\]
+
+Таким образом, мы получили:
+\[
+\|Ax\|_\infty \leq \alpha \cdot \|x\|_\infty.
+\]
+
+Теперь рассмотрим случай, когда $\alpha < 1$. В этом случае:
+\[
+\|Ax\|_\infty < \|x\|_\infty
+\]
+что и означает, что $A$ является \textit{сжимающим оператором} в пространстве $\ell_\infty$.
+
+$$\qed$$
+
+
+\end{document}
+
+
+
+\end{document}
