@@ -1,0 +1,78 @@
+\documentclass{article}
+
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc} 
+\usepackage[english,russian]{babel} 
+\usepackage{graphicx} 
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{cancel}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{titlesec}
+\usepackage{titling} 
+\usepackage{geometry}
+\usepackage{pgfplots}
+\usepackage{esint}
+\pgfplotsset{compat=1.9}
+\usepackage{amsthm}
+\usepackage{array} 
+\usepackage{longtable}
+\usepackage{booktabs} 
+\usepackage{xcolor}
+
+
+\titleformat{\section}
+{\normalfont\Huge\bfseries}{\arabic{section}}{1em}{}
+\titleformat{\subsection}
+{\normalfont\Large\bfseries}{}{1em}{}
+
+\setlength{\droptitle}{-3em} 
+\title{\vspace{-1cm}ИДЗ №3 \\ по дисциплине "Функциональный анализ"}
+\author{Винницкая Дина Сергеевна}
+\date{Группа: Б9122-02.03.01сцт}
+
+\geometry{a4paper, margin=2cm}
+
+\usepackage{setspace}
+\onehalfspacing  
+
+\renewcommand{\baselinestretch}{1.6} 
+
+\begin{document}
+	
+	\maketitle
+
+\subsection{Задание 10.8. (a)}
+$$f(x) = \int_0^1 \sqrt{t} \cdot x(t^2)\, dt,$$
+ $$X = \left[ 0,1 \right];$$
+
+
+\subsection{Решение}
+
+Рассмотрим функционал
+\[
+f(x) = \int_0^1 \sqrt{t} \cdot x(t^2)\, dt,
+\]
+заданный на пространстве $C[0,1]$ — пространстве непрерывных функций на отрезке $[0,1]$ с нормой супремума $\|x\|_\infty = \sup_{t \in [0,1]} |x(t)|$.\\\\
+Функция $x(t^2)$ определена корректно, поскольку при $t \in [0,1]$ имеем $t^2 \in [0,1]$, а значит аргумент функции $x$ лежит в области определения.\\ \\
+Композиция непрерывной функции $x(t)$ с непрерывной функцией $t^2$ остаётся непрерывной, поэтому $x(t^2)$ — непрерывна на $[0,1]$. Функция $\sqrt{t}$ также непрерывна на $[0,1]$, включая $t = 0$.\\ \\ Следовательно, произведение $\sqrt{t} \cdot x(t^2)$ — непрерывная функция на $[0,1]$, а значит интеграл определён как обычный определённый интеграл Римана.\\ \\
+Покажем теперь, что функционал $f$ линеен и непрерывен. Линейность очевидна, так как оператор интегрирования и умножение на фиксированную функцию сохраняют линейность.\\ \\ Проверим ограниченность функционала. По модулю:
+\[
+|f(x)| = \left| \int_0^1 \sqrt{t} \cdot x(t^2) \, dt \right| \leq \int_0^1 \sqrt{t} \cdot |x(t^2)| \, dt.
+\]
+Так как $x \in C[0,1]$, то $|x(t^2)| \leq \|x\|_\infty$ для всех $t \in [0,1]$. \\ \\ Получаем:
+\[
+|f(x)| \leq \|x\|_\infty \cdot \int_0^1 \sqrt{t} \, dt = \|x\|_\infty \cdot \left[\frac{2}{3}t^{3/2}\right]_0^1 = \frac{2}{3} \|x\|_\infty.
+\]
+\[
+\|f\| = \frac{2}{3}
+\]
+
+
+
+\end{document}
+
+
+
+\end{document}
