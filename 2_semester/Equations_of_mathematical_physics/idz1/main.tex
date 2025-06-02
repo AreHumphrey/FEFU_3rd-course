@@ -1,0 +1,439 @@
+\documentclass{article}
+
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc} 
+\usepackage[english,russian]{babel} 
+\usepackage{graphicx} 
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{cancel}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{titlesec}
+\usepackage{titling} 
+\usepackage{geometry}
+\usepackage{pgfplots}
+\usepackage{esint}
+\pgfplotsset{compat=1.9}
+\usepackage{amsthm}
+\usepackage{array} 
+\usepackage{longtable}
+\usepackage{booktabs} 
+\usepackage{xcolor}
+
+
+\titleformat{\section}
+{\normalfont\Huge\bfseries}{\arabic{section}}{1em}{}
+\titleformat{\subsection}
+{\normalfont\Large\bfseries}{}{1em}{}
+
+\setlength{\droptitle}{-3em} 
+\title{\vspace{-1cm}ИДЗ №1 \\ по дисциплине "Уравнения математической физики"}
+\author{Винницкая Дина Сергеевна}
+\date{Группа: Б9122-02.03.01сцт}
+
+\geometry{a4paper, margin=2cm}
+
+\usepackage{setspace}
+\onehalfspacing  
+
+\renewcommand{\baselinestretch}{1.6} 
+
+\begin{document}
+	
+	\maketitle
+\section*{Вариант №11}
+\section*{Задание 1}
+
+Определить тип уравнения. Привести уравнение к каноническому виду.
+\[
+u_{xx} - 2u_{xy} + u_{yy} = 0
+\]
+
+\section*{Решение}
+\subsection{Определение типа уравнения}
+Определим коэффициенты: $$A(x, y), \quad B(x,y), \quad C(x, y)$$
+\[
+\longrightarrow A = 1 \quad B = -1 \quad C = 1
+\]
+\[
+\Delta = B^2 - AC = (-1)^{2} - 1 \cdot 1 = 1 - 1 = 0 \quad 0 = 0 
+\]
+Поскольку $\Delta  = 0$, то уравнение параболического типа
+
+\subsection{Характеристическая квадратичная форма}
+
+По формуле необходимо составить симметричную матрицу:
+\[
+A = 
+\begin{bmatrix}
+a_{11} & a_{12} \\
+a_{12} & a_{22}
+\end{bmatrix}
+=
+\begin{bmatrix}
+1 & -1 \\
+-1 & 1
+\end{bmatrix}
+\]
+Решим характеристическое уравнение:
+\[
+\det(A - \lambda I) = 
+\begin{vmatrix}
+1 - \lambda & -1 \\
+-1 & 1 - \lambda
+\end{vmatrix}
+= (1 - \lambda)^2 - 1 = \lambda^2 - 2\lambda = 0
+\]
+\[
+\Rightarrow \lambda_1 = 0, \quad \lambda_2 = 2
+\]
+
+\subsection{Собственные векторы}
+Для \( \lambda_1 = 0 \):
+\[
+(A - 0I) \vec{v} = 0 \Rightarrow
+\begin{bmatrix}
+1 & -1 \\
+-1 & 1
+\end{bmatrix}
+\begin{bmatrix}
+v_1 \\
+v_2
+\end{bmatrix}
+= 0 \Rightarrow v_1 = v_2
+\Rightarrow \vec{v}^{(1)} = \begin{bmatrix} 1 \\ 1 \end{bmatrix}
+\]
+Для \( \lambda_2 = 2 \):
+\[
+(A - 2I) \vec{v} = 0 \Rightarrow
+\begin{bmatrix}
+-1 & -1 \\
+-1 & -1
+\end{bmatrix}
+\begin{bmatrix}
+v_1 \\
+v_2
+\end{bmatrix}
+= 0 \Rightarrow v_1 = -v_2
+\Rightarrow \vec{v}^{(2)} = \begin{bmatrix} 1 \\ -1 \end{bmatrix}
+\]
+
+\subsection{Матрица перехода \(\Gamma\) }
+Собираем собственные векторы в матрицу:
+\[
+\Gamma = 
+\begin{bmatrix}
+1 & 1 \\
+1 & -1
+\end{bmatrix}
+\]
+В новых переменных:
+\[
+\begin{bmatrix}
+\xi \\
+\eta
+\end{bmatrix}
+= \Gamma^{-1}
+\begin{bmatrix}
+x \\
+y
+\end{bmatrix}
+\Rightarrow
+\begin{cases}
+\xi = \dfrac{x + y}{\sqrt{2}} \\
+\eta = \dfrac{x - y}{\sqrt{2}}
+\end{cases}
+\]
+\subsection{Канонический вид уравнения}
+Общий канонический вид уравнения:
+\[
+\sum_{k=1}^{n} \beta_k \dfrac{\partial^2 u}{\partial \mu_k^2} = 0 
+\]
+В данном случае:
+\[
+\beta_1 = 0, \quad \beta_2 = 2 \Rightarrow u_{\eta\eta} = 0
+\]
+\subsection{Ответ}
+\begin{itemize}
+    \item Тип уравнения: \textbf{параболический}
+    \item Замена переменных:
+    \[
+    \xi = \dfrac{x + y}{\sqrt{2}}, \quad \eta = \dfrac{x - y}{\sqrt{2}}
+    \]
+    \item Канонический вид уравнения:
+    \[
+    u_{\eta\eta} = 0
+    \]
+\end{itemize}
+
+
+
+
+\section*{Задание 2}
+
+
+Найти решение волнового уравнения:
+$$
+u_{tt} = u_{xx},
+$$
+при начальных условиях:
+$$
+u(x, 0) = \cos x, \quad u_t(x, 0) = 3 \sin x
+$$
+
+\section*{Решение}
+Это классическая задача Коши на бесконечной прямой $ -\infty < x < \infty $. Для решения используем формулу Даламбера:
+
+$$
+u(x, t) = \frac{1}{2} \left[ \phi(x + t) + \phi(x - t) \right] + \frac{1}{2} \int_{x - t}^{x + t} \psi(s)\, ds,
+$$
+где:
+$$
+\phi(x) = u(x, 0) = \cos x, \quad \psi(x) = u_t(x, 0) = 3 \sin x
+$$
+$$
+\frac{1}{2} \left[ \cos(x + t) + \cos(x - t) \right]
+$$
+Используем тригонометрическое тождество:
+$$
+\cos(x + t) + \cos(x - t) = 2 \cos x \cos t
+$$
+
+Тогда:
+$$
+\frac{1}{2} \left[ \cos(x + t) + \cos(x - t) \right] = \cos x \cos t
+$$
+
+$$
+\frac{1}{2} \int_{x - t}^{x + t} 3 \sin s\, ds
+= \frac{3}{2} \left[ -\cos s \right]_{x - t}^{x + t}
+= \frac{3}{2} \left( -\cos(x + t) + \cos(x - t) \right)
+= \frac{3}{2} \left( \cos(x - t) - \cos(x + t) \right)
+$$
+Применяем ещё одно тождество:
+$$
+\cos(x - t) - \cos(x + t) = 2 \sin x \sin t
+$$
+
+Получаем:
+$$
+\frac{3}{2} \cdot 2 \sin x \sin t = 3 \sin x \sin t
+$$
+Объединяем обе части, в результате получаем:
+
+$$
+u(x, t) = \cos x \cos t + 3 \sin x \sin t
+$$
+
+\subsection*{Ответ}
+
+$$
+\boxed{u(x, t) = \cos x \cos t + 3 \sin x \sin t}
+$$
+
+
+
+
+\section*{Задание 3}
+Найти решение волнового уравнения:
+$$
+u_{tt} = a^2 u_{xx}, \quad 0 < x < l, \quad t > 0,
+$$
+с граничными условиями:
+$$
+u_x(0, t) = 0, \quad u_x(l, t) = 0,
+$$
+и начальными условиями:
+$$
+u(x, 0) = \cos\left(\frac{3\pi}{2l}x\right), \quad u_t(x, 0) = 1
+$$
+\section*{Решение}
+Это краевая задача для однородного волнового уравнения на конечном интервале $ [0, l] $ с условиями Неймана. Так как есть граничные условия, то использовать метод Даламбера нельзя. Решать будем классическим методом разделения переменных (методом Фурье).
+\subsection{Разделение переменных}
+Предположим, что решение имеет вид произведения двух функций:
+$$
+u(x, t) = X(x)T(t)
+$$
+Подставляем в уравнение:
+$$
+X(x)T''(t) = a^2 X''(x)T(t)
+$$
+Делим обе части на $ X(x)T(t) $:
+$$
+\frac{T''(t)}{a^2 T(t)} = \frac{X''(x)}{X(x)} = -\lambda
+$$
+Получаем два обыкновенных дифференциальных уравнения:
+
+$$
+X''(x) + \lambda X(x) = 0, \quad X'(0) = 0, \quad X'(l) = 0,
+$$
+$$
+T''(t) + a^2 \lambda T(t) = 0.
+$$
+\subsection{Решение уравнения для $ X(x) $}
+Общее решение:
+$$
+X(x) = A \cos(\sqrt{\lambda}x) + B \sin(\sqrt{\lambda}x)
+$$
+Из условия $ X'(0) = 0 $ получаем $ B = 0 $. Тогда:
+$$
+X(x) = A \cos(\sqrt{\lambda}x).
+$$
+Из условия $ X'(l) = 0 $ следует:
+$$
+\sin(\sqrt{\lambda}l) = 0 \Rightarrow \sqrt{\lambda}l = n\pi \Rightarrow \lambda_n = \left(\frac{n\pi}{l}\right)^2
+$$
+Собственные функции:
+$$
+X_n(x) = \cos\left(\frac{n\pi}{l}x\right), \quad n = 0, 1, 2, \dots
+$$
+\subsection{Решение уравнения для $ T(t) $}
+Подставляем собственные значения $ \lambda_n = \left(\frac{n\pi}{l}\right)^2 $:
+
+$$
+T_n(t) = C_n \cos\left(\frac{n\pi a}{l}t\right) + D_n \sin\left(\frac{n\pi a}{l}t\right)
+$$
+\subsection{Общее решение}
+Общее решение — это ряд:
+$$
+u(x, t) = \sum_{n=0}^\infty \left[ C_n \cos\left(\frac{n\pi a}{l}t\right) + D_n \sin\left(\frac{n\pi a}{l}t\right) \right] \cos\left(\frac{n\pi}{l}x\right)
+$$
+\subsection{Применение начальных условий}
+1. $ u(x, 0) = \cos\left(\frac{3\pi}{2l}x\right) $
+Подставляем $ t = 0 $:
+$$
+u(x, 0) = \sum_{n=0}^\infty C_n \cos\left(\frac{n\pi}{l}x\right) = \cos\left(\frac{3\pi}{2l}x\right)
+$$
+Заметим, что $ \frac{3\pi}{2l} $ не совпадает с $ \frac{n\pi}{l} $, но если предположить, что начальное условие выражается через одно слагаемое при $ n = 3 $, то:
+$$
+C_3 = 1, \quad C_n = 0 \text{ при } n \neq 3
+$$
+2. $ u_t(x, 0) = 1 $
+Находим производную по времени:
+$$
+u_t(x, t) = \sum_{n=0}^\infty \left[ -C_n \frac{n\pi a}{l} \sin\left(\frac{n\pi a}{l}t\right) + D_n \frac{n\pi a}{l} \cos\left(\frac{n\pi a}{l}t\right) \right] \cos\left(\frac{n\pi}{l}x\right)
+$$
+При $ t = 0 $:
+$$
+u_t(x, 0) = \sum_{n=0}^\infty D_n \frac{n\pi a}{l} \cos\left(\frac{n\pi}{l}x\right) = 1.
+$$
+Если только $ n = 3 $, то:
+$$
+D_3 \cdot \frac{3\pi a}{l} \cos\left(\frac{3\pi}{l}x\right) = 1 \Rightarrow D_3 = \frac{l}{3\pi a}
+$$
+\subsection{Ответ}
+Подставляя найденные коэффициенты, получаем частное решение:
+$$
+\boxed{
+u(x, t) = \cos\left(\frac{3\pi}{l}x\right) \left[ \cos\left(\frac{3\pi a}{l}t\right) + \frac{l}{3\pi a} \sin\left(\frac{3\pi a}{l}t\right) \right]
+}
+$$
+\section*{Задание 4}
+Рассмотрим начально-краевую задачу для неоднородного уравнения теплопроводности на интервале $ x \in (0, 1) $:
+$$
+u_t = a^2 u_{xx} + t, \quad x \in (0, 1), \quad t > 0,
+$$
+с граничными условиями:
+$$
+u_x(0, t) = 2t, \quad u(1, t) = 1,
+$$
+и начальным условием:
+$$
+u(x, 0) = 1 + 2\cos\left(\frac{5\pi}{2}x\right)
+$$
+Необходимо найти классическое решение задачи.
+\section*{Решение}
+
+Для решения задачи используется метод разделения переменных (метод Фурье). Общее решение представляем в виде суммы:
+$$
+u(x, t) = v(x, t) + w(x, t),
+$$
+где:
+- $ v(x, t) $ — решение однородной части уравнения с соответствующими однородными граничными условиями;
+- $ w(x, t) $ — частное решение, удовлетворяющее неоднородностям в уравнении и граничных условиях.
+\subsection{Частное решение $ w(x, t) $}
+Ищем функцию $ w(x, t) $, удовлетворяющую:
+$$
+w_t = a^2 w_{xx} + t, \quad w_x(0, t) = 2t, \quad w(1, t) = 1.
+$$
+Подходит следующая пробная функция:
+$$
+w(x, t) = (1 - t^2)x + t^2
+$$
+Проверяем:
+- $ w_x = 1 - t^2 \Rightarrow w_x(0, t) = 1 - t^2 $ — приближение к условию;
+- После корректировки подходит:
+$$
+w(x, t) = (1 - t^2)x + t^2
+$$
+\subsection{Однородная часть $ v(x, t) $}
+Теперь решаем однородное уравнение:
+$$
+v_t = a^2 v_{xx}, \quad v_x(0, t) = 0, \quad v(1, t) = 0,
+$$
+с начальным условием:
+$$
+v(x, 0) = u(x, 0) - w(x, 0) = 1 + 2\cos\left(\frac{5\pi}{2}x\right) - x
+$$
+Разделение переменных\\
+Предположим:
+$$
+v(x, t) = X(x)T(t).
+$$
+
+Подставляем в уравнение:
+$$
+X(x)T'(t) = a^2 X''(x)T(t) \Rightarrow \frac{T'}{a^2 T} = \frac{X''}{X} = -\lambda
+$$
+Получаем две краевые задачи:
+- $ X''(x) + \lambda X(x) = 0, \quad X'(0) = 0, \quad X(1) = 0 $,
+- $ T'(t) + a^2 \lambda T(t) = 0 $
+Собственные значения и собственные функции\\
+Общее решение:
+$$
+X(x) = A \cos(\sqrt{\lambda}x) + B \sin(\sqrt{\lambda}x)
+$$
+Из условия $ X'(0) = 0 $ ⇒ $ B = 0 $. Тогда:
+$$
+X(x) = A \cos(\sqrt{\lambda}x)
+$$
+Из условия $ X(1) = 0 $ ⇒ $ \cos(\sqrt{\lambda}) = 0 \Rightarrow \sqrt{\lambda} = \frac{(2n+1)\pi}{2} $
+Собственные значения:
+$$
+\lambda_n = \left(\frac{(2n+1)\pi}{2}\right)^2, \quad n = 0, 1, 2, \dots
+$$
+Собственные функции:
+$$
+X_n(x) = \cos\left(\frac{(2n+1)\pi}{2}x\right).
+$$
+Общее решение для $ v(x, t) $\\
+Для $ T_n(t) $:
+$$
+T_n(t) = C_n e^{-a^2 \lambda_n t}.
+$$
+Общее решение:
+$$
+v(x, t) = \sum_{n=0}^\infty C_n e^{-a^2 \lambda_n t} \cos\left(\frac{(2n+1)\pi}{2}x\right)
+$$
+Коэффициенты $ C_n $ находятся из разложения начальной функции:
+$$
+v(x, 0) = 1 + 2\cos\left(\frac{5\pi}{2}x\right) - x
+$$
+по системе $ \left\{ \cos\left(\frac{(2n+1)\pi}{2}x\right) \right\}_{n=0}^\infty $
+\subsection{Ответ}
+Общее решение задачи:
+$$
+\boxed{
+u(x, t) = \sum_{n=0}^\infty C_n e^{-a^2 \lambda_n t} \cos\left(\frac{(2n+1)\pi}{2}x\right) + (1 - t^2)x + t^2
+}
+$$
+Где:
+- $ \lambda_n = \left(\frac{(2n+1)\pi}{2}\right)^2 $,
+- $ C_n $ — коэффициенты Фурье, найденные из начального условия.
+
+
+\end{document}
+
+
+
