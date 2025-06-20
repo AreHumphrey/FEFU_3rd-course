@@ -1,0 +1,115 @@
+\documentclass{article}
+
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc} 
+\usepackage[english,russian]{babel} 
+\usepackage{graphicx} 
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{cancel}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{titlesec}
+\usepackage{titling} 
+\usepackage{geometry}
+\usepackage{pgfplots}
+\usepackage{esint}
+\pgfplotsset{compat=1.9}
+\usepackage{amsthm}
+\usepackage{array} 
+\usepackage{longtable}
+\usepackage{booktabs} 
+\usepackage{xcolor}
+
+
+\titleformat{\section}
+{\normalfont\Huge\bfseries}{\arabic{section}}{1em}{}
+\titleformat{\subsection}
+{\normalfont\Large\bfseries}{}{1em}{}
+
+\setlength{\droptitle}{-3em} 
+\title{\vspace{-1cm}ИДЗ №2 \\ по дисциплине "Уравнения математической физики"}
+\author{Винницкая Дина Сергеевна}
+\date{Группа: Б9122-02.03.01сцт}
+
+\geometry{a4paper, margin=2cm}
+
+\usepackage{setspace}
+\onehalfspacing  
+
+\renewcommand{\baselinestretch}{1.6} 
+
+\begin{document}
+	
+	\maketitle
+\section*{Вариант №11}
+\section*{Задание 1}
+
+Решить краевую задачу для уравнения Лапласса $\Delta u = 0$ \\ \\
+Вне круга $ r \geq a $, $ 0 \leq \varphi \leq 2\pi $, с граничным условием $ u(a, \varphi) = 14(\cos^3\varphi + \sin^2\varphi) $.
+\section*{Решение}
+
+
+
+Рассмотрим уравнение Лапласа вне круга радиуса $ a > 0 $:
+
+$$
+\Delta u = 0, \quad r \geq a, \quad \varphi \in [0, 2\pi],
+$$
+
+с граничным условием:
+
+$$
+u(a, \varphi) = 14(\cos^3\varphi + \sin^2\varphi).
+$$
+
+
+В полярных координатах $(r, \varphi)$ уравнение Лапласа имеет вид:
+
+$$
+\frac{1}{r} \frac{\partial}{\partial r}\left(r \frac{\partial u}{\partial r}\right) + \frac{1}{r^2} \frac{\partial^2 u}{\partial \varphi^2} = 0.
+$$
+
+Общее ограниченное при $r \to \infty$ решение уравнения Лапласа вне круга радиуса $a$:
+
+$$
+u(r, \varphi) = A_0 + \sum_{n=1}^\infty \left( A_n \left( \frac{a}{r} \right)^n \cos(n\varphi) + B_n \left( \frac{a}{r} \right)^n \sin(n\varphi) \right).
+$$
+Подставляем граничное условие:
+
+$$
+u(a, \varphi) = 14(\cos^3\varphi + \sin^2\varphi).
+$$
+Используем тригонометрические тождества:
+
+- $\cos^3\varphi = \frac{3}{4} \cos\varphi + \frac{1}{4} \cos(3\varphi),$
+- $\sin^2\varphi = \frac{1 - \cos(2\varphi)}{2}.$
+
+Тогда:
+
+$$
+u(a, \varphi) = 14\left( \frac{3}{4} \cos\varphi + \frac{1}{4} \cos(3\varphi) + \frac{1 - \cos(2\varphi)}{2} \right)
+= 7 + \frac{21}{2} \cos\varphi - 7 \cos(2\varphi) + \frac{7}{2} \cos(3\varphi).
+$$
+Сравниваем с рядом Фурье:
+
+$$
+u(a, \varphi) = A_0 + \sum_{n=1}^\infty \left( A_n \cos(n\varphi) + B_n \sin(n\varphi) \right).
+$$
+Получаем значения коэффициентов:
+
+$$
+A_0 = 7,\quad A_1 = \frac{21}{2},\quad A_2 = -7,\quad A_3 = \frac{7}{2},\quad A_n = 0\ (n \geq 4),\quad B_n = 0\ (\forall n).
+$$
+Подставляем найденные коэффициенты в общее выражение:
+$$
+u(r, \varphi) = 7 + \frac{21}{2} \cdot \frac{a}{r} \cos\varphi - 7 \cdot \left( \frac{a}{r} \right)^2 \cos(2\varphi) + \frac{7}{2} \cdot \left( \frac{a}{r} \right)^3 \cos(3\varphi)
+$$
+
+\subsection*{Ответ $\quad u(r, \varphi) = 7 + \frac{21}{2} \cdot \frac{a}{r} \cos\varphi - 7 \cdot \left( \frac{a}{r} \right)^2 \cos(2\varphi) + \frac{7}{2} \cdot \left( \frac{a}{r} \right)^3 \cos(3\varphi)$}
+
+\end{document}
+
+
+
+
